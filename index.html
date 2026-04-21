@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation | Roel & Mailyn</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     
     <style>
+        /* 1. GLOBAL LAYOUT */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
-            overflow: hidden;
+            overflow: hidden; /* Keeps it to one perfect page */
             font-family: 'Montserrat', sans-serif;
             background-color: #000;
         }
 
+        /* 2. FULL SCREEN BACKGROUND */
         .hero-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("wedding2.jpg");
+            /* Ensure 'wedding2.jpg' is the exact name of your file on GitHub */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("wedding2.jpg");
             height: 100vh;
             background-position: center;
             background-repeat: no-repeat;
@@ -30,59 +33,68 @@
             align-items: center;
         }
 
-        /* Adjusted Spacing: Moved lower down the page */
+        /* 3. POSITIONING (Lowered spacing) */
         .content-wrapper {
-            margin-top: 6vh; /* Increased from 10vh to 25vh to move it lower */
+            margin-top: 35vh; /* Starts 35% down the screen */
             text-align: center;
             padding: 20px;
         }
 
+        /* 4. INTRO TEXT STYLING */
         .intro-text {
             color: #ffffff;
-            font-size: 1rem;
+            font-size: 0.9rem;
             letter-spacing: 5px;
             text-transform: uppercase;
-            /* Added more gap between intro and names */
-            margin-bottom: 40px; 
+            margin-bottom: 60px; /* Large gap between intro and names */
             text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
             animation: fadeInDown 2s ease-out forwards;
         }
 
+        /* 5. NAMES STYLING (Thin & Glowing) */
         .names {
-            font-family: 'Playball', cursive; /* New elegant font */
-            font-size: clamp(3.5rem, 12vw, 6rem); 
+            font-family: 'Alex Brush', cursive;
+            font-size: clamp(3.5rem, 12vw, 5.5rem); 
+            font-weight: 300;
             color: #ffffff;
             margin: 0;
             opacity: 0;
-            /* New Animation: Scale and Fade */
-            animation: scaleIn 2.5s cubic-bezier(0.2, 0, 0.2, 1) 0.5s forwards;
+            /* Combined Animations: Scale in and then the infinite shimmer */
+            animation: 
+                lightScale 3s ease-out 0.5s forwards,
+                gentlePulse 4s ease-in-out infinite alternate;
         }
 
-        /* 1. Animation for Intro Text */
+        /* 6. ANIMATIONS */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
+            from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 2. New Animation for Names: Gently grows and appears */
-        @keyframes scaleIn {
+        @keyframes lightScale {
             0% { 
                 opacity: 0; 
-                transform: scale(0.8); 
-                text-shadow: 0 0 0px rgba(255,255,255,0);
+                transform: scale(0.95); 
+                letter-spacing: 8px;
             }
             100% { 
                 opacity: 1; 
                 transform: scale(1);
-                text-shadow: 0 0 20px rgba(255,255,255,0.6), 2px 2px 15px rgba(0,0,0,0.7);
+                letter-spacing: 2px;
+                text-shadow: 0 0 12px rgba(255,255,255,0.5), 1px 1px 3px rgba(0,0,0,0.3);
             }
         }
 
-        /* Mobile Fixes */
+        @keyframes gentlePulse {
+            from { text-shadow: 0 0 10px rgba(255,255,255,0.3), 1px 1px 3px rgba(0,0,0,0.3); }
+            to { text-shadow: 0 0 20px rgba(255,255,255,0.7), 1px 1px 5px rgba(0,0,0,0.4); }
+        }
+
+        /* 7. MOBILE OPTIMIZATION */
         @media (max-width: 600px) {
-            .content-wrapper { margin-top: 30vh; } /* Even lower on mobile */
-            .intro-text { font-size: 0.8rem; margin-bottom: 30px; }
-            .names { font-size: 3.5rem; }
+            .content-wrapper { margin-top: 40vh; } /* Moves even lower on small phones */
+            .intro-text { font-size: 0.75rem; margin-bottom: 40px; }
+            .names { font-size: 3.8rem; }
         }
     </style>
 </head>
