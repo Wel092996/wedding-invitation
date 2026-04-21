@@ -1,20 +1,114 @@
-/* 3. POSITIONING */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Roel & Mailyn</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 1. RESET */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+        }
+
+        /* 2. BACKGROUND SETUP */
+        .hero-image {
+            /* Ensure the filename matches your GitHub upload exactly */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("wedding2.jpg");
+            height: 100vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        /* 3. MAIN CONTAINER */
         .content-wrapper {
-            margin-top: 35vh; /* Keep names roughly in the same lower-middle spot */
+            margin-top: 25vh; /* Moves the whole block to a balanced height */
             text-align: center;
             padding: 20px;
         }
 
-        /* 4. INTRO TEXT STYLING - Moved Upper */
+        /* 4. INTRO TEXT (Moved Upper) */
         .intro-text {
             color: #ffffff;
-            font-size: 0.85rem; /* Slightly smaller for elegance */
+            font-size: 0.85rem;
             letter-spacing: 5px;
             text-transform: uppercase;
             
-            /* INCREASE THIS to move the text further UP away from the names */
-            margin-bottom: 90px; 
+            /* High margin pushes this line UPPER away from the names */
+            margin-bottom: 110px; 
             
             text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
             animation: fadeInDown 2s ease-out forwards;
         }
+
+        /* 5. NAMES (Thin, Elegant, Glowing) */
+        .names {
+            font-family: 'Alex Brush', cursive;
+            font-size: clamp(3.5rem, 12vw, 5.5rem); 
+            font-weight: 300;
+            color: #ffffff;
+            margin: 0;
+            opacity: 0;
+            /* Combined Scale-in and Shimmering Glow */
+            animation: 
+                lightScale 3s ease-out 0.5s forwards,
+                gentlePulse 4s ease-in-out infinite alternate;
+        }
+
+        /* 6. ANIMATIONS */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes lightScale {
+            0% { 
+                opacity: 0; 
+                transform: scale(0.95); 
+                letter-spacing: 10px;
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1);
+                letter-spacing: 2px;
+                text-shadow: 0 0 15px rgba(255,255,255,0.5), 1px 1px 3px rgba(0,0,0,0.3);
+            }
+        }
+
+        @keyframes gentlePulse {
+            from { text-shadow: 0 0 10px rgba(255,255,255,0.3), 1px 1px 3px rgba(0,0,0,0.3); }
+            to { text-shadow: 0 0 25px rgba(255,255,255,0.7), 1px 1px 5px rgba(0,0,0,0.4); }
+        }
+
+        /* 7. MOBILE OPTIMIZATION */
+        @media (max-width: 600px) {
+            .content-wrapper { margin-top: 30vh; }
+            .intro-text { font-size: 0.75rem; margin-bottom: 80px; }
+            .names { font-size: 3.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="hero-image">
+        <div class="content-wrapper">
+            <p class="intro-text">You are cordially invited to the wedding of</p>
+            <h1 class="names">Roel & Mailyn</h1>
+        </div>
+    </main>
+
+</body>
+</html>
