@@ -3,69 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <title>Wedding Invitation | Roel & Mailyn</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     
     <style>
+        /* 1. RESET & BASE STYLES */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden; /* Keeps it to one page */
+            width: 100%;
+            overflow: hidden; /* Prevents scrolling */
             font-family: 'Montserrat', sans-serif;
+            background-color: #000; /* Fallback color */
         }
 
+        /* 2. BACKGROUND IMAGE SETUP */
         .hero-image {
-            /* This sets your photo as the full background */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("wedding2.jpg");
+            /* IMPORTANT: Ensure 'wedding2.jpg' matches your GitHub filename exactly */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("wedding2.jpg");
             
-            height: 100vh; /* Full screen height */
+            height: 100vh;
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover; /* Makes the photo cover the whole area */
+            background-size: cover;
+            
             display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Aligns text towards the top */
-            position: relative;
+            flex-direction: column;
+            justify-content: flex-start; /* Aligns content toward the top */
+            align-items: center;
         }
 
-        .intro-text {
-            color: white;
+        /* 3. CONTENT BOX */
+        .content-wrapper {
+            margin-top: 10vh; /* Responsive spacing from top */
             text-align: center;
-            font-size: 1.2rem;
-            letter-spacing: 3px;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        /* 4. TEXT STYLING */
+        .intro-text {
+            color: #ffffff;
+            font-size: 1rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            font-weight: 500;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
             
-            /* Spacing from the top of the photo - Katamtaman lang */
-            margin-top: 60px; 
-            
-            /* Add a soft shadow to text so it's readable over any photo */
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-            
-            padding: 0 20px;
-            animation: fadeIn 2.5s ease-in;
+            animation: fadeInDown 1.5s ease-out forwards;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 10vw, 5rem); /* Adjusts size based on screen */
+            color: #ffffff;
+            margin: 0;
+            
+            /* Combined Animations: Fade in, Float up, and Pulse glow */
+            animation: 
+                floatUp 2.5s ease-out forwards, 
+                softGlow 3s ease-in-out infinite alternate;
+            opacity: 0;
         }
 
-        /* Mobile Adjustments */
+        /* 5. ANIMATIONS */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes softGlow {
+            from { text-shadow: 0 0 10px rgba(255,255,255,0.3), 2px 2px 10px rgba(0,0,0,0.5); }
+            to { text-shadow: 0 0 25px rgba(255,255,255,0.7), 2px 2px 15px rgba(0,0,0,0.6); }
+        }
+
+        /* 6. MOBILE FIXES */
         @media (max-width: 600px) {
-            .intro-text {
-                font-size: 0.9rem;
-                margin-top: 50px;
-            }
+            .content-wrapper { margin-top: 15vh; }
+            .intro-text { font-size: 0.8rem; letter-spacing: 2px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="hero-image">
-        <p class="intro-text">You are cordially invited to the wedding of</p>
-    </div>
+    <main class="hero-image">
+        <div class="content-wrapper">
+            <p class="intro-text">You are cordially invited to the wedding of</p>
+            <h1 class="names">Roel & Mailyn</h1>
+        </div>
+    </main>
 
 </body>
 </html>
