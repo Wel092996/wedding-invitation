@@ -4,73 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     
     <style>
-        body {
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: #fdfaf6; /* Creamy elegant background */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            height: 100%;
+            overflow: hidden; /* Keeps it to one page */
             font-family: 'Montserrat', sans-serif;
-            color: #5a4a42;
         }
 
-        .container {
-            text-align: center;
-            padding: 20px;
-            /* Fade-in animation */
-            animation: fadeIn 2s ease-in;
+        .hero-image {
+            /* This sets your photo as the full background */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("wedding2.jpg");
+            
+            height: 100vh; /* Full screen height */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; /* Makes the photo cover the whole area */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Aligns text towards the top */
+            position: relative;
         }
 
         .intro-text {
+            color: white;
+            text-align: center;
             font-size: 1.2rem;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 10px;
-            opacity: 0.8;
-            /* Spacing from the very top */
-            margin-top: 40px; 
-        }
-
-        .names {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            color: #8d6e63;
-            margin-bottom: 30px;
-        }
-
-        .invitation-image {
-            width: 90%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 5px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Soft shadow for depth */
-            border: 8px solid white; /* Photo frame effect */
+            font-weight: 500;
+            
+            /* Spacing from the top of the photo - Katamtaman lang */
+            margin-top: 60px; 
+            
+            /* Add a soft shadow to text so it's readable over any photo */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            
+            padding: 0 20px;
+            animation: fadeIn 2.5s ease-in;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        /* Mobile Optimization */
+        /* Mobile Adjustments */
         @media (max-width: 600px) {
-            .names { font-size: 2.5rem; }
-            .intro-text { font-size: 0.9rem; }
+            .intro-text {
+                font-size: 0.9rem;
+                margin-top: 50px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="hero-image">
         <p class="intro-text">You are cordially invited to the wedding of</p>
-        
-        <img src="wedding2.jpg" alt="Wedding Invitation" class="invitation-image">
     </div>
 
 </body>
