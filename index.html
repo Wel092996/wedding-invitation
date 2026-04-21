@@ -5,89 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation | Roel & Mailyn</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     
     <style>
-        /* 1. RESET & BASE STYLES */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
-            overflow: hidden; /* Prevents scrolling */
+            overflow: hidden;
             font-family: 'Montserrat', sans-serif;
-            background-color: #000; /* Fallback color */
+            background-color: #000;
         }
 
-        /* 2. BACKGROUND IMAGE SETUP */
         .hero-image {
-            /* IMPORTANT: Ensure 'wedding2.jpg' matches your GitHub filename exactly */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("wedding2.jpg");
-            
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("wedding2.jpg");
             height: 100vh;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Aligns content toward the top */
+            justify-content: flex-start;
             align-items: center;
         }
 
-        /* 3. CONTENT BOX */
+        /* Adjusted Spacing: Moved lower down the page */
         .content-wrapper {
-            margin-top: 10vh; /* Responsive spacing from top */
+            margin-top: 25vh; /* Increased from 10vh to 25vh to move it lower */
             text-align: center;
             padding: 20px;
-            z-index: 10;
         }
 
-        /* 4. TEXT STYLING */
         .intro-text {
             color: #ffffff;
             font-size: 1rem;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            /* Added more gap between intro and names */
+            margin-bottom: 40px; 
             text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-            
-            animation: fadeInDown 1.5s ease-out forwards;
+            animation: fadeInDown 2s ease-out forwards;
         }
 
         .names {
-            font-family: 'Great Vibes', cursive;
-            font-size: clamp(3rem, 10vw, 5rem); /* Adjusts size based on screen */
+            font-family: 'Playball', cursive; /* New elegant font */
+            font-size: clamp(3.5rem, 12vw, 6rem); 
             color: #ffffff;
             margin: 0;
-            
-            /* Combined Animations: Fade in, Float up, and Pulse glow */
-            animation: 
-                floatUp 2.5s ease-out forwards, 
-                softGlow 3s ease-in-out infinite alternate;
             opacity: 0;
+            /* New Animation: Scale and Fade */
+            animation: scaleIn 2.5s cubic-bezier(0.2, 0, 0.2, 1) 0.5s forwards;
         }
 
-        /* 5. ANIMATIONS */
+        /* 1. Animation for Intro Text */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
+            from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes floatUp {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
+        /* 2. New Animation for Names: Gently grows and appears */
+        @keyframes scaleIn {
+            0% { 
+                opacity: 0; 
+                transform: scale(0.8); 
+                text-shadow: 0 0 0px rgba(255,255,255,0);
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1);
+                text-shadow: 0 0 20px rgba(255,255,255,0.6), 2px 2px 15px rgba(0,0,0,0.7);
+            }
         }
 
-        @keyframes softGlow {
-            from { text-shadow: 0 0 10px rgba(255,255,255,0.3), 2px 2px 10px rgba(0,0,0,0.5); }
-            to { text-shadow: 0 0 25px rgba(255,255,255,0.7), 2px 2px 15px rgba(0,0,0,0.6); }
-        }
-
-        /* 6. MOBILE FIXES */
+        /* Mobile Fixes */
         @media (max-width: 600px) {
-            .content-wrapper { margin-top: 15vh; }
-            .intro-text { font-size: 0.8rem; letter-spacing: 2px; }
+            .content-wrapper { margin-top: 30vh; } /* Even lower on mobile */
+            .intro-text { font-size: 0.8rem; margin-bottom: 30px; }
+            .names { font-size: 3.5rem; }
         }
     </style>
 </head>
