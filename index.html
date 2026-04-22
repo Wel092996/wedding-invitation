@@ -38,7 +38,7 @@ nav a {
     letter-spacing: 2px;
 }
 
-/* HERO */
+/* HERO (CLEAN BASE LAYOUT) */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
@@ -49,21 +49,16 @@ nav a {
     align-items: center;
     text-align: center;
 
-    padding: 18vh 20px 40px;
+    padding: 0 20px;
 }
 
-/* MOBILE IMAGE */
-@media (max-width: 768px) {
-    .hero {
-        background-position: center 30%;
-    }
-}
-
-/* INTRO TEXT */
+/* INTRO TEXT (independent control) */
 .intro-text {
     font-size: 0.9rem;
     letter-spacing: 5px;
     text-transform: uppercase;
+
+    margin-top: 120px; /* 👈 MOVE THIS */
     margin-bottom: 15px;
 }
 
@@ -75,7 +70,7 @@ nav a {
     letter-spacing: 6px;
     line-height: 1.1;
 
-    transform: translateY(10px);
+    transform: translateY(10px); /* fine adjustment */
 }
 
 /* LETTER ANIMATION */
@@ -97,7 +92,9 @@ nav a {
 /* INVITATION MESSAGE */
 .invite-message {
     max-width: 600px;
-    margin-top: 20px;
+
+    margin-top: 20px; /* 👈 controls spacing from names */
+
     font-size: 0.9rem;
     line-height: 1.6;
     color: rgba(255,255,255,0.85);
@@ -107,10 +104,10 @@ nav a {
     animation-delay: 1.5s;
 }
 
-/* EVENT DETAILS (PUSHED TO BOTTOM) */
+/* EVENT DETAILS (BOTTOM CONTROL) */
 .event-details {
-    margin-top: auto;
-    margin-bottom: 30px;
+    margin-top: auto;     /* 👈 pushes to bottom */
+    margin-bottom: 40px;  /* 👈 adjust bottom spacing */
 
     font-size: 0.95rem;
     line-height: 1.6;
@@ -121,6 +118,7 @@ nav a {
     animation-delay: 2s;
 }
 
+/* FADE ANIMATION */
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -171,11 +169,12 @@ button {
     margin-top: 10px;
 }
 
-/* MOBILE TEXT */
+/* MOBILE */
 @media (max-width: 480px) {
     .intro-text {
         font-size: 0.75rem;
         letter-spacing: 3px;
+        margin-top: 90px;
     }
 
     .names {
@@ -197,6 +196,7 @@ button {
 
 <!-- HERO -->
 <section class="hero" id="home">
+
     <p class="intro-text">You are cordially invited to the wedding of</p>
 
     <h1 class="names">
@@ -209,11 +209,12 @@ button {
         Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. We would be honored to have you join us on this special day.
     </p>
 
-    <p class="event-details">
+    <div class="event-details">
         Monday, 8th of June 2026<br>
         St. Vincent Ferrer Parish & Diocesan Shrine<br>
         Tabaco City, Albay
-    </p>
+    </div>
+
 </section>
 
 <!-- DETAILS -->
