@@ -51,7 +51,7 @@ nav a {
     padding: 0 20px;
 }
 
-/* MOBILE IMAGE FOCUS */
+/* MOBILE IMAGE */
 @media (max-width: 768px) {
     .hero {
         background-position: center 30%;
@@ -75,10 +75,11 @@ nav a {
     letter-spacing: 6px;
     line-height: 1.1;
     display: inline-block;
-    transform: translateY(18px);
+
+    transform: translateY(10px); /* slight lower position */
 }
 
-/* ✨ ANIMATION (ADDED ONLY) */
+/* LETTER ANIMATION */
 .names span {
     display: inline-block;
     opacity: 0;
@@ -88,6 +89,30 @@ nav a {
 }
 
 @keyframes letterIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 💌 INVITATION MESSAGE */
+.invite-message {
+    max-width: 600px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+
+    opacity: 0;
+    animation: fadeUp 2s ease forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
     to {
         opacity: 1;
         transform: translateY(0);
@@ -166,6 +191,10 @@ button {
         &<br>
         Mailyn
     </h1>
+
+    <p class="invite-message">
+        Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. We would be honored to have you join us on this special day.
+    </p>
 </section>
 
 <!-- DETAILS -->
@@ -197,35 +226,6 @@ button {
         <button onclick="alert('RSVP Sent!')">Send RSVP</button>
     </div>
 </section>
-
-<!-- ✨ ANIMATION SCRIPT (ADDED ONLY) -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const name = document.querySelector(".names");
-
-    const text = name.innerText;
-    name.innerHTML = "";
-
-    let index = 0;
-
-    text.split("\n").forEach(line => {
-        const lineDiv = document.createElement("div");
-
-        line.split("").forEach(char => {
-            const span = document.createElement("span");
-
-            span.innerHTML = char === " " ? "&nbsp;" : char;
-
-            span.style.setProperty("--i", index);
-            index++;
-
-            lineDiv.appendChild(span);
-        });
-
-        name.appendChild(lineDiv);
-    });
-});
-</script>
 
 </body>
 </html>
