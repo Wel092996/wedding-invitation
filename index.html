@@ -14,51 +14,67 @@ body, html {
     font-family: 'Montserrat', sans-serif;
     background: #000;
     color: #fff;
-    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-/* ENTRY SCREEN */
+/* ENTRY */
 #entry {
     height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: radial-gradient(circle at center, rgba(255,255,255,0.08), #000 70%);
     cursor: pointer;
     position: relative;
-    overflow: hidden;
 }
 
-/* ENVELOPE IMAGE (PREMIUM CLEAN EDGES) */
+/* ENVELOPE WRAPPER */
+.envelope-wrapper {
+    position: relative;
+    text-align: center;
+}
+
+/* ENVELOPE */
 .envelope-img {
     width: min(90%, 650px);
     height: auto;
-    object-fit: contain;
-
-    /* CLEAN RENDERING */
-    image-rendering: auto;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    will-change: transform;
-
-    /* DEPTH + GLOW */
-    filter:
-        drop-shadow(0 25px 50px rgba(0,0,0,0.55))
-        drop-shadow(0 0 10px rgba(255,255,255,0.08));
-
-    border-radius: 12px;
-
-    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: drop-shadow(0 25px 50px rgba(0,0,0,0.6));
+    transition: all 0.6s ease;
 }
 
-/* HOVER LIFT EFFECT */
-.envelope-img:hover {
-    transform: translateY(-10px) scale(1.03);
-    filter:
-        drop-shadow(0 35px 70px rgba(0,0,0,0.6))
-        drop-shadow(0 0 15px rgba(255,255,255,0.12));
+/* WAX SEAL */
+.wax-seal {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle at 30% 30%, #ff4d4d, #7a0000);
+    border-radius: 50%;
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.6),
+        inset 0 3px 6px rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: pulseSeal 2.5s infinite;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* HEART INSIDE SEAL */
+.wax-seal::after {
+    content: "♥";
+    color: rgba(255,255,255,0.85);
+    font-size: 20px;
+}
+
+/* PULSE GLOW */
+@keyframes pulseSeal {
+    0% { box-shadow: 0 0 10px rgba(255,0,0,0.3), 0 10px 25px rgba(0,0,0,0.6); }
+    50% { box-shadow: 0 0 25px rgba(255,80,80,0.6), 0 10px 25px rgba(0,0,0,0.6); }
+    100% { box-shadow: 0 0 10px rgba(255,0,0,0.3), 0 10px 25px rgba(0,0,0,0.6); }
 }
 
 /* CLICK HINT */
@@ -67,6 +83,40 @@ body, html {
     font-size: 0.8rem;
     letter-spacing: 2px;
     opacity: 0.6;
+}
+
+/* SEAL BREAK ANIMATION */
+.break .wax-seal {
+    transform: translate(-50%, -10%) scale(0.2) rotate(20deg);
+    opacity: 0;
+}
+
+/* ENVELOPE OPEN EFFECT */
+.break .envelope-img {
+    transform: scale(0.98);
+    opacity: 0.3;
+}
+
+/* LETTER REVEAL */
+.letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    width: 80%;
+    max-width: 600px;
+    background: #fff;
+    color: #000;
+    padding: 40px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 1s ease;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+.break .letter {
+    transform: translate(-50%, -50%);
+    opacity: 1;
 }
 
 /* MAIN SITE */
@@ -85,7 +135,6 @@ nav {
     padding: 15px;
     background: rgba(0,0,0,0.4);
     backdrop-filter: blur(8px);
-    z-index: 1000;
 }
 
 nav a {
@@ -100,70 +149,14 @@ nav a {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("wedding2.jpg") center/cover no-repeat;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-.intro-text {
-    font-size: 0.85rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    margin-bottom: 60px;
-}
-
 .names {
     font-family: 'Alex Brush', cursive;
     font-size: clamp(3.5rem, 12vw, 5.5rem);
-    margin: 0;
-    opacity: 0;
-    animation: fadeIn 3s ease forwards;
-}
-
-/* FADE ONLY */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* SECTIONS */
-section {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-.card {
-    max-width: 600px;
-    margin: auto;
-    background: rgba(255,255,255,0.05);
-    padding: 20px;
-    border-radius: 12px;
-}
-
-/* FORM */
-input, textarea {
-    width: 90%;
-    max-width: 400px;
-    padding: 10px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 5px;
-}
-
-button {
-    padding: 10px 20px;
-    border: none;
-    background: white;
-    color: black;
-    cursor: pointer;
-    margin-top: 10px;
 }
 
 /* CONFETTI */
@@ -181,12 +174,6 @@ button {
         opacity: 0;
     }
 }
-
-/* MOBILE */
-@media (max-width: 600px) {
-    .intro-text { font-size: 0.75rem; }
-    .names { font-size: 3.8rem; }
-}
 </style>
 </head>
 
@@ -194,8 +181,18 @@ button {
 
 <!-- ENTRY -->
 <div id="entry" onclick="openInvite()">
-    <img src="Enveloped.png" alt="Invitation" class="envelope-img">
-    <p class="hint">Click to open invitation</p>
+    <div class="envelope-wrapper">
+        <img src="Enveloped.png" class="envelope-img">
+        <div class="wax-seal"></div>
+
+        <!-- hidden letter (unfold effect) -->
+        <div class="letter">
+            <h2>Roel & Mailyn</h2>
+            <p>You are cordially invited to our wedding.</p>
+        </div>
+    </div>
+
+    <p class="hint">Click to break the seal</p>
 </div>
 
 <!-- MAIN SITE -->
@@ -209,35 +206,7 @@ button {
 </nav>
 
 <section class="hero" id="home">
-    <p class="intro-text">You are cordially invited to the wedding of</p>
     <h1 class="names">Roel & Mailyn</h1>
-</section>
-
-<section id="details">
-    <h2>Wedding Details</h2>
-    <div class="card">
-        <p><strong>Date:</strong> Coming Soon</p>
-        <p><strong>Venue:</strong> To Be Announced</p>
-    </div>
-</section>
-
-<section id="schedule">
-    <h2>Program</h2>
-    <div class="card">
-        <p>💍 Ceremony - 3:00 PM</p>
-        <p>📸 Photos - 4:30 PM</p>
-        <p>🍽 Reception - 6:00 PM</p>
-    </div>
-</section>
-
-<section id="rsvp">
-    <h2>RSVP</h2>
-    <div class="card">
-        <input type="text" placeholder="Your Name"><br>
-        <input type="email" placeholder="Email"><br>
-        <textarea placeholder="Message"></textarea><br>
-        <button onclick="alert('RSVP Sent!')">Send RSVP</button>
-    </div>
 </section>
 
 </div>
@@ -247,16 +216,25 @@ button {
 
 <script>
 function openInvite() {
-    document.getElementById('entry').style.opacity = '0';
+    const entry = document.getElementById('entry');
 
-    setTimeout(() => {
-        document.getElementById('entry').style.display = 'none';
-        document.getElementById('site').style.display = 'block';
-    }, 500);
+    // break seal animation
+    entry.classList.add('break');
 
     document.getElementById('music').play();
 
-    // Confetti effect
+    // wait then transition to site
+    setTimeout(() => {
+        entry.style.opacity = '0';
+
+        setTimeout(() => {
+            entry.style.display = 'none';
+            document.getElementById('site').style.display = 'block';
+        }, 800);
+
+    }, 1200);
+
+    // confetti
     for (let i = 0; i < 40; i++) {
         let c = document.createElement('div');
         c.className = 'confetti';
