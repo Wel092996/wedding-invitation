@@ -41,20 +41,34 @@ nav a {
 /* HERO */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-                url("wedding2.jpg") center center / cover no-repeat;
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+
     padding: 0 20px;
 }
 
-/* MOBILE IMAGE FOCUS */
-@media (max-width: 768px) {
-    .hero {
-        background-position: center 30%;
+/* 🎬 CINEMATIC ZOOM BACKGROUND */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url("wedding2.jpg") center center / cover no-repeat;
+    animation: zoomIn 10s ease-out forwards;
+    z-index: -1;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(1.15);
+    }
+    to {
+        transform: scale(1);
     }
 }
 
@@ -63,16 +77,51 @@ nav a {
     font-size: 0.9rem;
     letter-spacing: 5px;
     text-transform: uppercase;
-    margin-bottom: 15px;
-    transform: translateY(-62px);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 1.5s ease forwards;
 }
 
-/* NAMES */
+/* 💍 NAMES CONTAINER */
 .names {
     font-family: 'Great Vibes', cursive;
     font-size: clamp(3.5rem, 12vw, 5.5rem);
-    margin: 0;
-    letter-spacing: 8px;
+    line-height: 1.1;
+
+    /* 👇 makes names lower */
+    transform: translateY(20px);
+}
+
+/* ✨ LETTER ANIMATION */
+.names span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(25px);
+    animation: letterIn 0.8s ease forwards;
+}
+
+@keyframes letterIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* delay per letter */
+.names span {
+    animation-delay: calc(var(--i) * 0.06s);
+}
+
+/* fade helper */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* SECTIONS */
@@ -114,7 +163,7 @@ button {
     margin-top: 10px;
 }
 
-/* MOBILE TEXT */
+/* MOBILE */
 @media (max-width: 480px) {
     .intro-text {
         font-size: 0.75rem;
@@ -123,6 +172,7 @@ button {
 
     .names {
         font-size: 3rem;
+        transform: translateY(10px);
     }
 }
 </style>
@@ -130,7 +180,6 @@ button {
 
 <body>
 
-<!-- NAV -->
 <nav>
     <a href="#home">Home</a>
     <a href="#details">Details</a>
@@ -138,17 +187,16 @@ button {
     <a href="#rsvp">RSVP</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
     <p class="intro-text">You are cordially invited to the wedding of</p>
+
     <h1 class="names">
-        Roel<br>
-        &<br>
-        Mailyn
+        <span style="--i:0">R</span><span style="--i:1">o</span><span style="--i:2">e</span><span style="--i:3">l</span>
+        <span style="--i:4">&</span>
+        <span style="--i:5">M</span><span style="--i:6">a</span><span style="--i:7">i</span><span style="--i:8">l</span><span style="--i:9">y</span><span style="--i:10">n</span>
     </h1>
 </section>
 
-<!-- DETAILS -->
 <section id="details">
     <h2>Wedding Details</h2>
     <div class="card">
@@ -157,7 +205,6 @@ button {
     </div>
 </section>
 
-<!-- SCHEDULE -->
 <section id="schedule">
     <h2>Program</h2>
     <div class="card">
@@ -167,7 +214,6 @@ button {
     </div>
 </section>
 
-<!-- RSVP -->
 <section id="rsvp">
     <h2>RSVP</h2>
     <div class="card">
