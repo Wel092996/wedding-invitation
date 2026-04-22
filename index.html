@@ -38,15 +38,16 @@ nav a {
     letter-spacing: 2px;
 }
 
-/* HERO */
+/* HERO (TEXT MOVED HIGHER HERE) */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("wedding2.jpg") center/cover no-repeat;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* moved upward */
     align-items: center;
     text-align: center;
+    padding-top: 12vh; /* controls how high everything sits */
 }
 
 /* INTRO TEXT */
@@ -54,7 +55,7 @@ nav a {
     font-size: 0.9rem;
     letter-spacing: 5px;
     text-transform: uppercase;
-    margin-bottom: 50px;
+    margin-bottom: 30px; /* tighter spacing */
     opacity: 0;
     animation: fadeInDown 1.5s ease forwards;
 }
@@ -124,24 +125,12 @@ button {
     margin-top: 10px;
 }
 
-/* CONFETTI */
-.confetti {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    top: 0;
-    animation: fall 3s linear forwards;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
 /* MOBILE */
 @media (max-width: 600px) {
+    .hero {
+        padding-top: 10vh; /* slightly higher on mobile */
+    }
+
     .intro-text { font-size: 0.75rem; }
     .names { font-size: 3.8rem; }
 }
@@ -193,23 +182,6 @@ button {
         <button onclick="alert('RSVP Sent!')">Send RSVP</button>
     </div>
 </section>
-
-<!-- MUSIC -->
-<audio id="music" src="wedding-music.mp3" autoplay loop></audio>
-
-<script>
-// subtle confetti on load
-for (let i = 0; i < 20; i++) {
-    let c = document.createElement('div');
-    c.className = 'confetti';
-    c.style.left = Math.random() * 100 + 'vw';
-    c.style.background = ['#fff', '#ffd700', '#ffb6c1'][Math.floor(Math.random()*3)];
-    c.style.animationDuration = (2 + Math.random()*2) + 's';
-    document.body.appendChild(c);
-
-    setTimeout(() => c.remove(), 4000);
-}
-</script>
 
 </body>
 </html>
