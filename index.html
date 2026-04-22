@@ -74,6 +74,23 @@ nav a {
     margin: 0;
     letter-spacing: 6px;
     line-height: 1.1;
+    display: inline-block;
+}
+
+/* ✨ ANIMATION (ADDED ONLY) */
+.names span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: letterIn 0.6s ease forwards;
+    animation-delay: calc(var(--i) * 0.05s);
+}
+
+@keyframes letterIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* SECTIONS */
@@ -179,6 +196,35 @@ button {
         <button onclick="alert('RSVP Sent!')">Send RSVP</button>
     </div>
 </section>
+
+<!-- ✨ ANIMATION SCRIPT (ADDED ONLY) -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const name = document.querySelector(".names");
+
+    const text = name.innerText;
+    name.innerHTML = "";
+
+    let index = 0;
+
+    text.split("\n").forEach(line => {
+        const lineDiv = document.createElement("div");
+
+        line.split("").forEach(char => {
+            const span = document.createElement("span");
+
+            span.innerHTML = char === " " ? "&nbsp;" : char;
+
+            span.style.setProperty("--i", index);
+            index++;
+
+            lineDiv.appendChild(span);
+        });
+
+        name.appendChild(lineDiv);
+    });
+});
+</script>
 
 </body>
 </html>
