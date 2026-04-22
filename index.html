@@ -17,7 +17,7 @@ body, html {
     scroll-behavior: smooth;
 }
 
-/* ENTRY SCREEN (SPOTLIGHT EFFECT) */
+/* ENTRY SCREEN */
 #entry {
     height: 100vh;
     display: flex;
@@ -26,28 +26,39 @@ body, html {
     align-items: center;
     background: radial-gradient(circle at center, rgba(255,255,255,0.08), #000 70%);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
-/* ENVELOPE IMAGE */
+/* ENVELOPE IMAGE (PREMIUM CLEAN EDGES) */
 .envelope-img {
     width: min(90%, 650px);
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
-    animation: glowPulse 3s ease-in-out infinite;
-    transition: transform 0.4s ease, opacity 0.4s ease;
+
+    /* CLEAN RENDERING */
+    image-rendering: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform;
+
+    /* DEPTH + GLOW */
+    filter:
+        drop-shadow(0 25px 50px rgba(0,0,0,0.55))
+        drop-shadow(0 0 10px rgba(255,255,255,0.08));
+
+    border-radius: 12px;
+
+    transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-/* GLOW PULSE */
-@keyframes glowPulse {
-    0% { filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6)); }
-    50% { filter: drop-shadow(0 25px 60px rgba(255,255,255,0.15)); }
-    100% { filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6)); }
-}
-
-/* HOVER EFFECT */
+/* HOVER LIFT EFFECT */
 .envelope-img:hover {
-    transform: translateY(-8px) scale(1.03);
+    transform: translateY(-10px) scale(1.03);
+    filter:
+        drop-shadow(0 35px 70px rgba(0,0,0,0.6))
+        drop-shadow(0 0 15px rgba(255,255,255,0.12));
 }
 
 /* CLICK HINT */
