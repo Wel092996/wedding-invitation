@@ -45,16 +45,19 @@ nav a {
                 url("wedding2.jpg") center center / cover no-repeat;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;   /* 👈 moved upward control */
     align-items: center;
     text-align: center;
-    padding: 0 20px;
+    padding-top: 28vh;              /* 👈 adjust this to move up/down */
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* MOBILE IMAGE FOCUS */
 @media (max-width: 768px) {
     .hero {
         background-position: center 30%;
+        padding-top: 22vh; /* slightly higher on mobile */
     }
 }
 
@@ -64,15 +67,15 @@ nav a {
     letter-spacing: 5px;
     text-transform: uppercase;
     margin-bottom: 15px;
-    transform: translateY(-62px);
 }
 
 /* NAMES */
 .names {
     font-family: 'Great Vibes', cursive;
     font-size: clamp(3.5rem, 12vw, 5.5rem);
-    margin: 1.5;
+    margin: 0;
     letter-spacing: 8px;
+    transform: translateY(-20px); /* 👈 small upward fine-tune */
 }
 
 /* LETTER ANIMATION */
