@@ -8,13 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-body, html {
+body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     background: #000;
     color: #fff;
-    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 /* NAV */
@@ -38,29 +38,28 @@ nav a {
     letter-spacing: 2px;
 }
 
-/* HERO (TEXT MOVED HIGHER HERE) */
+/* HERO */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("wedding2.jpg") center/cover no-repeat;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* moved upward */
+    justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 12vh; /* controls how high everything sits */
+    padding: 0 20px;
 }
 
-/* INTRO TEXT */
+/* TEXT */
 .intro-text {
     font-size: 0.9rem;
     letter-spacing: 5px;
     text-transform: uppercase;
-    margin-bottom: 30px; /* tighter spacing */
+    margin-bottom: 30px;
     opacity: 0;
     animation: fadeInDown 1.5s ease forwards;
 }
 
-/* NAMES */
 .names {
     font-family: 'Alex Brush', cursive;
     font-size: clamp(3.5rem, 12vw, 5.5rem);
@@ -125,14 +124,38 @@ button {
     margin-top: 10px;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-    .hero {
-        padding-top: 10vh; /* slightly higher on mobile */
-    }
+/* CONFETTI */
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    top: 0;
+    animation: fall 3s linear forwards;
+}
 
-    .intro-text { font-size: 0.75rem; }
-    .names { font-size: 3.8rem; }
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* 📱 MOBILE = SAME DESIGN, SCALED DOWN ONLY */
+@media (max-width: 768px) {
+    body {
+        transform: scale(0.9);
+        transform-origin: top center;
+        width: 111.11%;
+    }
+}
+
+/* SMALL MOBILE TWEAK */
+@media (max-width: 480px) {
+    body {
+        transform: scale(0.85);
+        transform-origin: top center;
+        width: 117.65%;
+    }
 }
 </style>
 </head>
