@@ -43,12 +43,13 @@ nav a {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
                 url("wedding2.jpg") center center / cover no-repeat;
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 20px;
+
+    padding: 18vh 20px 40px;
 }
 
 /* MOBILE IMAGE */
@@ -64,7 +65,6 @@ nav a {
     letter-spacing: 5px;
     text-transform: uppercase;
     margin-bottom: 15px;
-    transform: translateY(-62px);
 }
 
 /* NAMES */
@@ -74,9 +74,8 @@ nav a {
     margin: 0;
     letter-spacing: 6px;
     line-height: 1.1;
-    display: inline-block;
 
-    transform: translateY(5px); /* slight lower position */
+    transform: translateY(10px);
 }
 
 /* LETTER ANIMATION */
@@ -95,7 +94,7 @@ nav a {
     }
 }
 
-/* 💌 INVITATION MESSAGE */
+/* INVITATION MESSAGE */
 .invite-message {
     max-width: 600px;
     margin-top: 20px;
@@ -106,6 +105,20 @@ nav a {
     opacity: 0;
     animation: fadeUp 2s ease forwards;
     animation-delay: 1.5s;
+}
+
+/* EVENT DETAILS (PUSHED TO BOTTOM) */
+.event-details {
+    margin-top: auto;
+    margin-bottom: 30px;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+
+    opacity: 0;
+    animation: fadeUp 2s ease forwards;
+    animation-delay: 2s;
 }
 
 @keyframes fadeUp {
@@ -194,8 +207,9 @@ button {
 
     <p class="invite-message">
         Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. We would be honored to have you join us on this special day.
-    
-     <p class="event-details">
+    </p>
+
+    <p class="event-details">
         Monday, 8th of June 2026<br>
         St. Vincent Ferrer Parish & Diocesan Shrine<br>
         Tabaco City, Albay
