@@ -38,11 +38,11 @@ nav a {
     letter-spacing: 2px;
 }
 
-/* HERO */
+/* HERO (LANDSCAPE STYLE) */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-                url("wedding2.jpg") center/cover no-repeat;
+                url("wedding2.jpg") center center / cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,11 +51,10 @@ nav a {
     padding: 0 20px;
 }
 
-/* MOBILE FIX (prevents cropping) */
+/* MOBILE OPTIMIZATION (keeps landscape but shifts focus) */
 @media (max-width: 768px) {
     .hero {
-        background-size: contain;
-        background-color: #000; /* fills empty space nicely */
+        background-position: center 30%;
     }
 }
 
@@ -122,7 +121,7 @@ button {
     margin-top: 10px;
 }
 
-/* SMALL MOBILE TWEAK */
+/* SMALL MOBILE TEXT FIX */
 @media (max-width: 480px) {
     .intro-text {
         font-size: 0.75rem;
