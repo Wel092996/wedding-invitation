@@ -76,7 +76,7 @@ nav a {
     line-height: 1.1;
     display: inline-block;
 
-    transform: translateY(10px); /* slight lower position */
+    transform: translateY(10px);
 }
 
 /* LETTER ANIMATION */
@@ -95,7 +95,7 @@ nav a {
     }
 }
 
-/* 💌 INVITATION MESSAGE */
+/* INVITATION MESSAGE */
 .invite-message {
     max-width: 600px;
     margin-top: 20px;
@@ -108,6 +108,7 @@ nav a {
     animation-delay: 1.5s;
 }
 
+/* FADE ANIMATION */
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -167,6 +168,31 @@ button {
 
     .names {
         font-size: 3rem;
+    }
+}
+
+/* =========================
+   RESPONSIVE FIX (ADDED ONLY)
+========================= */
+
+/* Fix intro text consistency */
+.intro-text {
+    margin-top: 40px;
+    transform: none !important;
+}
+
+/* Stabilize hero height */
+.hero {
+    min-height: 100vh;
+    height: auto;
+    justify-content: flex-start;
+    padding-top: 15vh;
+}
+
+/* Mobile fine-tuning */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 14vh;
     }
 }
 </style>
