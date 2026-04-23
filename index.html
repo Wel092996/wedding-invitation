@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
+/* --- YOUR ORIGINAL CSS (UNCHANGED) --- */
 body {
     margin: 0;
     padding: 0;
@@ -195,6 +196,17 @@ button {
         padding-top: 14vh;
     }
 }
+
+/* ✅ COUNTDOWN STYLE (ADDED ONLY) */
+#countdown {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.85);
+    animation: fadeUp 2s ease forwards;
+    animation-delay: 2s;
+    opacity: 0;
+}
 </style>
 </head>
 
@@ -221,6 +233,9 @@ button {
     <p class="invite-message">
         Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. We would be honored to have you join us on this special day.
     </p>
+
+    <!-- ✅ COUNTDOWN (ADDED ONLY) -->
+    <p id="countdown"></p>
 </section>
 
 <!-- DETAILS -->
@@ -252,6 +267,30 @@ button {
         <button onclick="alert('RSVP Sent!')">Send RSVP</button>
     </div>
 </section>
+
+<!-- ✅ COUNTDOWN SCRIPT (ADDED ONLY) -->
+<script>
+const weddingDate = new Date("June 08, 2026 00:00:00").getTime();
+
+const countdownFunction = setInterval(function () {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "💍 It's our wedding day!";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+        `${days} DAYS ${hours} HOURS ${minutes} MIN ${seconds} SEC`;
+}, 1000);
+</script>
 
 </body>
 </html>
