@@ -51,7 +51,7 @@ nav a {
     padding: 0 20px;
 }
 
-/* INTRO TEXT (NO ANIMATION) */
+/* INTRO TEXT */
 .intro-text {
     font-size: 0.9rem;
     letter-spacing: 5px;
@@ -59,7 +59,7 @@ nav a {
     margin-bottom: 15px;
 }
 
-/* NAMES (ONLY ANIMATION HERE) */
+/* NAMES */
 .names {
     font-family: 'Great Vibes', cursive;
     font-size: clamp(3.5rem, 12vw, 5.5rem);
@@ -84,7 +84,7 @@ nav a {
     }
 }
 
-/* MESSAGE (NO ANIMATION) */
+/* MESSAGE */
 .invite-message {
     max-width: 600px;
     margin-top: 40px;
@@ -136,6 +136,7 @@ button {
 @media (max-width: 480px) {
     .names {
         font-size: 3rem;
+        transform: translateY(80px); /* ✅ pushes names lower on mobile */
     }
 }
 </style>
