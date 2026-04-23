@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-/* --- YOUR ORIGINAL CSS (UNCHANGED) --- */
 body {
     margin: 0;
     padding: 0;
@@ -41,22 +40,15 @@ nav a {
 
 /* HERO */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
                 url("wedding2.jpg") center center / cover no-repeat;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
-    padding: 0 20px;
-}
-
-/* MOBILE IMAGE */
-@media (max-width: 768px) {
-    .hero {
-        background-position: center 30%;
-    }
+    padding: 15vh 20px 0;
 }
 
 /* INTRO TEXT */
@@ -64,8 +56,7 @@ nav a {
     font-size: 0.9rem;
     letter-spacing: 5px;
     text-transform: uppercase;
-    margin-bottom: 15px;
-    transform: translateY(-62px);
+    margin: 40px 0 15px;
 }
 
 /* NAMES */
@@ -75,25 +66,6 @@ nav a {
     margin: 0;
     letter-spacing: 6px;
     line-height: 1.1;
-    display: inline-block;
-
-    transform: translateY(30px);
-}
-
-/* LETTER ANIMATION */
-.names span {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: letterIn 0.6s ease forwards;
-    animation-delay: calc(var(--i) * 0.05s);
-}
-
-@keyframes letterIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* INVITATION MESSAGE */
@@ -103,22 +75,14 @@ nav a {
     font-size: 0.9rem;
     line-height: 1.6;
     color: rgba(255,255,255,0.85);
-
-    opacity: 0;
-    animation: fadeUp 2s ease forwards;
-    animation-delay: 1.5s;
 }
 
-/* FADE ANIMATION */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* COUNTDOWN */
+#countdown {
+    margin-top: 25px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
 }
 
 /* SECTIONS */
@@ -159,54 +123,6 @@ button {
     cursor: pointer;
     margin-top: 10px;
 }
-
-/* MOBILE TEXT */
-@media (max-width: 480px) {
-    .intro-text {
-        font-size: 0.75rem;
-        letter-spacing: 3px;
-    }
-
-    .names {
-        font-size: 3rem;
-    }
-}
-
-/* =========================
-   RESPONSIVE FIX (ADDED ONLY)
-========================= */
-
-/* Fix intro text consistency */
-.intro-text {
-    margin-top: 40px;
-    transform: none !important;
-}
-
-/* Stabilize hero height */
-.hero {
-    min-height: 100vh;
-    height: auto;
-    justify-content: flex-start;
-    padding-top: 15vh;
-}
-
-/* Mobile fine-tuning */
-@media (max-width: 768px) {
-    .hero {
-        padding-top: 14vh;
-    }
-}
-
-/* ✅ COUNTDOWN STYLE (ADDED ONLY) */
-#countdown {
-    margin-top: 25px;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.85);
-    animation: fadeUp 2s ease forwards;
-    animation-delay: 2s;
-    opacity: 0;
-}
 </style>
 </head>
 
@@ -225,16 +141,14 @@ button {
     <p class="intro-text">You are cordially invited to the wedding of</p>
 
     <h1 class="names">
-        Roel<br>
-        &<br>
-        Mailyn
+        Roel<br>&<br>Mailyn
     </h1>
 
     <p class="invite-message">
         Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. We would be honored to have you join us on this special day.
     </p>
 
-    <!-- ✅ COUNTDOWN (ADDED ONLY) -->
+    <!-- COUNTDOWN -->
     <p id="countdown"></p>
 </section>
 
@@ -242,7 +156,7 @@ button {
 <section id="details">
     <h2>Wedding Details</h2>
     <div class="card">
-        <p><strong>Date:</strong> Coming Soon</p>
+        <p><strong>Date:</strong> June 08, 2026</p>
         <p><strong>Venue:</strong> To Be Announced</p>
     </div>
 </section>
@@ -268,17 +182,19 @@ button {
     </div>
 </section>
 
-<!-- ✅ COUNTDOWN SCRIPT (ADDED ONLY) -->
+<!-- COUNTDOWN SCRIPT -->
 <script>
-const weddingDate = new Date("June 08, 2026 00:00:00").getTime();
+const weddingDate = new Date(2026, 5, 8, 0, 0, 0).getTime();
 
-const countdownFunction = setInterval(function () {
+function updateCountdown() {
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
+    const el = document.getElementById("countdown");
+    if (!el) return;
+
     if (distance < 0) {
-        clearInterval(countdownFunction);
-        document.getElementById("countdown").innerHTML = "💍 It's our wedding day!";
+        el.innerHTML = "💍 It's our wedding day!";
         return;
     }
 
@@ -287,9 +203,11 @@ const countdownFunction = setInterval(function () {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("countdown").innerHTML =
-        `${days} DAYS ${hours} HOURS ${minutes} MIN ${seconds} SEC`;
-}, 1000);
+    el.innerHTML = `${days} DAYS ${hours} HOURS ${minutes} MIN ${seconds} SEC`;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 </script>
 
 </body>
