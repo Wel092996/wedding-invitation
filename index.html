@@ -68,7 +68,7 @@ nav a {
     line-height: 1.1;
 }
 
-/* LETTER ANIMATION ONLY FOR NAMES */
+/* LETTER ANIMATION ONLY */
 .names span {
     display: inline-block;
     opacity: 0;
@@ -132,11 +132,18 @@ button {
     margin-top: 10px;
 }
 
-/* MOBILE */
+/* MOBILE FIX */
 @media (max-width: 480px) {
+
+    /* move names down */
     .names {
         font-size: 3rem;
-        transform: translateY(80px); /* ✅ pushes names lower on mobile */
+        transform: translateY(80px);
+    }
+
+    /* move message down as well */
+    .invite-message {
+        transform: translateY(80px);
     }
 }
 </style>
