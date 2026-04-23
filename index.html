@@ -132,16 +132,21 @@ button {
     margin-top: 10px;
 }
 
-/* MOBILE FIX */
+/* MOBILE ADJUSTMENTS */
 @media (max-width: 480px) {
 
-    /* move names down */
+    /* move intro text UP */
+    .intro-text {
+        transform: translateY(-40px);
+    }
+
+    /* move names DOWN */
     .names {
         font-size: 3rem;
         transform: translateY(80px);
     }
 
-    /* move message down as well */
+    /* move message DOWN */
     .invite-message {
         transform: translateY(80px);
     }
