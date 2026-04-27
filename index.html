@@ -38,10 +38,6 @@ nav a {
     letter-spacing: 2px;
 }
 
-nav a:hover {
-    color: #B76E79;
-}
-
 /* HERO */
 .hero {
     position: relative;
@@ -56,14 +52,14 @@ nav a:hover {
     padding: 0 20px;
 }
 
-/* FADE */
+/* FADE TO WHITE */
 .hero::after {
     content: "";
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 200px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
+    height: 180px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #ffffff);
 }
 
 /* TEXT */
@@ -71,13 +67,11 @@ nav a:hover {
     font-size: 0.9rem;
     letter-spacing: 5px;
     text-transform: uppercase;
-    margin-bottom: 15px;
 }
 
 .names {
     font-family: 'Great Vibes', cursive;
     font-size: clamp(3.5rem, 12vw, 5.5rem);
-    margin: 0;
 }
 
 .names span {
@@ -98,15 +92,14 @@ nav a:hover {
 .invite-message {
     max-width: 600px;
     margin-top: 40px;
-    font-size: 0.9rem;
 }
 
-/* SECTIONS */
+/* SECTIONS (ORIGINAL WHITE) */
 section {
     padding: 80px 20px;
     text-align: center;
-    background: #F3D6D8;
-    color: #4A2E2E;
+    background: #ffffff;
+    color: #000000;
 }
 
 /* DETAILS POSITION */
@@ -114,18 +107,17 @@ section {
     margin-top: -40px;
 }
 
-/* ✅ FIXED DATE/VENUE CARD */
+/* DATE / VENUE CARD */
 #details .card {
     max-width: 1000px;
-    width: calc(100% - 40px); /* perfectly aligned with page padding */
+    width: calc(100% - 40px); /* aligned with page */
+
     margin: auto;
+    background: rgba(255,255,255,0.9);
 
-    background: rgba(255,255,255,0.45);
+    padding: 40px 20px 80px; /* 🔥 extra bottom space */
 
-    padding: 40px 20px 80px; /* extra bottom space */
     border-radius: 12px;
-
-    backdrop-filter: blur(6px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 
     box-sizing: border-box;
@@ -135,7 +127,7 @@ section {
 .card {
     max-width: 600px;
     margin: auto;
-    background: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.9);
     padding: 20px;
     border-radius: 12px;
 }
@@ -146,18 +138,17 @@ input, textarea {
     max-width: 400px;
     padding: 10px;
     margin: 8px 0;
-    border-radius: 5px;
 }
 
 button {
     padding: 10px 20px;
     border: none;
-    background: #B76E79;
+    background: black;
     color: white;
     cursor: pointer;
 }
 
-/* MOBILE */
+/* MOBILE FIX */
 @media (max-width: 480px) {
     #details .card {
         width: calc(100% - 30px);
