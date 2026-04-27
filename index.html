@@ -38,6 +38,10 @@ nav a {
     letter-spacing: 2px;
 }
 
+nav a:hover {
+    color: #B76E79;
+}
+
 /* HERO */
 .hero {
     position: relative;
@@ -53,7 +57,7 @@ nav a {
     color: #fff;
 }
 
-/* FADE EFFECT */
+/* FADE TO RUSTY PINK */
 .hero::after {
     content: "";
     position: absolute;
@@ -61,7 +65,7 @@ nav a {
     left: 0;
     width: 100%;
     height: 140px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0), #ffffff);
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
     pointer-events: none;
 }
 
@@ -107,26 +111,28 @@ nav a {
     color: rgba(255,255,255,0.85);
 }
 
-/* SECTIONS BELOW */
+/* SECTIONS - RUSTY PINK BACKGROUND */
 section {
     padding: 80px 20px;
     text-align: center;
-    background: #ffffff;
-    color: #000000;
+    background: #F3D6D8; /* soft rusty pink */
+    color: #4A2E2E; /* dark brown text for readability */
 }
 
 h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
     letter-spacing: 2px;
+    color: #8C4A52;
 }
 
 .card {
     max-width: 600px;
     margin: auto;
-    background: rgba(0,0,0,0.05);
+    background: rgba(255,255,255,0.4);
     padding: 20px;
     border-radius: 12px;
+    backdrop-filter: blur(5px);
 }
 
 /* FORM */
@@ -135,14 +141,14 @@ input, textarea {
     max-width: 400px;
     padding: 10px;
     margin: 8px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #d1a3a6;
     border-radius: 5px;
 }
 
 button {
     padding: 10px 20px;
     border: none;
-    background: black;
+    background: #B76E79;
     color: white;
     cursor: pointer;
     margin-top: 10px;
