@@ -64,7 +64,7 @@ nav a:hover {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 180px;
+    height: 200px;
     background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
     pointer-events: none;
 }
@@ -82,7 +82,6 @@ nav a:hover {
     font-size: clamp(3.5rem, 12vw, 5.5rem);
     margin: 0;
     letter-spacing: 6px;
-    line-height: 1.1;
 }
 
 .names span {
@@ -116,13 +115,27 @@ section {
     color: #4A2E2E;
 }
 
-/* DETAILS POSITION */
+/* DETAILS SECTION POSITIONING */
 #details {
-    margin-top: -60px;
-    padding-top: 100px;
+    margin-top: -40px;  /* pulls it slightly upward (closer to hero fade) */
+    padding-top: 60px;
+    padding-bottom: 40px; /* keeps space before program */
 }
 
-/* CARD (default) */
+/* DATE/VENUE WHITE BOX (MAIN CONTROL) */
+#details .card {
+    max-width: 950px;   /* wider top feel */
+    width: 92%;         /* expands closer to edges but not touching */
+    margin: auto;
+
+    background: rgba(255,255,255,0.45);
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* PROGRAM CARD (UNCHANGED) */
 .card {
     max-width: 600px;
     margin: auto;
@@ -130,14 +143,6 @@ section {
     padding: 20px;
     border-radius: 12px;
     backdrop-filter: blur(6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-/* ONLY make Date/Venue wider */
-#details .card {
-    max-width: 900px;
-    width: 100%;
-    margin: auto;
 }
 
 /* FORM */
@@ -202,6 +207,7 @@ button {
     </p>
 </section>
 
+<!-- DETAILS (Date / Venue ONLY) -->
 <section id="details">
     <div class="card">
         <p><strong>Date:</strong> Coming Soon</p>
@@ -209,6 +215,7 @@ button {
     </div>
 </section>
 
+<!-- PROGRAM -->
 <section id="schedule">
     <h2>Program</h2>
     <div class="card">
@@ -218,6 +225,7 @@ button {
     </div>
 </section>
 
+<!-- RSVP -->
 <section id="rsvp">
     <h2>RSVP</h2>
     <div class="card">
