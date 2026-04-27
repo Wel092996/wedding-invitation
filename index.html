@@ -115,28 +115,30 @@ section {
     color: #4A2E2E;
 }
 
-/* DETAILS SECTION POSITIONING */
+/* DETAILS POSITION */
 #details {
-    margin-top: -40px;  /* pulls it slightly upward (closer to hero fade) */
+    margin-top: -40px;
     padding-top: 60px;
-    padding-bottom: 40px; /* keeps space before program */
+    padding-bottom: 40px;
 }
 
-/* DATE/VENUE WHITE BOX (MAIN CONTROL) */
+/* DATE / VENUE CARD (FIXED + WIDER) */
 #details .card {
-    max-width: 950px;   /* wider top feel */
-    width: 92%;         /* expands closer to edges but not touching */
+    max-width: 1000px;   /* slightly wider */
+    width: 95%;          /* increased width */
     margin: auto;
-    padding: 50px 50px 80px;
 
     background: rgba(255,255,255,0.45);
-    padding: 25px;
+    padding: 40px 25px 60px;
     border-radius: 12px;
+
     backdrop-filter: blur(6px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+    box-sizing: border-box; /* fixes mobile uneven issue */
 }
 
-/* PROGRAM CARD (UNCHANGED) */
+/* OTHER CARDS */
 .card {
     max-width: 600px;
     margin: auto;
@@ -165,7 +167,7 @@ button {
     margin-top: 10px;
 }
 
-/* MOBILE */
+/* MOBILE FIX */
 @media (max-width: 480px) {
     .intro-text {
         transform: translateY(-40px);
@@ -178,6 +180,12 @@ button {
 
     .invite-message {
         transform: translateY(80px);
+    }
+
+    /* FIX uneven card on mobile */
+    #details .card {
+        width: 95%;
+        padding: 30px 20px 50px;
     }
 }
 </style>
@@ -208,7 +216,6 @@ button {
     </p>
 </section>
 
-<!-- DETAILS (Date / Venue ONLY) -->
 <section id="details">
     <div class="card">
         <p><strong>Date:</strong> Coming Soon</p>
@@ -216,7 +223,6 @@ button {
     </div>
 </section>
 
-<!-- PROGRAM -->
 <section id="schedule">
     <h2>Program</h2>
     <div class="card">
@@ -226,7 +232,6 @@ button {
     </div>
 </section>
 
-<!-- RSVP -->
 <section id="rsvp">
     <h2>RSVP</h2>
     <div class="card">
