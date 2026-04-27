@@ -54,7 +54,6 @@ nav a:hover {
     align-items: center;
     text-align: center;
     padding: 0 20px;
-    color: #fff;
 }
 
 /* FADE */
@@ -62,11 +61,9 @@ nav a:hover {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 0;
     width: 100%;
     height: 200px;
     background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
-    pointer-events: none;
 }
 
 /* TEXT */
@@ -81,7 +78,6 @@ nav a:hover {
     font-family: 'Great Vibes', cursive;
     font-size: clamp(3.5rem, 12vw, 5.5rem);
     margin: 0;
-    letter-spacing: 6px;
 }
 
 .names span {
@@ -103,8 +99,6 @@ nav a:hover {
     max-width: 600px;
     margin-top: 40px;
     font-size: 0.9rem;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.85);
 }
 
 /* SECTIONS */
@@ -118,24 +112,23 @@ section {
 /* DETAILS POSITION */
 #details {
     margin-top: -40px;
-    padding-top: 60px;
-    padding-bottom: 40px;
 }
 
-/* DATE / VENUE CARD (FIXED + WIDER) */
+/* ✅ FIXED DATE/VENUE CARD */
 #details .card {
-    max-width: 1000px;   /* slightly wider */
-    width: 95%;          /* increased width */
+    max-width: 1000px;
+    width: calc(100% - 40px); /* perfectly aligned with page padding */
     margin: auto;
 
     background: rgba(255,255,255,0.45);
-    padding: 40px 25px 60px;
+
+    padding: 40px 20px 80px; /* extra bottom space */
     border-radius: 12px;
 
     backdrop-filter: blur(6px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 
-    box-sizing: border-box; /* fixes mobile uneven issue */
+    box-sizing: border-box;
 }
 
 /* OTHER CARDS */
@@ -145,7 +138,6 @@ section {
     background: rgba(255,255,255,0.4);
     padding: 20px;
     border-radius: 12px;
-    backdrop-filter: blur(6px);
 }
 
 /* FORM */
@@ -154,7 +146,6 @@ input, textarea {
     max-width: 400px;
     padding: 10px;
     margin: 8px 0;
-    border: 1px solid #d1a3a6;
     border-radius: 5px;
 }
 
@@ -164,28 +155,13 @@ button {
     background: #B76E79;
     color: white;
     cursor: pointer;
-    margin-top: 10px;
 }
 
-/* MOBILE FIX */
+/* MOBILE */
 @media (max-width: 480px) {
-    .intro-text {
-        transform: translateY(-40px);
-    }
-
-    .names {
-        font-size: 3rem;
-        transform: translateY(80px);
-    }
-
-    .invite-message {
-        transform: translateY(80px);
-    }
-
-    /* FIX uneven card on mobile */
     #details .card {
-        width: 95%;
-        padding: 30px 20px 50px;
+        width: calc(100% - 30px);
+        padding: 30px 15px 70px;
     }
 }
 </style>
@@ -212,7 +188,7 @@ button {
     </h1>
 
     <p class="invite-message">
-        Together with love and happiness, we invite you to witness and celebrate the beginning of our married life.
+        Together with love and happiness, we invite you to celebrate with us.
     </p>
 </section>
 
