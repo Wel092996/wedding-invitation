@@ -57,7 +57,7 @@ nav a:hover {
     color: #fff;
 }
 
-/* FADE TO RUSTY PINK */
+/* FADE */
 .hero::after {
     content: "";
     position: absolute;
@@ -66,7 +66,6 @@ nav a:hover {
     width: 100%;
     height: 180px;
     background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
-    pointer-events: none;
 }
 
 /* TEXT */
@@ -82,7 +81,6 @@ nav a:hover {
     font-size: clamp(3.5rem, 12vw, 5.5rem);
     margin: 0;
     letter-spacing: 6px;
-    line-height: 1.1;
 }
 
 .names span {
@@ -116,21 +114,20 @@ section {
     color: #4A2E2E;
 }
 
-/* DETAILS POSITIONING (aligned to "Wedding Details" level) */
+/* DETAILS POSITION */
 #details {
     margin-top: -60px;
-    padding-top: 100px;
+    padding: 0;
 }
 
-/* CARD */
+/* FULL-WIDTH WHITE BACKGROUND */
 .card {
-    max-width: 600px;
-    margin: auto;
-    background: rgba(255,255,255,0.4);
-    padding: 20px;
-    border-radius: 12px;
+    width: 100%;
+    margin: 0;
+    background: rgba(255,255,255,0.5);
+    padding: 40px 20px;
+    border-radius: 0; /* removes rounded edges so it touches sides */
     backdrop-filter: blur(6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 /* FORM */
@@ -172,7 +169,6 @@ button {
 
 <body>
 
-<!-- NAV -->
 <nav>
     <a href="#home">Home</a>
     <a href="#details">Details</a>
@@ -180,7 +176,6 @@ button {
     <a href="#rsvp">RSVP</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
     <p class="intro-text">You are cordially invited to the wedding of</p>
 
@@ -193,11 +188,10 @@ button {
     </h1>
 
     <p class="invite-message">
-        Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. We would be honored to have you join us on this special day.
+        Together with love and happiness, we invite you to witness and celebrate the beginning of our married life.
     </p>
 </section>
 
-<!-- DETAILS (no title) -->
 <section id="details">
     <div class="card">
         <p><strong>Date:</strong> Coming Soon</p>
@@ -205,7 +199,6 @@ button {
     </div>
 </section>
 
-<!-- SCHEDULE -->
 <section id="schedule">
     <h2>Program</h2>
     <div class="card">
@@ -215,7 +208,6 @@ button {
     </div>
 </section>
 
-<!-- RSVP -->
 <section id="rsvp">
     <h2>RSVP</h2>
     <div class="card">
