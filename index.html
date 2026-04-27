@@ -52,14 +52,14 @@ nav a {
     padding: 0 20px;
 }
 
-/* FADE TO WHITE */
+/* FADE TO RUSTY PINK */
 .hero::after {
     content: "";
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 180px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0), #ffffff);
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
 }
 
 /* TEXT */
@@ -72,6 +72,7 @@ nav a {
 .names {
     font-family: 'Great Vibes', cursive;
     font-size: clamp(3.5rem, 12vw, 5.5rem);
+    margin: 0;
 }
 
 .names span {
@@ -94,12 +95,12 @@ nav a {
     margin-top: 40px;
 }
 
-/* SECTIONS (ORIGINAL WHITE) */
+/* SECTIONS (RUSTY PINK) */
 section {
     padding: 80px 20px;
     text-align: center;
-    background: #ffffff;
-    color: #000000;
+    background: #F3D6D8;
+    color: #4A2E2E;
 }
 
 /* DETAILS POSITION */
@@ -109,17 +110,16 @@ section {
 
 /* DATE / VENUE CARD */
 #details .card {
-    max-width: 1000px;
-    width: calc(100% - 40px); /* aligned with page */
-
+    width: 95%;
+    max-width: 900px;
     margin: auto;
-    background: rgba(255,255,255,0.9);
 
-    padding: 40px 20px 80px; /* 🔥 extra bottom space */
+    background: rgba(255,255,255,0.5);
+    color: #4A2E2E;
+
+    padding: 30px 20px 70px; /* extra space below */
 
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-
     box-sizing: border-box;
 }
 
@@ -127,9 +127,10 @@ section {
 .card {
     max-width: 600px;
     margin: auto;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.5);
     padding: 20px;
     border-radius: 12px;
+    color: #4A2E2E;
 }
 
 /* FORM */
@@ -138,21 +139,22 @@ input, textarea {
     max-width: 400px;
     padding: 10px;
     margin: 8px 0;
+    border-radius: 5px;
 }
 
 button {
     padding: 10px 20px;
     border: none;
-    background: black;
-    color: white;
+    background: #4A2E2E;
+    color: #fff;
     cursor: pointer;
 }
 
 /* MOBILE FIX */
 @media (max-width: 480px) {
     #details .card {
-        width: calc(100% - 30px);
-        padding: 30px 15px 70px;
+        width: 95%;
+        padding: 25px 15px 60px;
     }
 }
 </style>
