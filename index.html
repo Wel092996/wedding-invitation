@@ -1,171 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation | Roel & Mailyn</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Roel & Mailyn</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: #000;
-    color: #fff;
-    overflow-x: hidden;
-}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-/* NAV */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding: 15px;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(8px);
-    z-index: 1000;
-}
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 15px;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+        }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-}
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
 
-/* HERO (RESTORED ORIGINAL BEHAVIOR) */
-.hero {
-    position: relative;
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-                url("wedding2.jpg") center center / cover no-repeat;
+        /* HERO */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                        url("wedding2.jpg") center center / cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+        /* FADE */
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
+        }
 
-    padding: 0 20px;
-}
+        .hero .intro-text,
+        .hero .names,
+        .hero .invite-message {
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+        }
 
-/* FADE */
-.hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
-}
+        .intro-text {
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
 
-/* 🔥 HERO TEXT = WHITE (YOUR REQUEST) */
-.hero .intro-text,
-.hero .names,
-.hero .invite-message {
-    color: #ffffff;
-}
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            margin: 0;
+        }
 
-/* TEXT */
-.intro-text {
-    font-size: 0.9rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-}
+        .names span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: letterIn 0.5s ease forwards;
+            animation-delay: calc(var(--i) * 0.05s);
+        }
 
-.names {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.5rem, 12vw, 5.5rem);
-    margin: 0;
-}
+        @keyframes letterIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.names span {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: letterIn 0.5s ease forwards;
-    animation-delay: calc(var(--i) * 0.05s);
-}
+        .invite-message {
+            max-width: 600px;
+            margin-top: 40px;
+        }
 
-@keyframes letterIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        /* SECTIONS */
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            background: #F3D6D8;
+            color: #4A2E2E;
+        }
 
-.invite-message {
-    max-width: 600px;
-    margin-top: 40px;
-}
+        /* FULL WIDTH DETAILS CARD */
+        #details {
+            padding: 80px 0 0 0; /* Zeroed side padding to allow edge-to-edge */
+            margin-top: -40px;
+        }
 
-/* SECTIONS (RUSTY PINK BACKGROUND RESTORED) */
-section {
-    padding: 80px 20px;
-    text-align: center;
-    background: #F3D6D8;
-    color: #4A2E2E;
-}
+        #details .card {
+            width: 100%;
+            max-width: 100%;
+            background: rgba(255,255,255,0.5);
+            color: #4A2E2E;
+            padding: 50px 20px; /* Balanced top/bottom padding */
+            border-radius: 0;    /* Square edges to meet the screen edge perfectly */
+            box-sizing: border-box;
+            margin: 0;
+        }
 
-/* DETAILS */
-#details {
-    margin-top: -40px;
-}
+        /* STANDARD CARDS (For Schedule/RSVP) */
+        .card {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255,255,255,0.5);
+            padding: 20px;
+            border-radius: 12px;
+            color: #4A2E2E;
+        }
 
-/* DATE / VENUE CARD */
-#details .card {
-    width: 95%;
-    max-width: 900px;
-    margin: auto;
+        /* FORM elements */
+        input, textarea {
+            width: 90%;
+            max-width: 400px;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid rgba(74, 46, 46, 0.2);
+            border-radius: 4px;
+        }
 
-    background: rgba(255,255,255,0.5);
-    color: #4A2E2E;
+        button {
+            padding: 10px 25px;
+            border: none;
+            background: #4A2E2E;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
 
-    padding: 30px 20px 70px;
-
-    border-radius: 12px;
-    box-sizing: border-box;
-}
-
-/* OTHER CARDS */
-.card {
-    max-width: 600px;
-    margin: auto;
-    background: rgba(255,255,255,0.5);
-    padding: 20px;
-    border-radius: 12px;
-    color: #4A2E2E;
-}
-
-/* FORM */
-input, textarea {
-    width: 90%;
-    max-width: 400px;
-    padding: 10px;
-    margin: 8px 0;
-}
-
-button {
-    padding: 10px 20px;
-    border: none;
-    background: #4A2E2E;
-    color: #fff;
-    cursor: pointer;
-}
-
-/* MOBILE */
-@media (max-width: 480px) {
-    #details .card {
-        width: 95%;
-        padding: 25px 15px 60px;
-    }
-}
-</style>
+        /* MOBILE FIXES */
+        @media (max-width: 480px) {
+            .names { font-size: 3rem; }
+            #details .card { padding: 40px 15px; }
+        }
+    </style>
 </head>
 
 <body>
@@ -195,8 +194,8 @@ button {
 
 <section id="details">
     <div class="card">
-        <p><strong>Date:</strong> Coming Soon</p>
-        <p><strong>Venue:</strong> To Be Announced</p>
+        <p><strong>DATE:</strong> COMING SOON</p>
+        <p><strong>VENUE:</strong> TO BE ANNOUNCED</p>
     </div>
 </section>
 
