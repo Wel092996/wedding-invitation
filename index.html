@@ -66,6 +66,7 @@ nav a:hover {
     width: 100%;
     height: 180px;
     background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
+    pointer-events: none;
 }
 
 /* TEXT */
@@ -81,6 +82,7 @@ nav a:hover {
     font-size: clamp(3.5rem, 12vw, 5.5rem);
     margin: 0;
     letter-spacing: 6px;
+    line-height: 1.1;
 }
 
 .names span {
@@ -117,17 +119,23 @@ section {
 /* DETAILS POSITION */
 #details {
     margin-top: -60px;
-    padding: 0;
+    padding-top: 100px;
 }
 
-/* FULL-WIDTH WHITE BACKGROUND */
+/* CARD (default) */
 .card {
-    width: 100%;
-    margin: 0;
-    background: rgba(255,255,255,0.5);
-    padding: 40px 20px;
-    border-radius: 0; /* removes rounded edges so it touches sides */
+    max-width: 600px;
+    margin: auto;
+    background: rgba(255,255,255,0.4);
+    padding: 20px;
+    border-radius: 12px;
     backdrop-filter: blur(6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ONLY make Date/Venue wider */
+#details .card {
+    max-width: 800px;
 }
 
 /* FORM */
