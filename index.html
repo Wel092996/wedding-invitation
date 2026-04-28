@@ -25,9 +25,9 @@
             display: flex;
             justify-content: center;
             gap: 25px;
-            padding: 15px;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(8px);
+            padding: 20px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
             z-index: 1000;
         }
 
@@ -36,20 +36,22 @@
             text-decoration: none;
             font-size: 0.85rem;
             letter-spacing: 2px;
+            font-weight: 500;
         }
 
         /* HERO */
         .hero {
             position: relative;
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+            min-height: 100vh; /* Changed from height to min-height for desktop safety */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
                         url("wedding2.jpg") center center / cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 100px 20px 60px; /* Added top padding to clear the Nav bar */
+            box-sizing: border-box;
         }
 
         /* FADE */
@@ -57,9 +59,11 @@
             content: "";
             position: absolute;
             bottom: 0;
+            left: 0;
             width: 100%;
-            height: 180px;
+            height: 200px;
             background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
+            z-index: 1;
         }
 
         .hero .intro-text,
@@ -68,19 +72,21 @@
         .countdown-container {
             color: #ffffff;
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Ensures text stays above the bottom fade */
         }
 
         .intro-text {
-            font-size: 0.9rem;
+            font-size: clamp(0.7rem, 2vw, 1rem); /* Fluid font size */
             letter-spacing: 5px;
             text-transform: uppercase;
+            margin-bottom: 10px;
         }
 
         .names {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            font-size: clamp(3.5rem, 10vw, 6.5rem); /* Scales better on wide screens */
             margin: 10px 0;
+            line-height: 1.2;
         }
 
         .names span {
@@ -101,7 +107,7 @@
         /* COUNTDOWN STYLE */
         .countdown-container {
             display: flex;
-            gap: 20px;
+            gap: clamp(10px, 3vw, 30px);
             margin-top: 20px;
         }
 
@@ -109,10 +115,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-width: 60px;
         }
 
         .countdown-number {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 500;
         }
 
@@ -124,13 +131,16 @@
         }
 
         .invite-message {
-            max-width: 600px;
+            max-width: 700px;
             margin-top: 30px;
+            font-weight: 300;
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
         }
 
         /* SECTIONS */
         section {
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
             background: #F3D6D8;
             color: #4A2E2E;
@@ -139,15 +149,15 @@
         /* FULL WIDTH DETAILS CARD */
         #details {
             padding: 80px 0 0 0;
-            margin-top: -40px;
+            margin-top: -60px; /* Pulls it up into the hero fade */
         }
 
         #details .card {
             width: 100%;
             max-width: 100%;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.6);
             color: #4A2E2E;
-            padding: 50px 20px;
+            padding: 60px 20px;
             border-radius: 0;
             box-sizing: border-box;
             margin: 0;
@@ -158,37 +168,42 @@
             max-width: 600px;
             margin: auto;
             background: rgba(255,255,255,0.5);
-            padding: 20px;
+            padding: 30px;
             border-radius: 12px;
-            color: #4A2E2E;
         }
 
         input, textarea {
-            width: 90%;
-            max-width: 400px;
-            padding: 10px;
-            margin: 8px 0;
+            width: 100%;
+            max-width: 450px;
+            padding: 12px;
+            margin: 10px 0;
             border: 1px solid rgba(74, 46, 46, 0.2);
             border-radius: 4px;
+            box-sizing: border-box;
         }
 
         button {
-            padding: 10px 25px;
+            padding: 12px 40px;
             border: none;
             background: #4A2E2E;
             color: #fff;
             cursor: pointer;
             border-radius: 4px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 10px;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            transition: opacity 0.3s;
         }
 
+        button:hover {
+            opacity: 0.9;
+        }
+
+        /* MOBILE FIXES */
         @media (max-width: 480px) {
-            .names { font-size: 3rem; }
-            .countdown-number { font-size: 1.5rem; }
-            .countdown-container { gap: 10px; }
-            #details .card { padding: 40px 15px; }
+            .hero { padding-top: 80px; }
+            .names { font-size: 3.2rem; }
+            .countdown-container { gap: 12px; }
         }
     </style>
 </head>
@@ -239,14 +254,13 @@
 
 <section id="details">
     <div class="card">
-        <p><strong>DATE:</strong> JUNE 8, 2026</p>
-        <p><strong>TIME:</strong> 9:00 AM</p>
-        <p><strong>VENUE:</strong> TO BE ANNOUNCED</p>
+        <p style="letter-spacing: 2px; font-weight: 500;">JUNE 8, 2026 | 9:00 AM</p>
+        <p style="opacity: 0.8;">VENUE TO BE ANNOUNCED</p>
     </div>
 </section>
 
 <section id="schedule">
-    <h2>Program</h2>
+    <h2 style="font-family: 'Great Vibes', cursive; font-size: 3rem;">Program</h2>
     <div class="card">
         <p>💍 Ceremony - 9:00 AM</p>
         <p>📸 Photos - 10:30 AM</p>
@@ -255,40 +269,35 @@
 </section>
 
 <section id="rsvp">
-    <h2>RSVP</h2>
+    <h2 style="font-family: 'Great Vibes', cursive; font-size: 3rem;">RSVP</h2>
     <div class="card">
         <input type="text" placeholder="Your Name"><br>
         <input type="email" placeholder="Email"><br>
-        <textarea placeholder="Message"></textarea><br>
+        <textarea placeholder="Message" rows="4"></textarea><br>
         <button>Send RSVP</button>
     </div>
 </section>
 
 <script>
-    // Set the wedding date
     const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
 
-    // Update the countdown every 1 second
     const x = setInterval(function() {
         const now = new Date().getTime();
         const distance = weddingDate - now;
 
-        // Time calculations
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Display results
-        document.getElementById("days").innerHTML = days;
-        document.getElementById("hours").innerHTML = hours;
-        document.getElementById("minutes").innerHTML = minutes;
-        document.getElementById("seconds").innerHTML = seconds;
+        document.getElementById("days").innerText = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
 
-        // If countdown finishes
         if (distance < 0) {
             clearInterval(x);
-            document.querySelector(".countdown-container").innerHTML = "JUST MARRIED!";
+            document.querySelector(".countdown-container").innerHTML = "<h1>JUST MARRIED!</h1>";
         }
     }, 1000);
 </script>
