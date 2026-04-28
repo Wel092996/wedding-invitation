@@ -1,265 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation | Roel & Mailyn</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Roel & Mailyn</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: #000;
-    color: #fff;
-    overflow-x: hidden;
-}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-/* NAV */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding: 20px;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-}
+        /* NAVIGATION BAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-}
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
 
-/* HERO */
-.hero {
-    position: relative;
-    min-height: 100vh;
-    background:
-        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-        url("wedding2.jpg") center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 120px 20px 0;
-    text-align: center;
-}
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 100vh; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url("wedding2.jpg") center center / cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 0px; /* Reduced bottom padding to blend with PNG */
+            box-sizing: border-box;
+        }
 
-/* ✅ IMPROVED SMOOTH FADE */
-.hero::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 350px;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0) 0%,
-        rgba(243,214,216,0.4) 40%,
-        #F3D6D8 100%
-    );
-    z-index: 1;
-}
+        /* BOTTOM FADE */
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
+            z-index: 1;
+            pointer-events: none;
+        }
 
-/* TEXT */
-.intro-text,
-.names,
-.invite-message,
-.countdown-title,
-.countdown-container {
-    position: relative;
-    z-index: 5;
-}
+        .hero .intro-text,
+        .hero .names,
+        .hero .invite-message,
+        .countdown-title,
+        .countdown-container {
+            color: #ffffff;
+            position: relative;
+            z-index: 5;
+        }
 
-.intro-text {
-    letter-spacing: 5px;
-    text-transform: uppercase;
-}
+        .intro-text {
+            font-size: clamp(0.75rem, 2vw, 1rem);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
 
-.names {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.5rem, 10vw, 6.5rem);
-    margin: 50px 0 25px;
-}
+        /* ROEL & MAILYN */
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3.5rem, 10vw, 6.5rem);
+            margin-top: 50px; 
+            margin-bottom: 25px;
+            line-height: 1.1;
+        }
 
-.names span {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: letterIn 0.5s ease forwards;
-    animation-delay: calc(var(--i) * 0.05s);
-}
+        .names span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: letterIn 0.5s ease forwards;
+            animation-delay: calc(var(--i) * 0.05s);
+        }
 
-@keyframes letterIn {
-    to { opacity: 1; transform: translateY(0); }
-}
+        @keyframes letterIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.invite-message {
-    max-width: 700px;
-    line-height: 1.8;
-}
+        .invite-message {
+            max-width: 700px;
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
 
-.countdown-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin-top: 60px;
-}
+        /* COUNTDOWN TITLE - RESTORED FONT */
+        .countdown-title {
+            font-family: 'Great Vibes', cursive; /* Back to original elegant font */
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-top: 60px; 
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
 
-.countdown-container {
-    display: flex;
-    gap: 25px;
-    margin-bottom: 60px;
-}
+        .countdown-container {
+            display: flex;
+            gap: clamp(10px, 4vw, 35px);
+            margin-bottom: 60px; /* Space before the PNG section starts */
+        }
 
-.countdown-item {
-    text-align: center;
-}
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 60px;
+        }
 
-.countdown-number {
-    font-size: 2rem;
-}
+        .countdown-number {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 500;
+        }
 
-/* ✅ DETAILS BLEND FIX */
-#details {
-    background: #F3D6D8;
-    margin-top: -100px; /* pulls into gradient */
-    padding: 0;
-    line-height: 0;
-}
+        .countdown-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
 
-/* IMAGE FIX */
-.details-image {
-    width: 100%;
-    display: block;
-    margin: 0;
-    padding: 0;
+        /* DETAILS SECTION - PERFECT BLEND */
+        #details {
+            padding: 0;
+            margin: 0;
+            background: #F3D6D8;
+            line-height: 0; /* Removes tiny gaps under image */
+        }
 
-    /* ✅ SOFT FADE BLEND */
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%);
-    mask-image: linear-gradient(to bottom, transparent 0%, black 25%);
-}
+        .full-width-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0; /* Removed padding for perfect blend */
+        }
 
-/* OTHER SECTIONS */
-section {
-    padding: 100px 20px;
-    text-align: center;
-    background: #F3D6D8;
-    color: #4A2E2E;
-}
+        .details-image {
+            width: 100%;
+            max-width: 100%; /* Edge to edge */
+            height: auto;
+            display: block;
+        }
 
-.card {
-    max-width: 600px;
-    margin: auto;
-    background: rgba(255,255,255,0.5);
-    padding: 30px;
-    border-radius: 12px;
-}
+        /* REMAINING SECTIONS */
+        section {
+            padding: 100px 20px;
+            text-align: center;
+            background: #F3D6D8;
+            color: #4A2E2E;
+        }
 
-h2 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3rem;
-}
+        .card {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255,255,255,0.5);
+            padding: 30px;
+            border-radius: 12px;
+        }
 
-/* FORM */
-input, textarea {
-    width: 100%;
-    max-width: 450px;
-    padding: 12px;
-    margin: 10px 0;
-}
+        h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
 
-button {
-    padding: 12px 40px;
-    background: #4A2E2E;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
+        input, textarea {
+            width: 100%;
+            max-width: 450px;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid rgba(74, 46, 46, 0.2);
+            box-sizing: border-box;
+        }
 
-/* MOBILE */
-@media (max-width: 480px) {
-    .hero { padding-top: 100px; }
-    .names { margin-top: 30px; }
-}
-</style>
+        button {
+            padding: 12px 40px;
+            background: #4A2E2E;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 15px;
+        }
+
+        /* MOBILE FIXES */
+        @media (max-width: 480px) {
+            .hero { padding-top: 100px; }
+            .names { margin-top: 35px; }
+            .countdown-title { margin-top: 40px; }
+            .countdown-item { min-width: 50px; }
+            .countdown-container { margin-bottom: 40px; }
+        }
+    </style>
 </head>
-
 <body>
 
 <nav>
-<a href="#home">Home</a>
-<a href="#details">Details</a>
-<a href="#schedule">Schedule</a>
-<a href="#rsvp">RSVP</a>
+    <a href="#home">Home</a>
+    <a href="#details">Details</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#rsvp">RSVP</a>
 </nav>
 
 <section class="hero" id="home">
-<p class="intro-text">You are cordially invited</p>
+    <p class="intro-text">You are cordially invited to the wedding of</p>
 
-<h1 class="names">
-<span style="--i:1">R</span><span style="--i:2">o</span><span style="--i:3">e</span><span style="--i:4">l</span>
-<br>&<br>
-<span style="--i:5">M</span><span style="--i:6">a</span><span style="--i:7">i</span><span style="--i:8">l</span><span style="--i:9">y</span><span style="--i:10">n</span>
-</h1>
+    <h1 class="names">
+        <span style="--i:1">R</span><span style="--i:2">o</span><span style="--i:3">e</span><span style="--i:4">l</span>
+        <br>
+        <span style="--i:5">&</span>
+        <br>
+        <span style="--i:6">M</span><span style="--i:7">a</span><span style="--i:8">i</span><span style="--i:9">l</span><span style="--i:10">y</span><span style="--i:11">n</span>
+    </h1>
 
-<p class="invite-message">
-We invite you to celebrate our wedding day with us.
-</p>
+    <p class="invite-message">
+        Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us as we exchange our vows.
+    </p>
 
-<h2 class="countdown-title">Countdown to Forever</h2>
+    <h2 class="countdown-title">Countdown to Forever</h2>
 
-<div class="countdown-container">
-<div><span id="days">00</span><br>Days</div>
-<div><span id="hours">00</span><br>Hrs</div>
-<div><span id="minutes">00</span><br>Min</div>
-<div><span id="seconds">00</span><br>Sec</div>
-</div>
+    <div class="countdown-container">
+        <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Days</span></div>
+        <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hrs</span></div>
+        <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Min</span></div>
+        <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Sec</span></div>
+    </div>
 </section>
 
 <section id="details">
-<img src="details.png" class="details-image">
+    <div class="full-width-container">
+        <img src="details.png" alt="Wedding Details" class="details-image">
+    </div>
 </section>
 
 <section id="schedule">
-<h2>Program</h2>
-<div class="card">
-<p>💍 Ceremony - 9:00 AM</p>
-<p>📸 Photos - 10:30 AM</p>
-<p>🍽 Reception - 12:00 PM</p>
-</div>
+    <h2>Program</h2>
+    <div class="card">
+        <p>💍 Ceremony - 9:00 AM</p>
+        <p>📸 Photos - 10:30 AM</p>
+        <p>🍽 Reception - 12:00 PM</p>
+    </div>
 </section>
 
 <section id="rsvp">
-<h2>RSVP</h2>
-<div class="card">
-<input type="text" placeholder="Your Name"><br>
-<input type="email" placeholder="Email"><br>
-<textarea rows="4" placeholder="Message"></textarea><br>
-<button>Send</button>
-</div>
+    <h2>RSVP</h2>
+    <div class="card">
+        <input type="text" placeholder="Your Name"><br>
+        <input type="email" placeholder="Email"><br>
+        <textarea placeholder="Message" rows="4"></textarea><br>
+        <button>Send RSVP</button>
+    </div>
 </section>
 
 <script>
-const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
+    const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
 
-setInterval(() => {
-    const now = new Date().getTime();
-    const d = weddingDate - now;
+    const x = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
 
-    document.getElementById("days").innerText = Math.floor(d/(1000*60*60*24));
-    document.getElementById("hours").innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
-    document.getElementById("minutes").innerText = Math.floor((d%(1000*60*60))/(1000*60));
-    document.getElementById("seconds").innerText = Math.floor((d%(1000*60))/1000);
-}, 1000);
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.querySelector(".countdown-container").innerHTML = "<h1>HAPPY WEDDING DAY!</h1>";
+        }
+    }, 1000);
 </script>
 
 </body>
