@@ -63,15 +63,16 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 350px; /* Adjusted height for cleaner blend */
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 100%);
+            height: 350px; 
+            /* Fades to transparent to reveal details2.png underneath */
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(255,255,255,0.1) 80%, rgba(255,255,255,1) 100%);
             z-index: 1;
             pointer-events: none;
         }
 
         .hero > * {
             position: relative;
-            z-index: 5; /* Keeps text on top of everything */
+            z-index: 5;
         }
 
         .names {
@@ -112,7 +113,7 @@
         .countdown-container {
             display: flex;
             gap: clamp(10px, 4vw, 35px);
-            margin-bottom: 100px; /* Gives the text room above the transition */
+            margin-bottom: 100px;
         }
 
         .countdown-item {
@@ -133,21 +134,22 @@
             letter-spacing: 2px;
         }
 
-        /* DETAILS SECTION - ADJUSTED OVERLAP */
+        /* DETAILS SECTION - WITH BACKGROUND details2.png */
         #details {
             padding: 0;
-            margin-top: -100px; /* Pulled up just enough to blend, but not crop text */
+            margin-top: -100px; 
             position: relative;
             z-index: 0; 
             line-height: 0;
-            background: #fff;
+            /* Using details2.png as the structural background */
+            background: url("details2.png") center top / cover no-repeat;
         }
 
         .details-image {
             width: 100%;
             height: auto;
             display: block;
-            /* Creates a soft top edge for the PNG image itself */
+            /* Soft mask to melt details.png into the details2.png background */
             mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%);
             -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%);
         }
@@ -163,7 +165,7 @@
         .card {
             max-width: 600px;
             margin: auto;
-            background: #FDF4F5; 
+            background: rgba(253, 244, 245, 0.9); 
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -200,7 +202,7 @@
 
         @media (max-width: 480px) {
             .hero { padding-top: 100px; }
-            #details { margin-top: -60px; } /* Less overlap on small screens */
+            #details { margin-top: -60px; } 
             .countdown-container { margin-bottom: 60px; }
         }
     </style>
