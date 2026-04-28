@@ -8,12 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
     <style>
-        /* RESET & BASE */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background: #F3D6D8; /* Matches your PNG background */
+            background: #fff; /* White base for the watercolor textures */
             color: #fff;
             overflow-x: hidden;
         }
@@ -44,8 +43,9 @@
         .hero {
             position: relative;
             min-height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                        url("wedding2.jpg") center center / cover no-repeat;
+            background: 
+                linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url("wedding2.jpg") center center / cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -53,18 +53,19 @@
             text-align: center;
             padding: 120px 20px 0;
             box-sizing: border-box;
-            border: none; /* Removes any browser-default borders */
+            z-index: 2;
         }
 
-        /* SEAMLESS BOTTOM FADE */
+        /* THE SEAMLESS FADE LAYER */
+        /* We fade to transparent so the image texture shows through from underneath */
         .hero::after {
             content: "";
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 350px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #F3D6D8 100%);
+            height: 400px; 
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 100%);
             z-index: 1;
             pointer-events: none;
         }
@@ -74,11 +75,10 @@
             z-index: 5;
         }
 
-        /* NAMES - Shifted 5 spaces down */
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3.5rem, 10vw, 6.5rem);
-            margin-top: 50px; 
+            margin-top: 50px;
             margin-bottom: 25px;
             line-height: 1.1;
         }
@@ -103,26 +103,24 @@
             margin-bottom: 20px;
         }
 
-        /* COUNTDOWN - Restored Cursive Title */
         .countdown-title {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(2.2rem, 5vw, 3.5rem);
             margin-top: 60px;
-            margin-bottom: 10px;
-            font-weight: 400;
+            margin-bottom: 15px;
         }
 
         .countdown-container {
             display: flex;
             gap: clamp(10px, 4vw, 35px);
-            margin-bottom: 80px;
+            margin-bottom: 120px; /* Space to see the fade effect */
         }
 
         .countdown-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 60px;
+            min-width: 65px;
         }
 
         .countdown-number {
@@ -134,48 +132,49 @@
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            opacity: 0.9;
         }
 
-        /* DETAILS PNG - STITCHED SEAMLESSLY */
+        /* THE OVERLAP FIX */
         #details {
             padding: 0;
-            margin-top: -3px; /* Pulls the section up to overlap the hero fade and hide gaps */
-            background: #F3D6D8;
-            line-height: 0; /* Removes font-baseline gaps */
+            /* This pulls the image UP behind the hero fade */
+            margin-top: -200px; 
             position: relative;
-            z-index: 10;
+            z-index: 0; 
+            line-height: 0;
+            background: #fff;
         }
 
         .details-image {
             width: 100%;
             height: auto;
             display: block;
-            vertical-align: bottom; /* Removes tiny space at the bottom of images */
-            border: none;
-            outline: none;
+            /* This subtly fades the very top edge of your PNG */
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%);
         }
 
-        /* OTHER SECTIONS */
+        /* LOWER SECTIONS */
         section:not(.hero):not(#details) {
             padding: 100px 20px;
             text-align: center;
-            background: #F3D6D8;
+            background: #fff;
             color: #4A2E2E;
         }
 
         .card {
             max-width: 600px;
             margin: auto;
-            background: rgba(255,255,255,0.4);
+            background: #FDF4F5; 
             padding: 40px;
             border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         h2 {
             font-family: 'Great Vibes', cursive;
             font-size: 3.5rem;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         input, textarea {
@@ -184,9 +183,9 @@
             padding: 15px;
             margin: 10px 0;
             border-radius: 8px;
-            border: 1px solid rgba(74, 46, 46, 0.2);
-            box-sizing: border-box;
+            border: 1px solid rgba(74, 46, 46, 0.1);
             font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
         }
 
         button {
@@ -198,16 +197,13 @@
             border-radius: 8px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
-        /* MOBILE FIXES */
         @media (max-width: 480px) {
             .hero { padding-top: 100px; }
-            .names { margin-top: 35px; }
-            .countdown-title { margin-top: 40px; }
-            .countdown-container { margin-bottom: 60px; }
-            nav { gap: 15px; }
+            #details { margin-top: -150px; }
+            .countdown-container { margin-bottom: 80px; }
         }
     </style>
 </head>
@@ -232,29 +228,16 @@
         </h1>
 
         <p class="invite-message">
-            Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. 
-            We would be honored to have you with us as we exchange our vows.
+            Together with love and happiness, we invite you to witness and celebrate the beginning of our married life.
         </p>
 
         <h2 class="countdown-title">Countdown to Forever</h2>
 
         <div class="countdown-container">
-            <div class="countdown-item">
-                <span class="countdown-number" id="days">00</span>
-                <span class="countdown-label">Days</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="hours">00</span>
-                <span class="countdown-label">Hrs</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="minutes">00</span>
-                <span class="countdown-label">Min</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="seconds">00</span>
-                <span class="countdown-label">Sec</span>
-            </div>
+            <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Days</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hrs</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Min</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Sec</span></div>
         </div>
     </section>
 
@@ -275,35 +258,23 @@
         <h2>RSVP</h2>
         <div class="card">
             <input type="text" placeholder="Your Name" required><br>
-            <input type="email" placeholder="Email" required><br>
-            <textarea placeholder="Your Message" rows="4"></textarea><br>
-            <button type="submit">Send RSVP</button>
+            <input type="email" placeholder="Email Address" required><br>
+            <textarea placeholder="Message" rows="4"></textarea><br>
+            <button type="submit">Submit RSVP</button>
         </div>
     </section>
 
     <script>
         const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
-
-        const countdown = setInterval(function () {
+        const x = setInterval(function () {
             const now = new Date().getTime();
             const distance = weddingDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = String(days).padStart(2, "0");
-            document.getElementById("hours").innerText = String(hours).padStart(2, "0");
-            document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
-            document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
-
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.querySelector(".countdown-container").innerHTML = "<h1>HAPPY WEDDING DAY!</h1>";
-            }
+            document.getElementById("days").innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, "0");
+            document.getElementById("hours").innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, "0");
+            document.getElementById("minutes").innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, "0");
+            document.getElementById("seconds").innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, "0");
+            if (distance < 0) { clearInterval(x); }
         }, 1000);
     </script>
-
 </body>
 </html>
