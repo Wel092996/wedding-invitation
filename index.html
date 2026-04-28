@@ -39,31 +39,32 @@
             font-weight: 500;
         }
 
-        /* HERO */
+        /* HERO - RESTRUCTURED FOR VISIBILITY */
         .hero {
             position: relative;
-            min-height: 100vh; /* Changed from height to min-height for desktop safety */
+            min-height: 100vh; 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
                         url("wedding2.jpg") center center / cover no-repeat;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: center; /* Centers items vertically */
             align-items: center;
             text-align: center;
-            padding: 100px 20px 60px; /* Added top padding to clear the Nav bar */
+            padding: 120px 20px 100px; /* Large top/bottom padding for desktop safety */
             box-sizing: border-box;
         }
 
-        /* FADE */
+        /* FADE - Adjusted to stay behind text */
         .hero::after {
             content: "";
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 200px;
+            height: 250px;
             background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
             z-index: 1;
+            pointer-events: none; /* Prevents interference with clicks */
         }
 
         .hero .intro-text,
@@ -72,21 +73,21 @@
         .countdown-container {
             color: #ffffff;
             position: relative;
-            z-index: 2; /* Ensures text stays above the bottom fade */
+            z-index: 5; /* Higher than the fade layer */
+            margin-bottom: 20px;
         }
 
         .intro-text {
-            font-size: clamp(0.7rem, 2vw, 1rem); /* Fluid font size */
+            font-size: clamp(0.75rem, 2vw, 1rem);
             letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 10px;
         }
 
         .names {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(3.5rem, 10vw, 6.5rem); /* Scales better on wide screens */
+            font-size: clamp(3.5rem, 10vw, 6.5rem);
             margin: 10px 0;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .names span {
@@ -98,28 +99,24 @@
         }
 
         @keyframes letterIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* COUNTDOWN STYLE */
+        /* COUNTDOWN */
         .countdown-container {
             display: flex;
-            gap: clamp(10px, 3vw, 30px);
-            margin-top: 20px;
+            gap: clamp(15px, 4vw, 35px);
+            margin: 25px 0;
         }
 
         .countdown-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 60px;
         }
 
         .countdown-number {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 500;
         }
 
@@ -127,15 +124,17 @@
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
+        /* INVITE MESSAGE - Fixed visibility */
         .invite-message {
-            max-width: 700px;
-            margin-top: 30px;
+            max-width: 650px;
             font-weight: 300;
-            line-height: 1.6;
-            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            line-height: 1.8;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            margin-top: 10px;
+            padding: 0 10px;
         }
 
         /* SECTIONS */
@@ -148,19 +147,28 @@
 
         /* FULL WIDTH DETAILS CARD */
         #details {
-            padding: 80px 0 0 0;
-            margin-top: -60px; /* Pulls it up into the hero fade */
+            padding: 0;
+            margin-top: -2px; /* Seamless connection to hero fade */
         }
 
         #details .card {
             width: 100%;
             max-width: 100%;
-            background: rgba(255,255,255,0.6);
+            background: #F3D6D8; /* Matches page background for clean edge */
             color: #4A2E2E;
             padding: 60px 20px;
             border-radius: 0;
             box-sizing: border-box;
             margin: 0;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .card-content {
+            background: rgba(255,255,255,0.4);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 8px;
         }
 
         /* STANDARD CARDS */
@@ -192,18 +200,11 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 15px;
-            transition: opacity 0.3s;
         }
 
-        button:hover {
-            opacity: 0.9;
-        }
-
-        /* MOBILE FIXES */
         @media (max-width: 480px) {
-            .hero { padding-top: 80px; }
-            .names { font-size: 3.2rem; }
-            .countdown-container { gap: 12px; }
+            .hero { padding-top: 100px; }
+            .names { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -229,38 +230,29 @@
     </h1>
 
     <div class="countdown-container">
-        <div class="countdown-item">
-            <span class="countdown-number" id="days">00</span>
-            <span class="countdown-label">Days</span>
-        </div>
-        <div class="countdown-item">
-            <span class="countdown-number" id="hours">00</span>
-            <span class="countdown-label">Hrs</span>
-        </div>
-        <div class="countdown-item">
-            <span class="countdown-number" id="minutes">00</span>
-            <span class="countdown-label">Min</span>
-        </div>
-        <div class="countdown-item">
-            <span class="countdown-number" id="seconds">00</span>
-            <span class="countdown-label">Sec</span>
-        </div>
+        <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Days</span></div>
+        <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hrs</span></div>
+        <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Min</span></div>
+        <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Sec</span></div>
     </div>
 
     <p class="invite-message">
-        Together with love and happiness, we invite you to witness and celebrate the beginning of our married life.
+        Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us as we exchange our vows.
     </p>
 </section>
 
 <section id="details">
     <div class="card">
-        <p style="letter-spacing: 2px; font-weight: 500;">JUNE 8, 2026 | 9:00 AM</p>
-        <p style="opacity: 0.8;">VENUE TO BE ANNOUNCED</p>
+        <div class="card-content">
+            <h3 style="letter-spacing: 4px; margin-bottom: 10px;">SAVE THE DATE</h3>
+            <p style="font-size: 1.5rem; margin: 10px 0;">JUNE 8, 2026 | 9:00 AM</p>
+            <p style="opacity: 0.8; letter-spacing: 1px;">VENUE TO BE ANNOUNCED</p>
+        </div>
     </div>
 </section>
 
 <section id="schedule">
-    <h2 style="font-family: 'Great Vibes', cursive; font-size: 3rem;">Program</h2>
+    <h2 style="font-family: 'Great Vibes', cursive; font-size: 3.5rem;">Program</h2>
     <div class="card">
         <p>💍 Ceremony - 9:00 AM</p>
         <p>📸 Photos - 10:30 AM</p>
@@ -269,7 +261,7 @@
 </section>
 
 <section id="rsvp">
-    <h2 style="font-family: 'Great Vibes', cursive; font-size: 3rem;">RSVP</h2>
+    <h2 style="font-family: 'Great Vibes', cursive; font-size: 3.5rem;">RSVP</h2>
     <div class="card">
         <input type="text" placeholder="Your Name"><br>
         <input type="email" placeholder="Email"><br>
@@ -297,7 +289,7 @@
 
         if (distance < 0) {
             clearInterval(x);
-            document.querySelector(".countdown-container").innerHTML = "<h1>JUST MARRIED!</h1>";
+            document.querySelector(".countdown-container").innerHTML = "<h1>HAPPY WEDDING DAY!</h1>";
         }
     }, 1000);
 </script>
