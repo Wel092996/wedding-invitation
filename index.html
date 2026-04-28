@@ -50,7 +50,7 @@
             justify-content: center; 
             align-items: center;
             text-align: center;
-            padding: 120px 20px 140px; 
+            padding: 120px 20px 0px; /* Reduced bottom padding to blend with PNG */
             box-sizing: border-box;
         }
 
@@ -83,7 +83,7 @@
             text-transform: uppercase;
         }
 
-        /* ROEL & MAILYN - Shifted 5 spaces down */
+        /* ROEL & MAILYN */
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3.5rem, 10vw, 6.5rem);
@@ -113,20 +113,19 @@
             padding: 0 15px;
         }
 
-        /* COUNTDOWN TO FOREVER - Shifted Lower */
+        /* COUNTDOWN TITLE - RESTORED FONT */
         .countdown-title {
-            font-size: 1.1rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
+            font-family: 'Great Vibes', cursive; /* Back to original elegant font */
+            font-size: clamp(2rem, 5vw, 3.5rem);
             margin-top: 60px; 
-            margin-bottom: 15px;
-            font-weight: 300;
-            opacity: 0.9;
+            margin-bottom: 10px;
+            font-weight: 400;
         }
 
         .countdown-container {
             display: flex;
             gap: clamp(10px, 4vw, 35px);
+            margin-bottom: 60px; /* Space before the PNG section starts */
         }
 
         .countdown-item {
@@ -148,11 +147,12 @@
             opacity: 0.9;
         }
 
-        /* DETAILS SECTION (PNG VERSION) */
+        /* DETAILS SECTION - PERFECT BLEND */
         #details {
             padding: 0;
-            margin-top: -2px;
+            margin: 0;
             background: #F3D6D8;
+            line-height: 0; /* Removes tiny gaps under image */
         }
 
         .full-width-container {
@@ -160,12 +160,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 40px 0;
+            padding: 0; /* Removed padding for perfect blend */
         }
 
         .details-image {
             width: 100%;
-            max-width: 1200px;
+            max-width: 100%; /* Edge to edge */
             height: auto;
             display: block;
         }
@@ -220,6 +220,7 @@
             .names { margin-top: 35px; }
             .countdown-title { margin-top: 40px; }
             .countdown-item { min-width: 50px; }
+            .countdown-container { margin-bottom: 40px; }
         }
     </style>
 </head>
