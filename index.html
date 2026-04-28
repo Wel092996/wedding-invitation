@@ -39,7 +39,7 @@
             font-weight: 500;
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION - RESTORED */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -51,7 +51,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 20px 0;
+            padding: 120px 20px 60px;
             box-sizing: border-box;
             z-index: 2;
         }
@@ -76,8 +76,7 @@
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3.5rem, 10vw, 6.5rem);
-            margin-top: 50px;
-            margin-bottom: 25px;
+            margin: 20px 0;
             line-height: 1.1;
         }
 
@@ -93,40 +92,62 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        .countdown-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-top: 30px;
+        }
+
         .countdown-container {
             display: flex;
             gap: clamp(10px, 4vw, 35px);
-            margin-bottom: 100px;
+            margin-top: 20px;
         }
 
-        .countdown-number { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; }
-        .countdown-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; }
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-        /* 🔥 UPDATED DETAILS SECTION - NO MORE details.png <img> TAG */
+        .countdown-number { 
+            font-size: clamp(1.8rem, 4vw, 2.8rem); 
+            font-weight: 500; 
+        }
+
+        .countdown-label { 
+            font-size: 0.7rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+        }
+
+        /* DETAILS SECTION - WITH ok.png */
         #details {
+            padding: 0;
+            margin-top: -120px; 
             position: relative;
-            z-index: 3;
-            margin-top: -120px; /* Pull up to overlap the fade */
-            min-height: 600px; /* Adjust this based on how tall your image is */
-            width: 100%;
-            background-color: #fff;
-            /* Using ok.png as the primary content image */
-            background-image: url("ok.png"); 
-            background-position: top center;
-            background-repeat: no-repeat;
-            background-size: contain; /* Keeps the whole 'ok.png' visible without cropping */
+            z-index: 3; 
+            line-height: 0;
+            background: url("ok.png") top center / cover no-repeat;
+            min-height: 500px;
         }
 
-        /* MOBILE FIX FOR THE SECTION */
+        /* Transition overlay to blend Hero into Details */
+        .details-overlay {
+            width: 100%;
+            height: auto;
+            visibility: hidden; /* Using an invisible spacer to maintain aspect ratio */
+        }
+
+        /* MOBILE FIXES */
         @media (max-width: 480px) {
             .hero { padding-top: 100px; }
             #details { 
                 margin-top: -50px; 
-                min-height: 400px; /* Smaller height for mobile screens */
+                min-height: 350px;
                 background-size: contain;
             } 
-            .countdown-container { margin-bottom: 50px; }
-            .names { font-size: 3rem; }
+            .names { font-size: 3.2rem; }
         }
 
         /* LOWER SECTIONS */
@@ -159,22 +180,39 @@
     </nav>
 
     <section class="hero" id="home">
-        <p>You are cordially invited to the wedding of</p>
+        <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem;">You are cordially invited to the wedding of</p>
+        
         <h1 class="names">
             <span style="--i:1">R</span><span style="--i:2">o</span><span style="--i:3">e</span><span style="--i:4">l</span>
             <br><span style="--i:5">&</span><br>
             <span style="--i:6">M</span><span style="--i:7">a</span><span style="--i:8">i</span><span style="--i:9">l</span><span style="--i:10">y</span><span style="--i:11">n</span>
         </h1>
-        <h2 style="font-family: 'Great Vibes', cursive;">Countdown to Forever</h2>
+
+        <h2 class="countdown-title">Countdown to Forever</h2>
+
         <div class="countdown-container">
-            <div class="countdown-item"><span class="countdown-number" id="days">00</span><br><span class="countdown-label">Days</span></div>
-            <div class="countdown-item"><span class="countdown-number" id="hours">00</span><br><span class="countdown-label">Hrs</span></div>
-            <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><br><span class="countdown-label">Min</span></div>
-            <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><br><span class="countdown-label">Sec</span></div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">00</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">Hrs</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">Min</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">Sec</span>
+            </div>
         </div>
     </section>
 
-    <section id="details"></section>
+    <section id="details">
+        <div style="height: 600px; width: 100%;"></div>
+    </section>
 
     <section id="schedule">
         <h2>Program</h2>
@@ -189,20 +227,38 @@
         <h2>RSVP</h2>
         <div class="card">
             <input type="text" placeholder="Your Name" style="width:100%; max-width:400px; padding:15px; margin:10px 0; border-radius:8px; border:1px solid #ddd;"><br>
-            <button type="submit" style="padding:15px 50px; background:#4A2E2E; color:#fff; border:none; cursor:pointer; border-radius:8px; letter-spacing:2px;">SUBMIT RSVP</button>
+            <button type="submit" style="padding:15px 50px; background:#4A2E2E; color:#fff; border:none; cursor:pointer; border-radius:8px; letter-spacing:2px; margin-top: 10px;">SUBMIT RSVP</button>
         </div>
     </section>
 
     <script>
         const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
-        setInterval(function () {
+        
+        function updateCountdown() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
-            document.getElementById("days").innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, "0");
-            document.getElementById("hours").innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, "0");
-            document.getElementById("minutes").innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, "0");
-            document.getElementById("seconds").innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, "0");
-        }, 1000);
+
+            if (distance < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(d).padStart(2, "0");
+            document.getElementById("hours").innerText = String(h).padStart(2, "0");
+            document.getElementById("minutes").innerText = String(m).padStart(2, "0");
+            document.getElementById("seconds").innerText = String(s).padStart(2, "0");
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Run immediately
     </script>
 </body>
 </html>
