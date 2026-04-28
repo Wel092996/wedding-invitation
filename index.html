@@ -70,6 +70,7 @@
         .hero > * {
             position: relative;
             z-index: 5;
+            text-shadow: 0px 2px 8px rgba(0,0,0,0.4);
         }
 
         .names {
@@ -95,35 +96,53 @@
             max-width: 700px;
             font-weight: 300;
             line-height: 1.8;
-            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
             margin: 10px auto 20px;
         }
 
         .countdown-title {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(2.2rem, 5vw, 3.5rem);
-            margin-top: 40px;
+            margin-top: 30px;
         }
 
+        /* THE ACTUAL COUNTDOWN STYLING */
         .countdown-container {
             display: flex;
-            gap: clamp(10px, 4vw, 35px);
+            gap: clamp(15px, 5vw, 40px);
             margin-top: 20px;
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
         }
 
         .countdown-item {
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-width: 60px;
         }
 
-        .countdown-number { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; }
-        .countdown-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; }
+        .countdown-number { 
+            font-size: clamp(2rem, 5vw, 3rem); 
+            font-weight: 600; 
+            display: block;
+            line-height: 1;
+        }
 
-        /* DETAILS SECTION - RESTORED ok.png as Image */
+        .countdown-label { 
+            font-size: 0.7rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+
+        /* DETAILS SECTION */
         #details {
             padding: 0;
-            margin-top: -120px; 
+            margin-top: -100px; 
             position: relative;
             z-index: 6; 
             line-height: 0;
@@ -134,38 +153,23 @@
             width: 100%;
             height: auto;
             display: block;
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%);
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%);
         }
 
-        /* MOBILE FIXES */
+        /* RESPONSIVE */
         @media (max-width: 480px) {
             .hero { padding-top: 100px; }
             #details { margin-top: -40px; } 
-            .details-image {
-                mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%);
-                -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%);
-            }
+            .countdown-container { gap: 15px; padding: 15px; }
         }
 
-        /* OTHER SECTIONS */
         section:not(.hero):not(#details) {
             padding: 80px 20px;
             text-align: center;
             background: #fff;
             color: #4A2E2E;
         }
-
-        .card {
-            max-width: 600px;
-            margin: auto;
-            background: rgba(253, 244, 245, 0.9); 
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        h2 { font-family: 'Great Vibes', cursive; font-size: 3.5rem; }
     </style>
 </head>
 <body>
@@ -193,10 +197,22 @@
         <h2 class="countdown-title">Countdown to Forever</h2>
 
         <div class="countdown-container">
-            <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Days</span></div>
-            <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hrs</span></div>
-            <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Min</span></div>
-            <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Sec</span></div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">00</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">Hrs</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">Min</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">Sec</span>
+            </div>
         </div>
     </section>
 
@@ -204,36 +220,42 @@
         <img src="ok.png" alt="Wedding Details" class="details-image">
     </section>
 
-    <section id="schedule">
-        <h2>Program</h2>
-        <div class="card">
-            <p>💍 Ceremony - 9:00 AM</p>
-            <p>📸 Photos - 10:30 AM</p>
-            <p>🍽 Reception - 12:00 PM</p>
-        </div>
-    </section>
-
-    <section id="rsvp">
-        <h2>RSVP</h2>
-        <div class="card">
-            <input type="text" placeholder="Your Name" style="width:100%; max-width:400px; padding:15px; margin:10px 0; border-radius:8px; border:1px solid #ddd;"><br>
-            <button type="submit" style="padding:15px 50px; background:#4A2E2E; color:#fff; border:none; cursor:pointer; border-radius:8px; letter-spacing:2px;">Submit RSVP</button>
-        </div>
+    <section id="schedule" style="color: #4A2E2E; text-align: center; padding: 50px 20px;">
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 3rem;">Program</h2>
+        <p>💍 Ceremony - 9:00 AM</p>
+        <p>🍽 Reception to follow</p>
     </section>
 
     <script>
-        const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-            if (distance < 0) return;
-            document.getElementById("days").innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, "0");
-            document.getElementById("hours").innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, "0");
-            document.getElementById("minutes").innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, "0");
-            document.getElementById("seconds").innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, "0");
+        function startCountdown() {
+            const targetDate = new Date("June 8, 2026 09:00:00").getTime();
+
+            function update() {
+                const now = new Date().getTime();
+                const diff = targetDate - now;
+
+                if (diff <= 0) {
+                    clearInterval(timerInterval);
+                    return;
+                }
+
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerHTML = d.toString().padStart(2, '0');
+                document.getElementById("hours").innerHTML = h.toString().padStart(2, '0');
+                document.getElementById("minutes").innerHTML = m.toString().padStart(2, '0');
+                document.getElementById("seconds").innerHTML = s.toString().padStart(2, '0');
+            }
+
+            const timerInterval = setInterval(update, 1000);
+            update(); // Run once immediately
         }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+
+        // Initialize when window loads
+        window.onload = startCountdown;
     </script>
 </body>
 </html>
