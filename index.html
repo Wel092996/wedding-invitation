@@ -39,7 +39,7 @@
             font-weight: 500;
         }
 
-        /* HERO - RESTRUCTURED FOR VISIBILITY */
+        /* HERO */
         .hero {
             position: relative;
             min-height: 100vh; 
@@ -47,14 +47,13 @@
                         url("wedding2.jpg") center center / cover no-repeat;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centers items vertically */
+            justify-content: center; 
             align-items: center;
             text-align: center;
-            padding: 120px 20px 100px; /* Large top/bottom padding for desktop safety */
+            padding: 120px 20px 120px; 
             box-sizing: border-box;
         }
 
-        /* FADE - Adjusted to stay behind text */
         .hero::after {
             content: "";
             position: absolute;
@@ -64,7 +63,7 @@
             height: 250px;
             background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
             z-index: 1;
-            pointer-events: none; /* Prevents interference with clicks */
+            pointer-events: none;
         }
 
         .hero .intro-text,
@@ -73,20 +72,20 @@
         .countdown-container {
             color: #ffffff;
             position: relative;
-            z-index: 5; /* Higher than the fade layer */
-            margin-bottom: 20px;
+            z-index: 5;
         }
 
         .intro-text {
             font-size: clamp(0.75rem, 2vw, 1rem);
             letter-spacing: 5px;
             text-transform: uppercase;
+            margin-bottom: 10px;
         }
 
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3.5rem, 10vw, 6.5rem);
-            margin: 10px 0;
+            margin: 10px 0 30px;
             line-height: 1.1;
         }
 
@@ -102,11 +101,21 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* COUNTDOWN */
+        /* INVITE MESSAGE */
+        .invite-message {
+            max-width: 700px;
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+
+        /* COUNTDOWN - NOW BELOW THE MESSAGE */
         .countdown-container {
             display: flex;
             gap: clamp(15px, 4vw, 35px);
-            margin: 25px 0;
+            margin-top: 10px;
         }
 
         .countdown-item {
@@ -127,16 +136,6 @@
             opacity: 0.9;
         }
 
-        /* INVITE MESSAGE - Fixed visibility */
-        .invite-message {
-            max-width: 650px;
-            font-weight: 300;
-            line-height: 1.8;
-            font-size: clamp(1rem, 1.5vw, 1.2rem);
-            margin-top: 10px;
-            padding: 0 10px;
-        }
-
         /* SECTIONS */
         section {
             padding: 100px 20px;
@@ -145,21 +144,17 @@
             color: #4A2E2E;
         }
 
-        /* FULL WIDTH DETAILS CARD */
         #details {
             padding: 0;
-            margin-top: -2px; /* Seamless connection to hero fade */
+            margin-top: -2px;
         }
 
         #details .card {
             width: 100%;
-            max-width: 100%;
-            background: #F3D6D8; /* Matches page background for clean edge */
-            color: #4A2E2E;
+            background: #F3D6D8;
             padding: 60px 20px;
             border-radius: 0;
             box-sizing: border-box;
-            margin: 0;
             border-top: 1px solid rgba(255,255,255,0.3);
         }
 
@@ -171,7 +166,6 @@
             border-radius: 8px;
         }
 
-        /* STANDARD CARDS */
         .card {
             max-width: 600px;
             margin: auto;
@@ -192,19 +186,19 @@
 
         button {
             padding: 12px 40px;
-            border: none;
             background: #4A2E2E;
             color: #fff;
+            border: none;
             cursor: pointer;
             border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 15px;
         }
 
         @media (max-width: 480px) {
             .hero { padding-top: 100px; }
             .names { font-size: 3.5rem; }
+            .invite-message { margin-bottom: 20px; }
         }
     </style>
 </head>
@@ -229,16 +223,16 @@
         <span style="--i:6">M</span><span style="--i:7">a</span><span style="--i:8">i</span><span style="--i:9">l</span><span style="--i:10">y</span><span style="--i:11">n</span>
     </h1>
 
+    <p class="invite-message">
+        Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us as we exchange our vows.
+    </p>
+
     <div class="countdown-container">
         <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Days</span></div>
         <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hrs</span></div>
         <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Min</span></div>
         <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Sec</span></div>
     </div>
-
-    <p class="invite-message">
-        Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us as we exchange our vows.
-    </p>
 </section>
 
 <section id="details">
