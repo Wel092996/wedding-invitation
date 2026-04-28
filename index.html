@@ -17,7 +17,7 @@
             overflow-x: hidden;
         }
 
-        /* NAV */
+        /* NAVIGATION BAR */
         nav {
             position: fixed;
             top: 0;
@@ -39,7 +39,7 @@
             font-weight: 500;
         }
 
-        /* HERO */
+        /* HERO SECTION */
         .hero {
             position: relative;
             min-height: 100vh; 
@@ -54,6 +54,7 @@
             box-sizing: border-box;
         }
 
+        /* BOTTOM FADE */
         .hero::after {
             content: "";
             position: absolute;
@@ -63,6 +64,7 @@
             height: 250px;
             background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
             z-index: 1;
+            pointer-events: none;
         }
 
         .hero .intro-text,
@@ -81,10 +83,11 @@
             text-transform: uppercase;
         }
 
+        /* ROEL & MAILYN - Shifted 5 spaces down */
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3.5rem, 10vw, 6.5rem);
-            margin-top: 50px; /* The 5 spaces you requested */
+            margin-top: 50px; 
             margin-bottom: 25px;
             line-height: 1.1;
         }
@@ -110,6 +113,7 @@
             padding: 0 15px;
         }
 
+        /* COUNTDOWN TO FOREVER - Shifted Lower */
         .countdown-title {
             font-size: 1.1rem;
             letter-spacing: 6px;
@@ -117,11 +121,12 @@
             margin-top: 60px; 
             margin-bottom: 15px;
             font-weight: 300;
+            opacity: 0.9;
         }
 
         .countdown-container {
             display: flex;
-            gap: clamp(10px, 4vw, 35px); /* Responsive gap */
+            gap: clamp(10px, 4vw, 35px);
         }
 
         .countdown-item {
@@ -143,34 +148,34 @@
             opacity: 0.9;
         }
 
-        /* SECTIONS RESTORED */
+        /* DETAILS SECTION (PNG VERSION) */
+        #details {
+            padding: 0;
+            margin-top: -2px;
+            background: #F3D6D8;
+        }
+
+        .full-width-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .details-image {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            display: block;
+        }
+
+        /* REMAINING SECTIONS */
         section {
             padding: 100px 20px;
             text-align: center;
             background: #F3D6D8;
             color: #4A2E2E;
-        }
-
-        #details {
-            padding: 0;
-            margin-top: -2px;
-        }
-
-        #details .card {
-            width: 100%;
-            max-width: 100%;
-            background: #F3D6D8;
-            padding: 60px 20px;
-            box-sizing: border-box;
-            border-top: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .card-content {
-            background: rgba(255,255,255,0.4);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px;
-            border-radius: 8px;
         }
 
         .card {
@@ -179,6 +184,12 @@
             background: rgba(255,255,255,0.5);
             padding: 30px;
             border-radius: 12px;
+        }
+
+        h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
         }
 
         input, textarea {
@@ -200,11 +211,13 @@
             border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 2px;
+            margin-top: 15px;
         }
 
+        /* MOBILE FIXES */
         @media (max-width: 480px) {
             .hero { padding-top: 100px; }
-            .names { margin-top: 30px; }
+            .names { margin-top: 35px; }
             .countdown-title { margin-top: 40px; }
             .countdown-item { min-width: 50px; }
         }
@@ -245,17 +258,13 @@
 </section>
 
 <section id="details">
-    <div class="card">
-        <div class="card-content">
-            <h3 style="letter-spacing: 4px; margin-bottom: 10px;">SAVE THE DATE</h3>
-            <p style="font-size: 1.5rem; margin: 10px 0;">JUNE 8, 2026 | 9:00 AM</p>
-            <p style="opacity: 0.8; letter-spacing: 1px;">VENUE TO BE ANNOUNCED</p>
-        </div>
+    <div class="full-width-container">
+        <img src="details.png" alt="Wedding Details" class="details-image">
     </div>
 </section>
 
 <section id="schedule">
-    <h2 style="font-family: 'Great Vibes', cursive; font-size: 3.5rem;">Program</h2>
+    <h2>Program</h2>
     <div class="card">
         <p>💍 Ceremony - 9:00 AM</p>
         <p>📸 Photos - 10:30 AM</p>
@@ -264,7 +273,7 @@
 </section>
 
 <section id="rsvp">
-    <h2 style="font-family: 'Great Vibes', cursive; font-size: 3.5rem;">RSVP</h2>
+    <h2>RSVP</h2>
     <div class="card">
         <input type="text" placeholder="Your Name"><br>
         <input type="email" placeholder="Email"><br>
@@ -274,27 +283,22 @@
 </section>
 
 <script>
-    // FIX: Set the wedding date
     const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
 
-    // Update the countdown every 1 second
     const x = setInterval(function() {
         const now = new Date().getTime();
         const distance = weddingDate - now;
 
-        // Calculations for days, hours, minutes and seconds
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Output the result in elements with id="days", "hours", etc.
         document.getElementById("days").innerText = days.toString().padStart(2, '0');
         document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
         document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
         document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
 
-        // If the countdown is finished
         if (distance < 0) {
             clearInterval(x);
             document.querySelector(".countdown-container").innerHTML = "<h1>HAPPY WEDDING DAY!</h1>";
