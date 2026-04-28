@@ -8,11 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
     <style>
+        /* RESET & BASE */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background: #F3D6D8; /* Set body to the detail color for seamless feel */
+            background: #F3D6D8; /* Matches your PNG background */
             color: #fff;
             overflow-x: hidden;
         }
@@ -43,9 +44,8 @@
         .hero {
             position: relative;
             min-height: 100vh;
-            background:
-                linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url("wedding2.jpg") center center / cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url("wedding2.jpg") center center / cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -53,43 +53,32 @@
             text-align: center;
             padding: 120px 20px 0;
             box-sizing: border-box;
-            background-attachment: fixed; /* Optional: adds a parallax effect for smoother scroll */
+            border: none; /* Removes any browser-default borders */
         }
 
-        /* HERO TO DETAILS FADE - Enhanced for seamless blending */
+        /* SEAMLESS BOTTOM FADE */
         .hero::after {
             content: "";
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 350px; /* Increased height for a smoother fade */
+            height: 350px;
             background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #F3D6D8 100%);
             z-index: 1;
             pointer-events: none;
         }
 
-        .hero .intro-text,
-        .hero .names,
-        .hero .invite-message,
-        .countdown-title,
-        .countdown-container {
+        .hero > * {
             position: relative;
             z-index: 5;
-            color: #fff;
         }
 
-        .intro-text {
-            font-size: clamp(0.75rem, 2vw, 1rem);
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
-
-        /* NAMES */
+        /* NAMES - Shifted 5 spaces down */
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3.5rem, 10vw, 6.5rem);
-            margin-top: 50px;
+            margin-top: 50px; 
             margin-bottom: 25px;
             line-height: 1.1;
         }
@@ -103,10 +92,7 @@
         }
 
         @keyframes letterIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .invite-message {
@@ -115,13 +101,12 @@
             line-height: 1.8;
             font-size: clamp(1rem, 1.5vw, 1.1rem);
             margin-bottom: 20px;
-            padding: 0 15px;
         }
 
-        /* COUNTDOWN */
+        /* COUNTDOWN - Restored Cursive Title */
         .countdown-title {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
             margin-top: 60px;
             margin-bottom: 10px;
             font-weight: 400;
@@ -130,7 +115,7 @@
         .countdown-container {
             display: flex;
             gap: clamp(10px, 4vw, 35px);
-            margin-bottom: 80px; /* Increased bottom margin for transition space */
+            margin-bottom: 80px;
         }
 
         .countdown-item {
@@ -152,102 +137,77 @@
             opacity: 0.9;
         }
 
-        /* DETAILS SECTION - PERFECTLY SEAMLESS */
+        /* DETAILS PNG - STITCHED SEAMLESSLY */
         #details {
             padding: 0;
-            margin-top: -5px; /* Pulls section up slightly to kill pixel gaps */
+            margin-top: -3px; /* Pulls the section up to overlap the hero fade and hide gaps */
             background: #F3D6D8;
-            line-height: 0;
+            line-height: 0; /* Removes font-baseline gaps */
             position: relative;
-            z-index: 10; /* Higher z-index ensures it sits on top of hero fade */
-        }
-
-        .full-width-container {
-            width: 100%;
-            margin: 0;
-            padding: 0;
+            z-index: 10;
         }
 
         .details-image {
             width: 100%;
             height: auto;
             display: block;
-            margin: 0;
-            padding: 0;
+            vertical-align: bottom; /* Removes tiny space at the bottom of images */
             border: none;
+            outline: none;
         }
 
-        /* REMAINING SECTIONS */
-        section {
+        /* OTHER SECTIONS */
+        section:not(.hero):not(#details) {
             padding: 100px 20px;
             text-align: center;
             background: #F3D6D8;
             color: #4A2E2E;
-            margin-top: -1px; /* Stitching sections together */
         }
 
         .card {
             max-width: 600px;
             margin: auto;
-            background: rgba(255,255,255,0.4); /* Slightly lowered opacity for better blend */
-            padding: 30px;
+            background: rgba(255,255,255,0.4);
+            padding: 40px;
             border-radius: 12px;
         }
 
         h2 {
             font-family: 'Great Vibes', cursive;
             font-size: 3.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        input,
-        textarea {
+        input, textarea {
             width: 100%;
             max-width: 450px;
-            padding: 12px;
+            padding: 15px;
             margin: 10px 0;
-            border-radius: 4px;
-            border: 1px solid rgba(74,46,46,0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(74, 46, 46, 0.2);
             box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
         }
 
         button {
-            padding: 12px 40px;
+            padding: 15px 50px;
             background: #4A2E2E;
             color: #fff;
             border: none;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 8px;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 15px;
         }
 
-        /* MOBILE */
+        /* MOBILE FIXES */
         @media (max-width: 480px) {
-            .hero {
-                padding-top: 100px;
-            }
-            .names {
-                margin-top: 35px;
-            }
-            .countdown-title {
-                margin-top: 40px;
-            }
-            .countdown-item {
-                min-width: 50px;
-            }
-            .countdown-container {
-                margin-bottom: 40px;
-            }
-            nav {
-                gap: 15px;
-                padding: 15px 10px;
-                flex-wrap: wrap;
-            }
-            nav a {
-                font-size: 0.75rem;
-            }
+            .hero { padding-top: 100px; }
+            .names { margin-top: 35px; }
+            .countdown-title { margin-top: 40px; }
+            .countdown-container { margin-bottom: 60px; }
+            nav { gap: 15px; }
         }
     </style>
 </head>
@@ -272,7 +232,7 @@
         </h1>
 
         <p class="invite-message">
-            Together with love and happiness, we invite you to witness and celebrate the beginning of our married life.
+            Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. 
             We would be honored to have you with us as we exchange our vows.
         </p>
 
@@ -283,17 +243,14 @@
                 <span class="countdown-number" id="days">00</span>
                 <span class="countdown-label">Days</span>
             </div>
-
             <div class="countdown-item">
                 <span class="countdown-number" id="hours">00</span>
                 <span class="countdown-label">Hrs</span>
             </div>
-
             <div class="countdown-item">
                 <span class="countdown-number" id="minutes">00</span>
                 <span class="countdown-label">Min</span>
             </div>
-
             <div class="countdown-item">
                 <span class="countdown-number" id="seconds">00</span>
                 <span class="countdown-label">Sec</span>
@@ -302,9 +259,7 @@
     </section>
 
     <section id="details">
-        <div class="full-width-container">
-            <img src="details.png" alt="Wedding Details" class="details-image">
-        </div>
+        <img src="details.png" alt="Wedding Details" class="details-image">
     </section>
 
     <section id="schedule">
@@ -319,10 +274,10 @@
     <section id="rsvp">
         <h2>RSVP</h2>
         <div class="card">
-            <input type="text" placeholder="Your Name"><br>
-            <input type="email" placeholder="Email"><br>
-            <textarea placeholder="Message" rows="4"></textarea><br>
-            <button>Send RSVP</button>
+            <input type="text" placeholder="Your Name" required><br>
+            <input type="email" placeholder="Email" required><br>
+            <textarea placeholder="Your Message" rows="4"></textarea><br>
+            <button type="submit">Send RSVP</button>
         </div>
     </section>
 
