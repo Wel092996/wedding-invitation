@@ -39,7 +39,7 @@
             font-weight: 500;
         }
 
-        /* HERO SECTION - RESTORED */
+        /* HERO SECTION */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -65,7 +65,6 @@
             height: 350px; 
             background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 100%);
             z-index: 1;
-            pointer-events: none;
         }
 
         .hero > * {
@@ -92,10 +91,18 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        .invite-message {
+            max-width: 700px;
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            margin: 10px auto 20px;
+        }
+
         .countdown-title {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-top: 30px;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-top: 40px;
         }
 
         .countdown-container {
@@ -110,47 +117,38 @@
             align-items: center;
         }
 
-        .countdown-number { 
-            font-size: clamp(1.8rem, 4vw, 2.8rem); 
-            font-weight: 500; 
-        }
+        .countdown-number { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; }
+        .countdown-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; }
 
-        .countdown-label { 
-            font-size: 0.7rem; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-        }
-
-        /* DETAILS SECTION - WITH ok.png */
+        /* DETAILS SECTION - RESTORED ok.png as Image */
         #details {
             padding: 0;
             margin-top: -120px; 
             position: relative;
-            z-index: 3; 
+            z-index: 6; 
             line-height: 0;
-            background: url("ok.png") top center / cover no-repeat;
-            min-height: 500px;
+            background: #fff;
         }
 
-        /* Transition overlay to blend Hero into Details */
-        .details-overlay {
+        .details-image {
             width: 100%;
             height: auto;
-            visibility: hidden; /* Using an invisible spacer to maintain aspect ratio */
+            display: block;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%);
         }
 
         /* MOBILE FIXES */
         @media (max-width: 480px) {
             .hero { padding-top: 100px; }
-            #details { 
-                margin-top: -50px; 
-                min-height: 350px;
-                background-size: contain;
-            } 
-            .names { font-size: 3.2rem; }
+            #details { margin-top: -40px; } 
+            .details-image {
+                mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%);
+                -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%);
+            }
         }
 
-        /* LOWER SECTIONS */
+        /* OTHER SECTIONS */
         section:not(.hero):not(#details) {
             padding: 80px 20px;
             text-align: center;
@@ -167,7 +165,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        h2 { font-family: 'Great Vibes', cursive; font-size: 3.5rem; margin-bottom: 30px; }
+        h2 { font-family: 'Great Vibes', cursive; font-size: 3.5rem; }
     </style>
 </head>
 <body>
@@ -180,7 +178,7 @@
     </nav>
 
     <section class="hero" id="home">
-        <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.75rem;">You are cordially invited to the wedding of</p>
+        <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.7rem;">You are cordially invited to the wedding of</p>
         
         <h1 class="names">
             <span style="--i:1">R</span><span style="--i:2">o</span><span style="--i:3">e</span><span style="--i:4">l</span>
@@ -188,30 +186,22 @@
             <span style="--i:6">M</span><span style="--i:7">a</span><span style="--i:8">i</span><span style="--i:9">l</span><span style="--i:10">y</span><span style="--i:11">n</span>
         </h1>
 
+        <p class="invite-message">
+            Together with love and happiness, we invite you to witness and celebrate the beginning of our married life.
+        </p>
+
         <h2 class="countdown-title">Countdown to Forever</h2>
 
         <div class="countdown-container">
-            <div class="countdown-item">
-                <span class="countdown-number" id="days">00</span>
-                <span class="countdown-label">Days</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="hours">00</span>
-                <span class="countdown-label">Hrs</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="minutes">00</span>
-                <span class="countdown-label">Min</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="seconds">00</span>
-                <span class="countdown-label">Sec</span>
-            </div>
+            <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Days</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hrs</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Min</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Sec</span></div>
         </div>
     </section>
 
     <section id="details">
-        <div style="height: 600px; width: 100%;"></div>
+        <img src="ok.png" alt="Wedding Details" class="details-image">
     </section>
 
     <section id="schedule">
@@ -227,38 +217,23 @@
         <h2>RSVP</h2>
         <div class="card">
             <input type="text" placeholder="Your Name" style="width:100%; max-width:400px; padding:15px; margin:10px 0; border-radius:8px; border:1px solid #ddd;"><br>
-            <button type="submit" style="padding:15px 50px; background:#4A2E2E; color:#fff; border:none; cursor:pointer; border-radius:8px; letter-spacing:2px; margin-top: 10px;">SUBMIT RSVP</button>
+            <button type="submit" style="padding:15px 50px; background:#4A2E2E; color:#fff; border:none; cursor:pointer; border-radius:8px; letter-spacing:2px;">Submit RSVP</button>
         </div>
     </section>
 
     <script>
         const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
-        
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
-
-            if (distance < 0) {
-                document.getElementById("days").innerText = "00";
-                document.getElementById("hours").innerText = "00";
-                document.getElementById("minutes").innerText = "00";
-                document.getElementById("seconds").innerText = "00";
-                return;
-            }
-
-            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = String(d).padStart(2, "0");
-            document.getElementById("hours").innerText = String(h).padStart(2, "0");
-            document.getElementById("minutes").innerText = String(m).padStart(2, "0");
-            document.getElementById("seconds").innerText = String(s).padStart(2, "0");
+            if (distance < 0) return;
+            document.getElementById("days").innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, "0");
+            document.getElementById("hours").innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, "0");
+            document.getElementById("minutes").innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, "0");
+            document.getElementById("seconds").innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, "0");
         }
-
         setInterval(updateCountdown, 1000);
-        updateCountdown(); // Run immediately
+        updateCountdown();
     </script>
 </body>
 </html>
