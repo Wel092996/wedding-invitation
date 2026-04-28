@@ -50,7 +50,7 @@
             justify-content: center; 
             align-items: center;
             text-align: center;
-            padding: 120px 20px 140px; /* Increased bottom padding */
+            padding: 120px 20px 140px; 
             box-sizing: border-box;
         }
 
@@ -63,7 +63,6 @@
             height: 250px;
             background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
             z-index: 1;
-            pointer-events: none;
         }
 
         .hero .intro-text,
@@ -80,13 +79,14 @@
             font-size: clamp(0.75rem, 2vw, 1rem);
             letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 10px;
         }
 
+        /* 🔥 ADJUSTED: Added margin-top to push names and following content down */
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3.5rem, 10vw, 6.5rem);
-            margin: 10px 0 20px;
+            margin-top: 50px; /* This moves Roel & Mailyn 5 spaces lower */
+            margin-bottom: 25px;
             line-height: 1.1;
         }
 
@@ -111,12 +111,11 @@
             padding: 0 15px;
         }
 
-        /* 🔥 MOVED LOWER: Added significant margin-top */
         .countdown-title {
             font-size: 1.1rem;
             letter-spacing: 6px;
             text-transform: uppercase;
-            margin-top: 60px; /* This pushes the title and timer down */
+            margin-top: 60px; 
             margin-bottom: 15px;
             font-weight: 300;
             opacity: 0.9;
@@ -125,7 +124,6 @@
         .countdown-container {
             display: flex;
             gap: clamp(15px, 4vw, 35px);
-            margin-bottom: 20px;
         }
 
         .countdown-item {
@@ -146,42 +144,12 @@
             opacity: 0.9;
         }
 
-        /* SECTIONS */
-        section {
-            padding: 100px 20px;
-            text-align: center;
-            background: #F3D6D8;
-            color: #4A2E2E;
-        }
-
-        #details {
-            padding: 0;
-            margin-top: -2px;
-        }
-
-        #details .card {
-            width: 100%;
-            background: #F3D6D8;
-            padding: 60px 20px;
-            box-sizing: border-box;
-            border-top: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .card-content {
-            background: rgba(255,255,255,0.4);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px;
-            border-radius: 8px;
-        }
-
         @media (max-width: 480px) {
             .hero { padding-top: 100px; }
-            .countdown-title { margin-top: 40px; } /* Slightly less on mobile */
+            .names { margin-top: 30px; } /* Slightly less on mobile for better fit */
         }
     </style>
 </head>
-
 <body>
 
 <nav>
@@ -215,35 +183,6 @@
         <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Sec</span></div>
     </div>
 </section>
-
-<section id="details">
-    <div class="card">
-        <div class="card-content">
-            <h3 style="letter-spacing: 4px; margin-bottom: 10px;">SAVE THE DATE</h3>
-            <p style="font-size: 1.5rem; margin: 10px 0;">JUNE 8, 2026 | 9:00 AM</p>
-            <p style="opacity: 0.8; letter-spacing: 1px;">VENUE TO BE ANNOUNCED</p>
-        </div>
-    </div>
-</section>
-
-<script>
-    const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
-
-    setInterval(function() {
-        const now = new Date().getTime();
-        const distance = weddingDate - now;
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerText = days.toString().padStart(2, '0');
-        document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-        document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-        document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
-    }, 1000);
-</script>
 
 </body>
 </html>
