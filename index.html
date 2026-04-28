@@ -39,7 +39,7 @@
             font-weight: 500;
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION - BALANCED FOR LAPTOP */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -48,10 +48,10 @@
                 url("wedding2.jpg") center center / cover no-repeat;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: center; /* Centers content vertically */
             align-items: center;
             text-align: center;
-            padding: 120px 20px 60px;
+            padding: 80px 20px; /* Reduced top padding for better balance */
             box-sizing: border-box;
             z-index: 2;
         }
@@ -62,7 +62,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 350px; 
+            height: 30%; /* Balanced the fade height */
             background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 100%);
             z-index: 1;
         }
@@ -75,8 +75,8 @@
 
         .names {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(3.5rem, 10vw, 6.5rem);
-            margin: 20px 0;
+            font-size: clamp(3.5rem, 8vw, 6.5rem); /* Slightly smaller max size for laptop balance */
+            margin: 15px 0;
             line-height: 1.1;
         }
 
@@ -93,56 +93,54 @@
         }
 
         .invite-message {
-            max-width: 700px;
+            max-width: 600px;
             font-weight: 300;
-            line-height: 1.8;
-            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-            margin: 10px auto 20px;
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+            margin: 0 auto 20px;
         }
 
         .countdown-title {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            margin-top: 30px;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-top: 20px;
         }
 
-        /* THE ACTUAL COUNTDOWN STYLING */
         .countdown-container {
             display: flex;
-            gap: clamp(15px, 5vw, 40px);
-            margin-top: 20px;
-            background: rgba(0,0,0,0.2);
-            padding: 20px;
+            gap: clamp(15px, 3vw, 40px);
+            margin-top: 15px;
+            background: rgba(0,0,0,0.25);
+            padding: 20px 30px;
             border-radius: 15px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
         }
 
         .countdown-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 60px;
+            min-width: 50px;
         }
 
         .countdown-number { 
-            font-size: clamp(2rem, 5vw, 3rem); 
+            font-size: clamp(1.8rem, 4vw, 2.8rem); 
             font-weight: 600; 
             display: block;
-            line-height: 1;
         }
 
         .countdown-label { 
-            font-size: 0.7rem; 
+            font-size: 0.65rem; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
             margin-top: 5px;
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
-        /* DETAILS SECTION */
+        /* DETAILS SECTION - REDUCED LAPTOP GAP */
         #details {
             padding: 0;
-            margin-top: -100px; 
+            margin-top: -80px; /* Pulls the image up into the fade slightly */
             position: relative;
             z-index: 6; 
             line-height: 0;
@@ -151,21 +149,27 @@
 
         .details-image {
             width: 100%;
+            max-width: 1200px; /* Prevents image from being too huge on big monitors */
+            margin: 0 auto;
             height: auto;
             display: block;
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%);
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 12%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%);
         }
 
-        /* RESPONSIVE */
+        /* MOBILE SPECIFIC OVERRIDES */
         @media (max-width: 480px) {
-            .hero { padding-top: 100px; }
+            .hero { 
+                padding-top: 100px; 
+                justify-content: flex-start; /* Better for small screens */
+            }
+            .names { font-size: 3.2rem; }
             #details { margin-top: -40px; } 
-            .countdown-container { gap: 15px; padding: 15px; }
+            .countdown-container { padding: 15px; }
         }
 
         section:not(.hero):not(#details) {
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
             background: #fff;
             color: #4A2E2E;
@@ -182,7 +186,7 @@
     </nav>
 
     <section class="hero" id="home">
-        <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.7rem;">You are cordially invited to the wedding of</p>
+        <p style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 0;">You are cordially invited to the wedding of</p>
         
         <h1 class="names">
             <span style="--i:1">R</span><span style="--i:2">o</span><span style="--i:3">e</span><span style="--i:4">l</span>
@@ -191,28 +195,16 @@
         </h1>
 
         <p class="invite-message">
-            Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us.
+            Together with love and happiness, we invite you to witness and celebrate the beginning of our married life.
         </p>
 
         <h2 class="countdown-title">Countdown to Forever</h2>
 
         <div class="countdown-container">
-            <div class="countdown-item">
-                <span class="countdown-number" id="days">00</span>
-                <span class="countdown-label">Days</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="hours">00</span>
-                <span class="countdown-label">Hrs</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="minutes">00</span>
-                <span class="countdown-label">Min</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="seconds">00</span>
-                <span class="countdown-label">Sec</span>
-            </div>
+            <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Days</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span class="countdown-label">Hrs</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">Min</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">Sec</span></div>
         </div>
     </section>
 
@@ -220,42 +212,41 @@
         <img src="ok.png" alt="Wedding Details" class="details-image">
     </section>
 
-    <section id="schedule" style="color: #4A2E2E; text-align: center; padding: 50px 20px;">
+    <section id="schedule">
         <h2 style="font-family: 'Great Vibes', cursive; font-size: 3rem;">Program</h2>
         <p>💍 Ceremony - 9:00 AM</p>
         <p>🍽 Reception to follow</p>
     </section>
 
     <script>
-        function startCountdown() {
+        (function() {
             const targetDate = new Date("June 8, 2026 09:00:00").getTime();
+            const elements = {
+                d: document.getElementById("days"),
+                h: document.getElementById("hours"),
+                m: document.getElementById("minutes"),
+                s: document.getElementById("seconds")
+            };
 
             function update() {
                 const now = new Date().getTime();
                 const diff = targetDate - now;
 
                 if (diff <= 0) {
-                    clearInterval(timerInterval);
+                    elements.d.innerHTML = "00"; elements.h.innerHTML = "00";
+                    elements.m.innerHTML = "00"; elements.s.innerHTML = "00";
                     return;
                 }
 
-                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-                document.getElementById("days").innerHTML = d.toString().padStart(2, '0');
-                document.getElementById("hours").innerHTML = h.toString().padStart(2, '0');
-                document.getElementById("minutes").innerHTML = m.toString().padStart(2, '0');
-                document.getElementById("seconds").innerHTML = s.toString().padStart(2, '0');
+                elements.d.innerHTML = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                elements.h.innerHTML = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                elements.m.innerHTML = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                elements.s.innerHTML = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
             }
 
-            const timerInterval = setInterval(update, 1000);
-            update(); // Run once immediately
-        }
-
-        // Initialize when window loads
-        window.onload = startCountdown;
+            setInterval(update, 1000);
+            update();
+        })();
     </script>
 </body>
 </html>
