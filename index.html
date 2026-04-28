@@ -43,7 +43,7 @@
             font-weight: 500;
         }
 
-        /* HERO SECTION - RESTORED TO BALANCED VERSION */
+        /* HERO SECTION - UPPER PORTION REMAINS UNALTERED */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -128,11 +128,13 @@
             opacity: 0.8;
         }
 
-        /* DETAILS SECTION - CLOSING THE GAP ONLY */
+        /* DETAILS SECTION - This is where the gap fix is applied */
         #details {
             width: 100%;
             padding: 0;
-            margin-top: -5px; /* Tiny adjustment to ensure no white line exists */
+            /* Negative margin pulls the content up, closing the gap 
+               without altering the .hero code above. */
+            margin-top: -2px; 
             position: relative;
             z-index: 10; 
             background: #fff;
@@ -211,16 +213,16 @@
 
     <section id="schedule" class="content-section">
         <h2>Wedding Schedule</h2>
-        <p>💍 <strong>Ceremony:</strong> 9:00 AM - St. Augustine Church</p>
-        <p>🍽 <strong>Reception:</strong> 11:30 AM - Grand Hall</p>
+        <p>💍 <strong>Ceremony:</strong> 9:00 AM - Your Church Name</p>
+        <p>🍽 <strong>Reception:</strong> 11:30 AM - Your Venue Name</p>
     </section>
 
     <section id="rsvp" class="content-section" style="background-color: #fcfcfc;">
         <h2>RSVP</h2>
-        <p>We look forward to celebrating with you!</p>
+        <p>Kindly respond by May 15, 2026</p>
         <div style="margin-top: 30px;">
             <input type="text" placeholder="Full Name" style="padding: 12px; width: 80%; max-width: 300px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;"><br>
-            <button style="background: #4A2E2E; color: white; padding: 12px 40px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">SUBMIT RSVP</button>
+            <button style="background: #4A2E2E; color: white; padding: 12px 40px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">SUBMIT</button>
         </div>
     </section>
 
