@@ -74,7 +74,6 @@
             background: rgba(0,0,0,0.2); padding: 20px 30px;
             border-radius: 15px; backdrop-filter: blur(5px); margin-top: 20px;
         }
-
         .countdown-item { display: flex; flex-direction: column; align-items: center; min-width: 60px; }
         .countdown-number { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; }
 
@@ -138,17 +137,11 @@
             color: #fff;
         }
 
-        /* =========================
-           MOBILE FIX (ONLY LOCATION)
-           ========================= */
         @media (max-width: 768px) {
-
-            /* KEEP LOCATION SAME AS DESKTOP */
             #location .location-grid {
                 flex-direction: row !important;
                 flex-wrap: wrap;
             }
-
             #location .location-card {
                 min-width: 300px;
             }
@@ -236,6 +229,38 @@
 
     </div>
 </section>
+
+<script>
+const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
+
+function update() {
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+    }
+
+    document.getElementById("days").innerText =
+        Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+
+    document.getElementById("hours").innerText =
+        Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+
+    document.getElementById("minutes").innerText =
+        Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+
+    document.getElementById("seconds").innerText =
+        Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+}
+
+setInterval(update, 1000);
+update();
+</script>
 
 </body>
 </html>
