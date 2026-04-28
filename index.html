@@ -69,6 +69,7 @@
         .hero .intro-text,
         .hero .names,
         .hero .invite-message,
+        .countdown-title,
         .countdown-container {
             color: #ffffff;
             position: relative;
@@ -101,21 +102,28 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* INVITE MESSAGE */
         .invite-message {
             max-width: 700px;
             font-weight: 300;
             line-height: 1.8;
             font-size: clamp(1rem, 1.5vw, 1.25rem);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             padding: 0 15px;
         }
 
-        /* COUNTDOWN - NOW BELOW THE MESSAGE */
+        /* COUNTDOWN TITLE */
+        .countdown-title {
+            font-size: 1.1rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
         .countdown-container {
             display: flex;
             gap: clamp(15px, 4vw, 35px);
-            margin-top: 10px;
         }
 
         .countdown-item {
@@ -151,10 +159,13 @@
 
         #details .card {
             width: 100%;
+            max-width: 100%;
             background: #F3D6D8;
+            color: #4A2E2E;
             padding: 60px 20px;
             border-radius: 0;
             box-sizing: border-box;
+            margin: 0;
             border-top: 1px solid rgba(255,255,255,0.3);
         }
 
@@ -186,19 +197,20 @@
 
         button {
             padding: 12px 40px;
+            border: none;
             background: #4A2E2E;
             color: #fff;
-            border: none;
             cursor: pointer;
             border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 2px;
+            margin-top: 15px;
         }
 
         @media (max-width: 480px) {
             .hero { padding-top: 100px; }
             .names { font-size: 3.5rem; }
-            .invite-message { margin-bottom: 20px; }
+            .invite-message { margin-bottom: 30px; }
         }
     </style>
 </head>
@@ -226,6 +238,8 @@
     <p class="invite-message">
         Together with love and happiness, we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us as we exchange our vows.
     </p>
+
+    <h2 class="countdown-title">Countdown to Forever</h2>
 
     <div class="countdown-container">
         <div class="countdown-item"><span class="countdown-number" id="days">00</span><span class="countdown-label">Days</span></div>
