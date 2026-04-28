@@ -50,7 +50,7 @@
             justify-content: center; 
             align-items: center;
             text-align: center;
-            padding: 120px 20px 120px; 
+            padding: 120px 20px 140px; /* Increased bottom padding */
             box-sizing: border-box;
         }
 
@@ -86,7 +86,7 @@
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3.5rem, 10vw, 6.5rem);
-            margin: 10px 0 30px;
+            margin: 10px 0 20px;
             line-height: 1.1;
         }
 
@@ -106,16 +106,17 @@
             max-width: 700px;
             font-weight: 300;
             line-height: 1.8;
-            font-size: clamp(1rem, 1.5vw, 1.25rem);
-            margin-bottom: 40px;
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            margin-bottom: 20px;
             padding: 0 15px;
         }
 
-        /* COUNTDOWN TITLE */
+        /* 🔥 MOVED LOWER: Added significant margin-top */
         .countdown-title {
             font-size: 1.1rem;
             letter-spacing: 6px;
             text-transform: uppercase;
+            margin-top: 60px; /* This pushes the title and timer down */
             margin-bottom: 15px;
             font-weight: 300;
             opacity: 0.9;
@@ -124,6 +125,7 @@
         .countdown-container {
             display: flex;
             gap: clamp(15px, 4vw, 35px);
+            margin-bottom: 20px;
         }
 
         .countdown-item {
@@ -159,13 +161,9 @@
 
         #details .card {
             width: 100%;
-            max-width: 100%;
             background: #F3D6D8;
-            color: #4A2E2E;
             padding: 60px 20px;
-            border-radius: 0;
             box-sizing: border-box;
-            margin: 0;
             border-top: 1px solid rgba(255,255,255,0.3);
         }
 
@@ -177,40 +175,9 @@
             border-radius: 8px;
         }
 
-        .card {
-            max-width: 600px;
-            margin: auto;
-            background: rgba(255,255,255,0.5);
-            padding: 30px;
-            border-radius: 12px;
-        }
-
-        input, textarea {
-            width: 100%;
-            max-width: 450px;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid rgba(74, 46, 46, 0.2);
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        button {
-            padding: 12px 40px;
-            border: none;
-            background: #4A2E2E;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 15px;
-        }
-
         @media (max-width: 480px) {
             .hero { padding-top: 100px; }
-            .names { font-size: 3.5rem; }
-            .invite-message { margin-bottom: 30px; }
+            .countdown-title { margin-top: 40px; } /* Slightly less on mobile */
         }
     </style>
 </head>
@@ -259,29 +226,10 @@
     </div>
 </section>
 
-<section id="schedule">
-    <h2 style="font-family: 'Great Vibes', cursive; font-size: 3.5rem;">Program</h2>
-    <div class="card">
-        <p>💍 Ceremony - 9:00 AM</p>
-        <p>📸 Photos - 10:30 AM</p>
-        <p>🍽 Reception - 12:00 PM</p>
-    </div>
-</section>
-
-<section id="rsvp">
-    <h2 style="font-family: 'Great Vibes', cursive; font-size: 3.5rem;">RSVP</h2>
-    <div class="card">
-        <input type="text" placeholder="Your Name"><br>
-        <input type="email" placeholder="Email"><br>
-        <textarea placeholder="Message" rows="4"></textarea><br>
-        <button>Send RSVP</button>
-    </div>
-</section>
-
 <script>
     const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
 
-    const x = setInterval(function() {
+    setInterval(function() {
         const now = new Date().getTime();
         const distance = weddingDate - now;
 
@@ -294,11 +242,6 @@
         document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
         document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
         document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
-
-        if (distance < 0) {
-            clearInterval(x);
-            document.querySelector(".countdown-container").innerHTML = "<h1>HAPPY WEDDING DAY!</h1>";
-        }
     }, 1000);
 </script>
 
