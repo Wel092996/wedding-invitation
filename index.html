@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
-            background: #000;
+            background: #F3D6D8; /* Set body to the detail color for seamless feel */
             color: #fff;
             overflow-x: hidden;
         }
@@ -53,17 +53,18 @@
             text-align: center;
             padding: 120px 20px 0;
             box-sizing: border-box;
+            background-attachment: fixed; /* Optional: adds a parallax effect for smoother scroll */
         }
 
-        /* HERO TO DETAILS FADE */
+        /* HERO TO DETAILS FADE - Enhanced for seamless blending */
         .hero::after {
             content: "";
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 250px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0), #F3D6D8);
+            height: 350px; /* Increased height for a smoother fade */
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #F3D6D8 100%);
             z-index: 1;
             pointer-events: none;
         }
@@ -129,7 +130,7 @@
         .countdown-container {
             display: flex;
             gap: clamp(10px, 4vw, 35px);
-            margin-bottom: 60px;
+            margin-bottom: 80px; /* Increased bottom margin for transition space */
         }
 
         .countdown-item {
@@ -151,42 +152,29 @@
             opacity: 0.9;
         }
 
-        /* DETAILS SECTION - SEAMLESS */
+        /* DETAILS SECTION - PERFECTLY SEAMLESS */
         #details {
             padding: 0;
-            margin-top: -2px;
+            margin-top: -5px; /* Pulls section up slightly to kill pixel gaps */
             background: #F3D6D8;
             line-height: 0;
             position: relative;
-            z-index: 2;
-        }
-
-        /* EXTRA BLEND LAYER */
-        #details::before {
-            content: "";
-            position: absolute;
-            top: -80px;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background: linear-gradient(to bottom, rgba(243,214,216,0), #F3D6D8);
-            pointer-events: none;
+            z-index: 10; /* Higher z-index ensures it sits on top of hero fade */
         }
 
         .full-width-container {
             width: 100%;
-            display: block;
             margin: 0;
             padding: 0;
         }
 
         .details-image {
             width: 100%;
-            max-width: 100%;
             height: auto;
             display: block;
             margin: 0;
             padding: 0;
+            border: none;
         }
 
         /* REMAINING SECTIONS */
@@ -195,12 +183,13 @@
             text-align: center;
             background: #F3D6D8;
             color: #4A2E2E;
+            margin-top: -1px; /* Stitching sections together */
         }
 
         .card {
             max-width: 600px;
             margin: auto;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.4); /* Slightly lowered opacity for better blend */
             padding: 30px;
             border-radius: 12px;
         }
@@ -239,29 +228,23 @@
             .hero {
                 padding-top: 100px;
             }
-
             .names {
                 margin-top: 35px;
             }
-
             .countdown-title {
                 margin-top: 40px;
             }
-
             .countdown-item {
                 min-width: 50px;
             }
-
             .countdown-container {
                 margin-bottom: 40px;
             }
-
             nav {
                 gap: 15px;
                 padding: 15px 10px;
                 flex-wrap: wrap;
             }
-
             nav a {
                 font-size: 0.75rem;
             }
@@ -277,7 +260,6 @@
         <a href="#rsvp">RSVP</a>
     </nav>
 
-    <!-- HERO -->
     <section class="hero" id="home">
         <p class="intro-text">You are cordially invited to the wedding of</p>
 
@@ -319,14 +301,12 @@
         </div>
     </section>
 
-    <!-- DETAILS -->
     <section id="details">
         <div class="full-width-container">
             <img src="details.png" alt="Wedding Details" class="details-image">
         </div>
     </section>
 
-    <!-- PROGRAM -->
     <section id="schedule">
         <h2>Program</h2>
         <div class="card">
@@ -336,7 +316,6 @@
         </div>
     </section>
 
-    <!-- RSVP -->
     <section id="rsvp">
         <h2>RSVP</h2>
         <div class="card">
