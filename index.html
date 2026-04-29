@@ -104,7 +104,7 @@
         #location h2 {
             font-family: 'Great Vibes', cursive;
             font-weight: 400;
-            font-size: 4.5rem; /* Large and cursive */
+            font-size: 4.5rem;
             margin: 0 0 20px 0;
             color: #4A2E2E;
         }
@@ -122,17 +122,30 @@
             background: #fdfaf9;
             border: 1px solid #f2ece9;
             box-sizing: border-box;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             cursor: pointer;
             position: relative;
+            -webkit-tap-highlight-color: transparent; /* Removes blue flash on mobile */
         }
 
-        /* Hover Effect for the entire box */
-        .location-card:hover {
-            transform: translateY(-12px);
-            background: #fff;
-            border-color: #4A2E2E;
-            box-shadow: 0 20px 40px rgba(74, 46, 46, 0.1);
+        /* Desktop Hover Effect */
+        @media (min-width: 1025px) {
+            .location-card:hover {
+                transform: translateY(-12px);
+                background: #fff;
+                border-color: #4A2E2E;
+                box-shadow: 0 20px 40px rgba(74, 46, 46, 0.1);
+            }
+            .location-card:hover .venue-icon {
+                transform: scale(1.1) rotate(5deg);
+            }
+        }
+
+        /* Mobile Active/Press Effect */
+        .location-card:active {
+            transform: scale(0.96);
+            background: #f2ece9;
+            transition: 0.1s;
         }
 
         .venue-icon {
@@ -140,10 +153,6 @@
             margin-bottom: 25px;
             display: block;
             transition: transform 0.4s ease;
-        }
-
-        .location-card:hover .venue-icon {
-            transform: scale(1.1) rotate(5deg);
         }
 
         .location-title {
@@ -188,7 +197,7 @@
                 align-items: center;
             }
             .venue-icon { font-size: 5.5rem; }
-            .location-card { width: 90%; }
+            .location-card { width: 95%; }
         }
 
     </style>
