@@ -88,6 +88,10 @@
             width: 100vw; height: auto; display: block;
         }
 
+        /* =========================
+           LOCATION SECTION FINAL
+        ========================== */
+
         #location {
             padding: 60px 20px 80px 20px;
             text-align: center;
@@ -119,11 +123,12 @@
             border: 1px solid #f2ece9;
             box-sizing: border-box;
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: default;
+            cursor: pointer;
             position: relative;
             -webkit-tap-highlight-color: transparent;
         }
 
+        /* Desktop Hover Effect */
         @media (min-width: 1025px) {
             .location-card:hover {
                 transform: translateY(-12px);
@@ -136,6 +141,7 @@
             }
         }
 
+        /* Mobile Active/Press Effect */
         .location-card:active {
             transform: scale(0.96);
             background: #f2ece9;
@@ -147,10 +153,11 @@
             margin-bottom: 25px;
             display: block;
             transition: transform 0.4s ease;
-            pointer-events: none;
+            pointer-events: none; /* Iniiwasan ang "off" touch sa mobile */
         }
 
         .location-title {
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             font-size: 0.95rem;
             letter-spacing: 1.5px;
@@ -172,6 +179,7 @@
             color: #4A2E2E;
             text-decoration: none;
             border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 2px;
@@ -208,25 +216,21 @@
 
 <section class="hero" id="home">
     <div class="hero-content">
-        <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem;">
+        <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0;">
             You are cordially invited to the wedding of
         </p>
-
         <h1 class="names">
             <span style="--i:1">R</span><span style="--i:2">o</span><span style="--i:3">e</span><span style="--i:4">l</span>
             <br><span style="--i:5">&</span><br>
             <span style="--i:6">M</span><span style="--i:7">a</span><span style="--i:8">i</span><span style="--i:9">l</span><span style="--i:10">y</span><span style="--i:11">n</span>
         </h1>
-
         <p class="invite-message">
             Together with love and happiness, we invite you to witness and celebrate 
             the beginning of our married life. We would be honored to have you with us.
         </p>
-
-        <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin-top: 30px;">
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin-top: 30px; color: #fff;">
             Countdown to Forever
         </h2>
-
         <div class="countdown-container">
             <div class="countdown-item"><span class="countdown-number" id="days">00</span><span>Days</span></div>
             <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span>Hrs</span></div>
@@ -242,47 +246,48 @@
 
 <section id="location">
     <h2>Location</h2>
-
     <div class="location-grid">
-
-        <div class="location-card">
+        <div class="location-card" onclick="handleMapClick('https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+%26+Diocesan+Shrine/@13.3566282,123.6967139,679m/data=!3m2!1e3!4b1!4m6!3m5!1s0x33a1ae7c705946e1:0xf18c9ba154c26f3a!8m2!3d13.356623!4d123.6992888!16s%2Fg%2F1hc11mb08?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D')">
             <span class="venue-icon">⛪</span>
             <div class="location-title">
                 St. Vincent Ferrer Parish & <br>Diocesan Shrine
             </div>
-            <a href="https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+%26+Diocesan+Shrine/@13.3566282,123.6967139,679m/data=!3m2!1e3!4b1!4m6!3m5!1s0x33a1ae7c705946e1:0xf18c9ba154c26f3a!8m2!3d13.356623!4d123.6992888!16s%2Fg%2F1hc11mb08?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">
-                GET DIRECTIONS
-            </a>
+            <span class="map-btn">GET DIRECTIONS</span>
         </div>
 
-        <div class="location-card">
+        <div class="location-card" onclick="handleMapClick('https://www.google.com/maps/place/MANILYN+STORE/@13.9541247,120.9531768,346781m/data=!3m1!1e3!4m15!1m7!2m6!1smanilyn+store!3m4!2s13.302919,+123.637745!4m2!1d123.6377447!2d13.3029186!3m6!1s0x33a1a8bfb7162cff:0x1fc8df54d126460f!8m2!3d13.302796!4d123.6377388!15sCg1tYW5pbHluIHN0b3JlkgENZ3JvY2VyeV9zdG9yZeABAA!16s%2Fg%2F11xt9n0vd7?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D')">
             <span class="venue-icon">🥂</span>
             <div class="location-title">
                 Zone-4 Buang, <br>Tabaco City, Albay
             </div>
-            <a href="https://www.google.com/maps/place/MANILYN+STORE/@13.9541247,120.9531768,346781m/data=!3m1!1e3!4m15!1m7!2m6!1smanilyn+store!3m4!2s13.302919,+123.637745!4m2!1d123.6377447!2d13.3029186!3m6!1s0x33a1a8bfb7162cff:0x1fc8df54d126460f!8m2!3d13.302796!4d123.6377388!15sCg1tYW5pbHluIHN0b3JlkgENZ3JvY2VyeV9zdG9yZeABAA!16s%2Fg%2F11xt9n0vd7?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">
-                GET DIRECTIONS
-            </a>
+            <span class="map-btn">GET DIRECTIONS</span>
         </div>
-
     </div>
 </section>
 
 <script>
-const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
+// Mobile-friendly link handler
+function handleMapClick(url) {
+    window.open(url, '_blank');
+}
 
+// Countdown Logic
+const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
 function update() {
     const now = new Date().getTime();
     const diff = weddingDate - now;
-
-    if (diff <= 0) return;
-
+    if (diff <= 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+    }
     document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
     document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
     document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
     document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
 }
-
 setInterval(update, 1000);
 update();
 </script>
