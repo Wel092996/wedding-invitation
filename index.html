@@ -93,17 +93,10 @@
             text-align: center;
         }
 
-        /* =========================
-            LOCATION SECTION UPDATED
-        ========================== */
-
         .content-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            font-size: 2.2rem;
-            letter-spacing: 3px; /* Matches top invite message tracking */
-            text-transform: uppercase;
-            margin-bottom: 25px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 30px;
             color: #4A2E2E;
         }
 
@@ -115,60 +108,34 @@
 
         .location-card {
             flex: 1; min-width: 300px;
-            padding: 50px 25px;
+            padding: 50px 25px; /* slightly more balanced */
             border-radius: 20px;
             background: #fdfaf9;
             border: 1px solid #f2ece9;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .location-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
         }
 
         .venue-icon {
-            font-size: 3rem; /* Adjusted for better scale with text */
-            margin-bottom: 18px;
+            font-size: 3.8rem; /* bigger base size */
+            margin-bottom: 20px;
             display: block;
-        }
-
-        .location-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            color: #3f2a2a;
-            text-transform: uppercase;
         }
 
         .map-btn {
             display: inline-block;
-            margin-top: 18px;
+            margin-top: 20px;
             padding: 12px 35px;
             border: 1.5px solid #4A2E2E;
             color: #4A2E2E;
             text-decoration: none;
             border-radius: 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
             transition: 0.3s;
-            letter-spacing: 2px; /* Matches Nav link tracking */
-            text-transform: uppercase;
         }
 
         .map-btn:hover {
             background: #4A2E2E;
             color: #fff;
-        }
-
-        /* seamless fix remains */
-        #location {
-            margin-top: -40px;
-            padding-top: 40px;
         }
 
         @media (max-width: 768px) {
@@ -212,6 +179,17 @@
             the beginning of our married life. We would be honored to have you with us.
         </p>
 
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin-top: 30px;">
+            Countdown to Forever
+        </h2>
+
+        <div class="countdown-container">
+            <div class="countdown-item"><span class="countdown-number" id="days">00</span><span>Days</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span>Hrs</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span>Min</span></div>
+            <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span>Sec</span></div>
+        </div>
+
     </div>
 </section>
 
@@ -226,30 +204,64 @@
 
         <div class="location-card">
             <span class="venue-icon">⛪</span>
-            <div class="location-title">
+            <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin-bottom: 10px;">
                 St. Vincent Ferrer Parish & Diocesan Shrine
             </div>
+            <p></p>
             <a href="https://www.google.com/maps/search/?api=1&query=St.+Vincent+Ferrer+Parish+Tabaco+City+Albay"
                target="_blank"
                class="map-btn">
-                GET DIRECTIONS
+               GET DIRECTIONS
             </a>
         </div>
 
         <div class="location-card">
             <span class="venue-icon">🥂</span>
-            <div class="location-title">
+            <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin-bottom: 10px;">
                 Zone-4 Buang, Tabaco City, Albay
             </div>
+            <p></p>
             <a href="https://www.google.com/maps/search/?api=1&query=Manilyn+Store+Tabaco+City+Albay"
                target="_blank"
                class="map-btn">
-                GET DIRECTIONS
+               GET DIRECTIONS
             </a>
         </div>
 
     </div>
 </section>
+
+<script>
+const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
+
+function update() {
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+    }
+
+    document.getElementById("days").innerText =
+        Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+
+    document.getElementById("hours").innerText =
+        Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+
+    document.getElementById("minutes").innerText =
+        Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+
+    document.getElementById("seconds").innerText =
+        Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+}
+
+setInterval(update, 1000);
+update();
+</script>
 
 </body>
 </html>
