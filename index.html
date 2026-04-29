@@ -94,9 +94,10 @@
         }
 
         .content-section h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            margin-bottom: 30px;
+            font-family: 'Montserrat', sans-serif; /* UPDATED */
+            font-weight: 600;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
             color: #4A2E2E;
         }
 
@@ -108,41 +109,21 @@
 
         .location-card {
             flex: 1; min-width: 300px;
-            padding: 50px 25px;
+            padding: 45px 25px;
             border-radius: 20px;
             background: #fdfaf9;
             border: 1px solid #f2ece9;
-
-            /* NEW subtle animation */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .location-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
         }
 
         .venue-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 5rem;
+            margin-bottom: 15px;
             display: block;
-
-            /* NEW glow effect */
-            animation: glow 2.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 5px rgba(255, 215, 160, 0.3);
-            }
-            to {
-                text-shadow: 0 0 15px rgba(255, 215, 160, 0.8);
-            }
         }
 
         .map-btn {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 18px;
             padding: 12px 35px;
             border: 1.5px solid #4A2E2E;
             color: #4A2E2E;
@@ -156,6 +137,12 @@
         .map-btn:hover {
             background: #4A2E2E;
             color: #fff;
+        }
+
+        /* ✅ SEAMLESS FIX */
+        #location {
+            margin-top: -40px; /* pulls section up to remove gap */
+            padding-top: 40px; /* keeps internal spacing balanced */
         }
 
         @media (max-width: 768px) {
@@ -172,7 +159,7 @@
 </head>
 
 <body>
-<!-- EVERYTHING ELSE UNCHANGED -->
+<!-- EVERYTHING ABOVE REMAINS UNCHANGED -->
 
 <nav>
     <a href="#home">Home</a>
@@ -225,7 +212,7 @@
 
         <div class="location-card">
             <span class="venue-icon">⛪</span>
-            <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin-bottom: 10px;">
+            <div style="font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1.6rem; margin-bottom: 8px;">
                 St. Vincent Ferrer Parish & Diocesan Shrine
             </div>
             <p></p>
@@ -238,7 +225,7 @@
 
         <div class="location-card">
             <span class="venue-icon">🥂</span>
-            <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin-bottom: 10px;">
+            <div style="font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1.6rem; margin-bottom: 8px;">
                 Zone-4 Buang, Tabaco City, Albay
             </div>
             <p></p>
