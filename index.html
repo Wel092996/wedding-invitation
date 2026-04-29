@@ -88,7 +88,6 @@
             width: 100vw; height: auto; display: block;
         }
 
-        /* ================= LOCATION ================= */
         #location {
             padding: 60px 20px 80px 20px;
             text-align: center;
@@ -119,14 +118,36 @@
             background: #fdfaf9;
             border: 1px solid #f2ece9;
             box-sizing: border-box;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: default;
             position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @media (min-width: 1025px) {
+            .location-card:hover {
+                transform: translateY(-12px);
+                background: #fff;
+                border-color: #4A2E2E;
+                box-shadow: 0 20px 40px rgba(74, 46, 46, 0.1);
+            }
+            .location-card:hover .venue-icon {
+                transform: scale(1.1) rotate(5deg);
+            }
+        }
+
+        .location-card:active {
+            transform: scale(0.96);
+            background: #f2ece9;
+            transition: 0.1s;
         }
 
         .venue-icon {
             font-size: 7.6rem;
             margin-bottom: 25px;
             display: block;
+            transition: transform 0.4s ease;
+            pointer-events: none;
         }
 
         .location-title {
@@ -141,6 +162,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            pointer-events: none;
         }
 
         .map-btn {
@@ -162,31 +184,6 @@
             color: #fff;
         }
 
-        /* ================= ENTOURAGE ================= */
-        #entourage {
-            width: 100%;
-            padding: 0;
-            margin-top: -2px;
-            background: #fff;
-
-            /* ANIMATION START STATE */
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease;
-        }
-
-        #entourage.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .entourage-image {
-            width: 100vw;
-            height: auto;
-            display: block;
-        }
-
-        /* ================= MOBILE ================= */
         @media (max-width: 768px) {
             #location h2 { font-size: 3.5rem; }
             .location-grid {
@@ -195,6 +192,23 @@
             }
             .venue-icon { font-size: 5.5rem; }
             .location-card { width: 95%; }
+        }
+
+        /* ENTOURAGE SECTION */
+        #entourage {
+            width: 100%;
+            padding: 0;
+            margin-top: -2px;
+            position: relative;
+            z-index: 10;
+            line-height: 0;
+            background: #fff;
+        }
+
+        .entourage-image {
+            width: 100vw;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
@@ -223,8 +237,19 @@
 
         <p class="invite-message">
             Together with love and happiness, we invite you to witness and celebrate 
-            the beginning of our married life.
+            the beginning of our married life. We would be honored to have you with us.
         </p>
+
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin-top: 30px;">
+            Countdown to Forever
+        </h2>
+
+        <div class="countdown-container">
+            <div class="countdown-item"><span id="days">00</span><span>Days</span></div>
+            <div class="countdown-item"><span id="hours">00</span><span>Hrs</span></div>
+            <div class="countdown-item"><span id="minutes">00</span><span>Min</span></div>
+            <div class="countdown-item"><span id="seconds">00</span><span>Sec</span></div>
+        </div>
     </div>
 </section>
 
@@ -234,14 +259,14 @@
 
 <section id="location">
     <h2>Location</h2>
-
     <div class="location-grid">
+
         <div class="location-card">
             <span class="venue-icon">⛪</span>
             <div class="location-title">
                 St. Vincent Ferrer Parish & <br>Diocesan Shrine
             </div>
-            <a class="map-btn" href="https://www.google.com/maps/..." target="_blank">GET DIRECTIONS</a>
+            <a href="https://www.google.com/maps/..." target="_blank" class="map-btn">GET DIRECTIONS</a>
         </div>
 
         <div class="location-card">
@@ -249,8 +274,9 @@
             <div class="location-title">
                 Zone-4 Buang, <br>Tabaco City, Albay
             </div>
-            <a class="map-btn" href="https://www.google.com/maps/..." target="_blank">GET DIRECTIONS</a>
+            <a href="https://www.google.com/maps/..." target="_blank" class="map-btn">GET DIRECTIONS</a>
         </div>
+
     </div>
 </section>
 
@@ -267,26 +293,14 @@ function update() {
 
     if (diff <= 0) return;
 
-    document.getElementById("days").innerText = Math.floor(diff / (1000*60*60*24));
-    document.getElementById("hours").innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-    document.getElementById("minutes").innerText = Math.floor((diff%(1000*60*60))/(1000*60));
-    document.getElementById("seconds").innerText = Math.floor((diff%(1000*60))/1000);
+    document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+    document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+    document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+    document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
 }
+
 setInterval(update, 1000);
 update();
-
-/* ================= ENTTOURAGE ANIMATION ================= */
-const entourage = document.querySelector("#entourage");
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entourage.classList.add("show");
-        }
-    });
-}, { threshold: 0.2 });
-
-observer.observe(entourage);
 </script>
 
 </body>
