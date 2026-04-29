@@ -74,6 +74,7 @@
             background: rgba(0,0,0,0.2); padding: 20px 30px;
             border-radius: 15px; backdrop-filter: blur(5px); margin-top: 20px;
         }
+
         .countdown-item { display: flex; flex-direction: column; align-items: center; min-width: 60px; }
         .countdown-number { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; }
 
@@ -107,21 +108,41 @@
 
         .location-card {
             flex: 1; min-width: 300px;
-            padding: 40px 20px;
+            padding: 50px 25px;
             border-radius: 20px;
             background: #fdfaf9;
             border: 1px solid #f2ece9;
+
+            /* NEW subtle animation */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
         }
 
         .venue-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 4rem;
+            margin-bottom: 20px;
             display: block;
+
+            /* NEW glow effect */
+            animation: glow 2.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 215, 160, 0.3);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(255, 215, 160, 0.8);
+            }
         }
 
         .map-btn {
             display: inline-block;
-            margin-top: 15px;
+            margin-top: 20px;
             padding: 12px 35px;
             border: 1.5px solid #4A2E2E;
             color: #4A2E2E;
@@ -151,6 +172,7 @@
 </head>
 
 <body>
+<!-- EVERYTHING ELSE UNCHANGED -->
 
 <nav>
     <a href="#home">Home</a>
@@ -215,7 +237,7 @@
         </div>
 
         <div class="location-card">
-            <span class="venue-icon" style="font-size: 3.2rem;">🥂</span>
+            <span class="venue-icon">🥂</span>
             <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin-bottom: 10px;">
                 Zone-4 Buang, Tabaco City, Albay
             </div>
@@ -232,33 +254,16 @@
 
 <script>
 const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
-
 function update() {
     const now = new Date().getTime();
     const diff = weddingDate - now;
-
-    if (diff <= 0) {
-        document.getElementById("days").innerText = "00";
-        document.getElementById("hours").innerText = "00";
-        document.getElementById("minutes").innerText = "00";
-        document.getElementById("seconds").innerText = "00";
-        return;
-    }
-
-    document.getElementById("days").innerText =
-        Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-
-    document.getElementById("hours").innerText =
-        Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-
-    document.getElementById("minutes").innerText =
-        Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-
-    document.getElementById("seconds").innerText =
-        Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+    if (diff <= 0) return;
+    document.getElementById("days").innerText = Math.floor(diff / (1000*60*60*24)).toString().padStart(2,'0');
+    document.getElementById("hours").innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,'0');
+    document.getElementById("minutes").innerText = Math.floor((diff%(1000*60*60))/(1000*60)).toString().padStart(2,'0');
+    document.getElementById("seconds").innerText = Math.floor((diff%(1000*60))/1000).toString().padStart(2,'0');
 }
-
-setInterval(update, 1000);
+setInterval(update,1000);
 update();
 </script>
 
