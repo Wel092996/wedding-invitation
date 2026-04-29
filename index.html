@@ -88,31 +88,35 @@
             width: 100vw; height: auto; display: block;
         }
 
+        .content-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
         /* =========================
-           LOCATION SECTION FINAL
+           REVERTED LOCATION SECTION
         ========================== */
 
         #location {
-            padding: 60px 20px 80px 20px;
-            text-align: center;
+            margin-top: 20px;
+            padding-top: 60px;
             background: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         #location h2 {
-            font-family: 'Great Vibes', cursive;
-            font-weight: 400;
-            font-size: 4.5rem;
-            margin: 0 0 20px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 2.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
             color: #4A2E2E;
         }
 
         .location-grid {
             display: flex; flex-wrap: wrap;
-            justify-content: center; gap: 30px;
-            max-width: 1100px; width: 100%; margin: 0 auto;
+            justify-content: center; gap: 25px;
+            max-width: 1000px; margin: 0 auto;
         }
 
         .location-card {
@@ -121,57 +125,28 @@
             border-radius: 20px;
             background: #fdfaf9;
             border: 1px solid #f2ece9;
-            box-sizing: border-box;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: pointer;
-            position: relative;
-            -webkit-tap-highlight-color: transparent; /* Removes blue flash on mobile */
-        }
-
-        /* Desktop Hover Effect */
-        @media (min-width: 1025px) {
-            .location-card:hover {
-                transform: translateY(-12px);
-                background: #fff;
-                border-color: #4A2E2E;
-                box-shadow: 0 20px 40px rgba(74, 46, 46, 0.1);
-            }
-            .location-card:hover .venue-icon {
-                transform: scale(1.1) rotate(5deg);
-            }
-        }
-
-        /* Mobile Active/Press Effect */
-        .location-card:active {
-            transform: scale(0.96);
-            background: #f2ece9;
-            transition: 0.1s;
         }
 
         .venue-icon {
             font-size: 7.6rem;
             margin-bottom: 25px;
             display: block;
-            transition: transform 0.4s ease;
         }
 
         .location-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             letter-spacing: 1.5px;
             line-height: 1.6;
             text-transform: uppercase;
             color: #4A2E2E;
-            margin-bottom: 25px;
-            min-height: 3em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 15px;
         }
 
         .map-btn {
             display: inline-block;
+            margin-top: 15px;
             padding: 12px 35px;
             border: 1.5px solid #4A2E2E;
             color: #4A2E2E;
@@ -191,13 +166,11 @@
         }
 
         @media (max-width: 768px) {
-            #location h2 { font-size: 3.5rem; }
-            .location-grid {
+            #location .location-grid {
                 flex-direction: column;
                 align-items: center;
             }
             .venue-icon { font-size: 5.5rem; }
-            .location-card { width: 95%; }
         }
 
     </style>
@@ -243,21 +216,20 @@
     <img src="ok.png" alt="Wedding Details" class="details-image">
 </section>
 
-<section id="location">
+<section id="location" class="content-section">
     <h2>Location</h2>
     <div class="location-grid">
-        <div class="location-card" onclick="window.open('https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+%26+Diocesan+Shrine/@13.3566282,123.6967139,679m/data=!3m2!1e3!4b1!4m6!3m5!1s0x33a1ae7c705946e1:0xf18c9ba154c26f3a!8m2!3d13.356623!4d123.6992888!16s%2Fg%2F1hc11mb08?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D', '_blank')">
+        <div class="location-card">
             <span class="venue-icon">⛪</span>
             <div class="location-title">
-                St. Vincent Ferrer Parish & <br>Diocesan Shrine
+                St. Vincent Ferrer Parish & Diocesan Shrine
             </div>
             <a href="https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+%26+Diocesan+Shrine/@13.3566282,123.6967139,679m/data=!3m2!1e3!4b1!4m6!3m5!1s0x33a1ae7c705946e1:0xf18c9ba154c26f3a!8m2!3d13.356623!4d123.6992888!16s%2Fg%2F1hc11mb08?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">GET DIRECTIONS</a>
         </div>
-
-        <div class="location-card" onclick="window.open('https://www.google.com/maps/place/MANILYN+STORE/@13.9541247,120.9531768,346781m/data=!3m1!1e3!4m15!1m7!2m6!1smanilyn+store!3m4!2s13.302919,+123.637745!4m2!1d123.6377447!2d13.3029186!3m6!1s0x33a1a8bfb7162cff:0x1fc8df54d126460f!8m2!3d13.302796!4d123.6377388!15sCg1tYW5pbHluIHN0b3JlkgENZ3JvY2VyeV9zdG9yZeABAA!16s%2Fg%2F11xt9n0vd7?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D', '_blank')">
+        <div class="location-card">
             <span class="venue-icon">🥂</span>
             <div class="location-title">
-                Zone-4 Buang, <br>Tabaco City, Albay
+                Zone-4 Buang, Tabaco City, Albay
             </div>
             <a href="https://www.google.com/maps/place/MANILYN+STORE/@13.9541247,120.9531768,346781m/data=!3m1!1e3!4m15!1m7!2m6!1smanilyn+store!3m4!2s13.302919,+123.637745!4m2!1d123.6377447!2d13.3029186!3m6!1s0x33a1a8bfb7162cff:0x1fc8df54d126460f!8m2!3d13.302796!4d123.6377388!15sCg1tYW5pbHluIHN0b3JlkgENZ3JvY2VyeV9zdG9yZeABAA!16s%2Fg%2F11xt9n0vd7?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">GET DIRECTIONS</a>
         </div>
