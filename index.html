@@ -93,9 +93,23 @@
             text-align: center;
         }
 
-        .content-section h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
+        /* =========================
+           LOCATION SECTION ONLY
+        ========================== */
+
+        #location {
+            margin-top: -60px; /* Closes the gap to the details tab */
+            padding-top: 20px;
+            position: relative;
+            z-index: 11;
+        }
+
+        #location h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 2.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             margin-bottom: 30px;
             color: #4A2E2E;
         }
@@ -108,16 +122,27 @@
 
         .location-card {
             flex: 1; min-width: 300px;
-            padding: 50px 25px; /* slightly more balanced */
+            padding: 50px 25px;
             border-radius: 20px;
             background: #fdfaf9;
             border: 1px solid #f2ece9;
         }
 
         .venue-icon {
-            font-size: 3.8rem; /* bigger base size */
+            font-size: 7.6rem; /* 2x bigger than original 3.8rem */
             margin-bottom: 20px;
             display: block;
+        }
+
+        .location-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            color: #4A2E2E;
         }
 
         .map-btn {
@@ -131,6 +156,8 @@
             font-size: 0.8rem;
             font-weight: 600;
             transition: 0.3s;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .map-btn:hover {
@@ -146,6 +173,7 @@
             #location .location-card {
                 min-width: 300px;
             }
+            .venue-icon { font-size: 5rem; } /* Slightly scale down for mobile screens */
         }
 
     </style>
@@ -179,7 +207,7 @@
             the beginning of our married life. We would be honored to have you with us.
         </p>
 
-        <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin-top: 30px;">
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin-top: 30px; color: #fff;">
             Countdown to Forever
         </h2>
 
@@ -204,27 +232,25 @@
 
         <div class="location-card">
             <span class="venue-icon">⛪</span>
-            <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin-bottom: 10px;">
+            <div class="location-title">
                 St. Vincent Ferrer Parish & Diocesan Shrine
             </div>
-            <p></p>
             <a href="https://www.google.com/maps/search/?api=1&query=St.+Vincent+Ferrer+Parish+Tabaco+City+Albay"
                target="_blank"
                class="map-btn">
-               GET DIRECTIONS
+                GET DIRECTIONS
             </a>
         </div>
 
         <div class="location-card">
             <span class="venue-icon">🥂</span>
-            <div style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin-bottom: 10px;">
+            <div class="location-title">
                 Zone-4 Buang, Tabaco City, Albay
             </div>
-            <p></p>
             <a href="https://www.google.com/maps/search/?api=1&query=Manilyn+Store+Tabaco+City+Albay"
                target="_blank"
                class="map-btn">
-               GET DIRECTIONS
+                GET DIRECTIONS
             </a>
         </div>
 
