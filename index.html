@@ -90,11 +90,11 @@
 
         /* =========================
            LOCATION SECTION UPDATED
-           (Centered & Uniform Font)
+           (Cursive, Big, and Balanced)
         ========================== */
 
         #location {
-            padding: 40px 20px 80px 20px; /* Balanced top and bottom */
+            padding: 60px 20px 80px 20px; /* Balanced padding */
             text-align: center;
             background: #fff;
             display: flex;
@@ -103,12 +103,10 @@
         }
 
         #location h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            font-size: 0.75rem; /* Matched to "You are cordially invited" size */
-            letter-spacing: 3px; /* Matched letter spacing */
-            text-transform: uppercase;
-            margin: 0 0 40px 0; /* Removed top margin, kept bottom gap */
+            font-family: 'Great Vibes', cursive; /* Cursive font */
+            font-weight: 400;
+            font-size: 4rem; /* Significantly bigger */
+            margin: 0 0 20px 0; /* Balanced spacing around the text */
             color: #4A2E2E;
         }
 
@@ -136,7 +134,7 @@
         .location-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            font-size: 0.9rem; /* Uniform with invite message */
+            font-size: 0.9rem;
             letter-spacing: 1.5px;
             line-height: 1.6;
             text-transform: uppercase;
@@ -166,6 +164,7 @@
         }
 
         @media (max-width: 768px) {
+            #location h2 { font-size: 3rem; } /* Mobile adjustments */
             .location-grid {
                 flex-direction: column;
                 align-items: center;
