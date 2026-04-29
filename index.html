@@ -193,6 +193,23 @@
             .venue-icon { font-size: 5.5rem; }
             .location-card { width: 95%; }
         }
+
+        /* ENTOURAGE SECTION */
+        #entourage {
+            width: 100%;
+            padding: 0;
+            margin-top: -2px;
+            position: relative;
+            z-index: 10;
+            line-height: 0;
+            background: #fff;
+        }
+
+        .entourage-image {
+            width: 100vw;
+            height: auto;
+            display: block;
+        }
     </style>
 </head>
 
@@ -228,21 +245,20 @@
         </h2>
 
         <div class="countdown-container">
-            <div class="countdown-item"><span class="countdown-number" id="days">00</span><span>Days</span></div>
-            <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span>Hrs</span></div>
-            <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span>Min</span></div>
-            <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span>Sec</span></div>
+            <div class="countdown-item"><span id="days">00</span><span>Days</span></div>
+            <div class="countdown-item"><span id="hours">00</span><span>Hrs</span></div>
+            <div class="countdown-item"><span id="minutes">00</span><span>Min</span></div>
+            <div class="countdown-item"><span id="seconds">00</span><span>Sec</span></div>
         </div>
     </div>
 </section>
 
 <section id="details">
-    <img src="ok.png" alt="Wedding Details" class="details-image">
+    <img src="ok.png" class="details-image">
 </section>
 
 <section id="location">
     <h2>Location</h2>
-
     <div class="location-grid">
 
         <div class="location-card">
@@ -250,9 +266,7 @@
             <div class="location-title">
                 St. Vincent Ferrer Parish & <br>Diocesan Shrine
             </div>
-            <a href="https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+%26+Diocesan+Shrine/@13.3566282,123.6967139,679m/data=!3m2!1e3!4b1!4m6!3m5!1s0x33a1ae7c705946e1:0xf18c9ba154c26f3a!8m2!3d13.356623!4d123.6992888!16s%2Fg%2F1hc11mb08?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">
-                GET DIRECTIONS
-            </a>
+            <a href="https://www.google.com/maps/..." target="_blank" class="map-btn">GET DIRECTIONS</a>
         </div>
 
         <div class="location-card">
@@ -260,12 +274,14 @@
             <div class="location-title">
                 Zone-4 Buang, <br>Tabaco City, Albay
             </div>
-            <a href="https://www.google.com/maps/place/MANILYN+STORE/@13.9541247,120.9531768,346781m/data=!3m1!1e3!4m15!1m7!2m6!1smanilyn+store!3m4!2s13.302919,+123.637745!4m2!1d123.6377447!2d13.3029186!3m6!1s0x33a1a8bfb7162cff:0x1fc8df54d126460f!8m2!3d13.302796!4d123.6377388!15sCg1tYW5pbHluIHN0b3JlkgENZ3JvY2VyeV9zdG9yZeABAA!16s%2Fg%2F11xt9n0vd7?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">
-                GET DIRECTIONS
-            </a>
+            <a href="https://www.google.com/maps/..." target="_blank" class="map-btn">GET DIRECTIONS</a>
         </div>
 
     </div>
+</section>
+
+<section id="entourage">
+    <img src="ent.png" alt="Wedding Entourage" class="entourage-image">
 </section>
 
 <script>
