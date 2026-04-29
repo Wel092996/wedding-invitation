@@ -88,38 +88,34 @@
             width: 100vw; height: auto; display: block;
         }
 
-        .content-section {
-            padding: 80px 20px;
-            text-align: center;
-        }
-
         /* =========================
            LOCATION SECTION UPDATED
-           (Adjusted for balance)
+           (Centered & Uniform Font)
         ========================== */
 
         #location {
-            margin-top: 0; /* Reduced from 20px */
-            padding-top: 40px; /* Reduced for better balance from top */
-            padding-bottom: 80px; 
+            padding: 40px 20px 80px 20px; /* Balanced top and bottom */
+            text-align: center;
             background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         #location h2 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
-            font-size: 2.2rem;
-            letter-spacing: 4px;
+            font-size: 0.75rem; /* Matched to "You are cordially invited" size */
+            letter-spacing: 3px; /* Matched letter spacing */
             text-transform: uppercase;
-            margin-top: 0; /* Ensures no extra gap above the text */
-            margin-bottom: 40px;
+            margin: 0 0 40px 0; /* Removed top margin, kept bottom gap */
             color: #4A2E2E;
         }
 
         .location-grid {
             display: flex; flex-wrap: wrap;
             justify-content: center; gap: 25px;
-            max-width: 1000px; margin: 0 auto;
+            max-width: 1000px; width: 100%; margin: 0 auto;
         }
 
         .location-card {
@@ -128,6 +124,7 @@
             border-radius: 20px;
             background: #fdfaf9;
             border: 1px solid #f2ece9;
+            box-sizing: border-box;
         }
 
         .venue-icon {
@@ -139,12 +136,12 @@
         .location-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 0.9rem; /* Uniform with invite message */
             letter-spacing: 1.5px;
             line-height: 1.6;
             text-transform: uppercase;
             color: #4A2E2E;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .map-btn {
@@ -156,7 +153,7 @@
             text-decoration: none;
             border-radius: 30px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -169,7 +166,7 @@
         }
 
         @media (max-width: 768px) {
-            #location .location-grid {
+            .location-grid {
                 flex-direction: column;
                 align-items: center;
             }
