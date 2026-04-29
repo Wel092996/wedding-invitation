@@ -69,9 +69,23 @@
             font-size: 0.9rem;
         }
 
-        #location {
-            margin-top: -40px;
-            padding-top: 40px;
+        .countdown-container {
+            display: inline-flex; gap: clamp(15px, 4vw, 40px);
+            background: rgba(0,0,0,0.2); padding: 20px 30px;
+            border-radius: 15px; backdrop-filter: blur(5px); margin-top: 20px;
+        }
+
+        .countdown-item { display: flex; flex-direction: column; align-items: center; min-width: 60px; }
+        .countdown-number { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; }
+
+        #details {
+            width: 100%; padding: 0; margin-top: -2px;
+            position: relative; z-index: 10; line-height: 0;
+            background: #fff;
+        }
+
+        .details-image {
+            width: 100vw; height: auto; display: block;
         }
 
         .content-section {
@@ -80,12 +94,14 @@
         }
 
         /* =========================
-           LOCATION (UNIFORM FONT FIX)
+           LOCATION SECTION ONLY
         ========================== */
 
         .content-section h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 2.4rem;
+            letter-spacing: 1px;
             margin-bottom: 25px;
             color: #4A2E2E;
         }
@@ -102,6 +118,12 @@
             border-radius: 20px;
             background: #fdfaf9;
             border: 1px solid #f2ece9;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
         }
 
         .venue-icon {
@@ -110,15 +132,14 @@
             display: block;
         }
 
-        /* UNIFORM FONT SYSTEM */
         .location-title {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 1.55rem;
-            line-height: 1.5;
-            letter-spacing: 0.2px;
-            margin-bottom: 10px;
-            color: #4A2E2E;
+            line-height: 1.4;
+            letter-spacing: 0.3px;
+            margin-bottom: 8px;
+            color: #3f2a2a;
         }
 
         .map-btn {
@@ -132,6 +153,7 @@
             font-size: 0.8rem;
             font-weight: 600;
             transition: 0.3s;
+            letter-spacing: 0.5px;
         }
 
         .map-btn:hover {
@@ -139,10 +161,59 @@
             color: #fff;
         }
 
+        /* seamless fix remains */
+        #location {
+            margin-top: -40px;
+            padding-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            #location .location-grid {
+                flex-direction: row !important;
+                flex-wrap: wrap;
+            }
+            #location .location-card {
+                min-width: 300px;
+            }
+        }
+
     </style>
 </head>
 
 <body>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#details">Details</a>
+    <a href="#location">Location</a>
+    <a href="#entourage">Entourage</a>
+    <a href="#rsvp">RSVP</a>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+
+        <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0;">
+            You are cordially invited to the wedding of
+        </p>
+
+        <h1 class="names">
+            <span style="--i:1">R</span><span style="--i:2">o</span><span style="--i:3">e</span><span style="--i:4">l</span>
+            <br><span style="--i:5">&</span><br>
+            <span style="--i:6">M</span><span style="--i:7">a</span><span style="--i:8">i</span><span style="--i:9">l</span><span style="--i:10">y</span><span style="--i:11">n</span>
+        </h1>
+
+        <p class="invite-message">
+            Together with love and happiness, we invite you to witness and celebrate 
+            the beginning of our married life. We would be honored to have you with us.
+        </p>
+
+    </div>
+</section>
+
+<section id="details">
+    <img src="ok.png" alt="Wedding Details" class="details-image">
+</section>
 
 <section id="location" class="content-section">
     <h2>Location</h2>
@@ -154,7 +225,11 @@
             <div class="location-title">
                 St. Vincent Ferrer Parish & Diocesan Shrine
             </div>
-            <a href="#" class="map-btn">GET DIRECTIONS</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=St.+Vincent+Ferrer+Parish+Tabaco+City+Albay"
+               target="_blank"
+               class="map-btn">
+               GET DIRECTIONS
+            </a>
         </div>
 
         <div class="location-card">
@@ -162,7 +237,11 @@
             <div class="location-title">
                 Zone-4 Buang, Tabaco City, Albay
             </div>
-            <a href="#" class="map-btn">GET DIRECTIONS</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Manilyn+Store+Tabaco+City+Albay"
+               target="_blank"
+               class="map-btn">
+               GET DIRECTIONS
+            </a>
         </div>
 
     </div>
