@@ -95,20 +95,23 @@
 
         /* =========================
            LOCATION SECTION UPDATED
+           (Adjusted for balance)
         ========================== */
 
         #location {
-            margin-top: 20px; /* Moved lower to prevent overlap */
-            padding-top: 60px;
+            margin-top: 0; /* Reduced from 20px */
+            padding-top: 40px; /* Reduced for better balance from top */
+            padding-bottom: 80px; 
             background: #fff;
         }
 
         #location h2 {
-            font-family: 'Montserrat', sans-serif; /* Unified font */
+            font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             font-size: 2.2rem;
-            letter-spacing: 4px; /* Matches top styles */
+            letter-spacing: 4px;
             text-transform: uppercase;
+            margin-top: 0; /* Ensures no extra gap above the text */
             margin-bottom: 40px;
             color: #4A2E2E;
         }
@@ -128,13 +131,13 @@
         }
 
         .venue-icon {
-            font-size: 7.6rem; /* 2x bigger as requested */
+            font-size: 7.6rem;
             margin-bottom: 25px;
             display: block;
         }
 
         .location-title {
-            font-family: 'Montserrat', sans-serif; /* Unified font */
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             font-size: 1.1rem;
             letter-spacing: 1.5px;
@@ -222,7 +225,7 @@
     <img src="ok.png" alt="Wedding Details" class="details-image">
 </section>
 
-<section id="location" class="content-section">
+<section id="location">
     <h2>Location</h2>
 
     <div class="location-grid">
@@ -232,7 +235,7 @@
             <div class="location-title">
                 St. Vincent Ferrer Parish & Diocesan Shrine
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=St.+Vincent+Ferrer+Parish+Tabaco+City+Albay"
+            <a href="https://maps.google.com"
                target="_blank"
                class="map-btn">
                 GET DIRECTIONS
@@ -244,7 +247,7 @@
             <div class="location-title">
                 Zone-4 Buang, Tabaco City, Albay
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Manilyn+Store+Tabaco+City+Albay"
+            <a href="https://maps.google.com"
                target="_blank"
                class="map-btn">
                 GET DIRECTIONS
