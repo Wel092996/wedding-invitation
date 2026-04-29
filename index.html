@@ -89,12 +89,11 @@
         }
 
         /* =========================
-           LOCATION SECTION UPDATED
-           (Cursive, Big, and Balanced)
+           LOCATION SECTION FINAL
         ========================== */
 
         #location {
-            padding: 60px 20px 80px 20px; /* Balanced padding */
+            padding: 60px 20px 80px 20px;
             text-align: center;
             background: #fff;
             display: flex;
@@ -103,17 +102,17 @@
         }
 
         #location h2 {
-            font-family: 'Great Vibes', cursive; /* Cursive font */
+            font-family: 'Great Vibes', cursive;
             font-weight: 400;
-            font-size: 4rem; /* Significantly bigger */
-            margin: 0 0 20px 0; /* Balanced spacing around the text */
+            font-size: 4.5rem; /* Large and cursive */
+            margin: 0 0 20px 0;
             color: #4A2E2E;
         }
 
         .location-grid {
             display: flex; flex-wrap: wrap;
-            justify-content: center; gap: 25px;
-            max-width: 1000px; width: 100%; margin: 0 auto;
+            justify-content: center; gap: 30px;
+            max-width: 1100px; width: 100%; margin: 0 auto;
         }
 
         .location-card {
@@ -123,35 +122,54 @@
             background: #fdfaf9;
             border: 1px solid #f2ece9;
             box-sizing: border-box;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Hover Effect for the entire box */
+        .location-card:hover {
+            transform: translateY(-12px);
+            background: #fff;
+            border-color: #4A2E2E;
+            box-shadow: 0 20px 40px rgba(74, 46, 46, 0.1);
         }
 
         .venue-icon {
             font-size: 7.6rem;
             margin-bottom: 25px;
             display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .location-card:hover .venue-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .location-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             letter-spacing: 1.5px;
             line-height: 1.6;
             text-transform: uppercase;
             color: #4A2E2E;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            min-height: 3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .map-btn {
             display: inline-block;
-            margin-top: 15px;
             padding: 12px 35px;
             border: 1.5px solid #4A2E2E;
             color: #4A2E2E;
             text-decoration: none;
             border-radius: 30px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -164,12 +182,13 @@
         }
 
         @media (max-width: 768px) {
-            #location h2 { font-size: 3rem; } /* Mobile adjustments */
+            #location h2 { font-size: 3.5rem; }
             .location-grid {
                 flex-direction: column;
                 align-items: center;
             }
             .venue-icon { font-size: 5.5rem; }
+            .location-card { width: 90%; }
         }
 
     </style>
@@ -187,33 +206,27 @@
 
 <section class="hero" id="home">
     <div class="hero-content">
-
         <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0;">
             You are cordially invited to the wedding of
         </p>
-
         <h1 class="names">
             <span style="--i:1">R</span><span style="--i:2">o</span><span style="--i:3">e</span><span style="--i:4">l</span>
             <br><span style="--i:5">&</span><br>
             <span style="--i:6">M</span><span style="--i:7">a</span><span style="--i:8">i</span><span style="--i:9">l</span><span style="--i:10">y</span><span style="--i:11">n</span>
         </h1>
-
         <p class="invite-message">
             Together with love and happiness, we invite you to witness and celebrate 
             the beginning of our married life. We would be honored to have you with us.
         </p>
-
         <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin-top: 30px; color: #fff;">
             Countdown to Forever
         </h2>
-
         <div class="countdown-container">
             <div class="countdown-item"><span class="countdown-number" id="days">00</span><span>Days</span></div>
             <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span>Hrs</span></div>
             <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span>Min</span></div>
             <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span>Sec</span></div>
         </div>
-
     </div>
 </section>
 
@@ -223,43 +236,30 @@
 
 <section id="location">
     <h2>Location</h2>
-
     <div class="location-grid">
-
-        <div class="location-card">
+        <div class="location-card" onclick="window.open('https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+%26+Diocesan+Shrine/@13.3566282,123.6967139,679m/data=!3m2!1e3!4b1!4m6!3m5!1s0x33a1ae7c705946e1:0xf18c9ba154c26f3a!8m2!3d13.356623!4d123.6992888!16s%2Fg%2F1hc11mb08?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D', '_blank')">
             <span class="venue-icon">⛪</span>
             <div class="location-title">
-                St. Vincent Ferrer Parish & Diocesan Shrine
+                St. Vincent Ferrer Parish & <br>Diocesan Shrine
             </div>
-            <a href="https://maps.google.com"
-               target="_blank"
-               class="map-btn">
-                GET DIRECTIONS
-            </a>
+            <a href="https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+%26+Diocesan+Shrine/@13.3566282,123.6967139,679m/data=!3m2!1e3!4b1!4m6!3m5!1s0x33a1ae7c705946e1:0xf18c9ba154c26f3a!8m2!3d13.356623!4d123.6992888!16s%2Fg%2F1hc11mb08?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">GET DIRECTIONS</a>
         </div>
 
-        <div class="location-card">
+        <div class="location-card" onclick="window.open('https://www.google.com/maps/place/MANILYN+STORE/@13.9541247,120.9531768,346781m/data=!3m1!1e3!4m15!1m7!2m6!1smanilyn+store!3m4!2s13.302919,+123.637745!4m2!1d123.6377447!2d13.3029186!3m6!1s0x33a1a8bfb7162cff:0x1fc8df54d126460f!8m2!3d13.302796!4d123.6377388!15sCg1tYW5pbHluIHN0b3JlkgENZ3JvY2VyeV9zdG9yZeABAA!16s%2Fg%2F11xt9n0vd7?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D', '_blank')">
             <span class="venue-icon">🥂</span>
             <div class="location-title">
-                Zone-4 Buang, Tabaco City, Albay
+                Zone-4 Buang, <br>Tabaco City, Albay
             </div>
-            <a href="https://maps.google.com"
-               target="_blank"
-               class="map-btn">
-                GET DIRECTIONS
-            </a>
+            <a href="https://www.google.com/maps/place/MANILYN+STORE/@13.9541247,120.9531768,346781m/data=!3m1!1e3!4m15!1m7!2m6!1smanilyn+store!3m4!2s13.302919,+123.637745!4m2!1d123.6377447!2d13.3029186!3m6!1s0x33a1a8bfb7162cff:0x1fc8df54d126460f!8m2!3d13.302796!4d123.6377388!15sCg1tYW5pbHluIHN0b3JlkgENZ3JvY2VyeV9zdG9yZeABAA!16s%2Fg%2F11xt9n0vd7?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">GET DIRECTIONS</a>
         </div>
-
     </div>
 </section>
 
 <script>
 const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
-
 function update() {
     const now = new Date().getTime();
     const diff = weddingDate - now;
-
     if (diff <= 0) {
         document.getElementById("days").innerText = "00";
         document.getElementById("hours").innerText = "00";
@@ -267,20 +267,11 @@ function update() {
         document.getElementById("seconds").innerText = "00";
         return;
     }
-
-    document.getElementById("days").innerText =
-        Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-
-    document.getElementById("hours").innerText =
-        Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-
-    document.getElementById("minutes").innerText =
-        Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-
-    document.getElementById("seconds").innerText =
-        Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+    document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+    document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+    document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+    document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
 }
-
 setInterval(update, 1000);
 update();
 </script>
