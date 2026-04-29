@@ -94,23 +94,22 @@
         }
 
         /* =========================
-           LOCATION SECTION ONLY
+           LOCATION SECTION UPDATED
         ========================== */
 
         #location {
-            margin-top: -60px; /* Closes the gap to the details tab */
-            padding-top: 20px;
-            position: relative;
-            z-index: 11;
+            margin-top: 20px; /* Moved lower to prevent overlap */
+            padding-top: 60px;
+            background: #fff;
         }
 
         #location h2 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Unified font */
             font-weight: 500;
             font-size: 2.2rem;
-            letter-spacing: 3px;
+            letter-spacing: 4px; /* Matches top styles */
             text-transform: uppercase;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             color: #4A2E2E;
         }
 
@@ -122,42 +121,43 @@
 
         .location-card {
             flex: 1; min-width: 300px;
-            padding: 50px 25px;
+            padding: 60px 25px;
             border-radius: 20px;
             background: #fdfaf9;
             border: 1px solid #f2ece9;
         }
 
         .venue-icon {
-            font-size: 7.6rem; /* 2x bigger than original 3.8rem */
-            margin-bottom: 20px;
+            font-size: 7.6rem; /* 2x bigger as requested */
+            margin-bottom: 25px;
             display: block;
         }
 
         .location-title {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Unified font */
             font-weight: 600;
             font-size: 1.1rem;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
+            line-height: 1.6;
             text-transform: uppercase;
-            line-height: 1.5;
-            margin-bottom: 10px;
             color: #4A2E2E;
+            margin-bottom: 15px;
         }
 
         .map-btn {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 15px;
             padding: 12px 35px;
             border: 1.5px solid #4A2E2E;
             color: #4A2E2E;
             text-decoration: none;
             border-radius: 30px;
-            font-size: 0.8rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
             font-weight: 600;
-            transition: 0.3s;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            transition: 0.3s;
         }
 
         .map-btn:hover {
@@ -167,13 +167,10 @@
 
         @media (max-width: 768px) {
             #location .location-grid {
-                flex-direction: row !important;
-                flex-wrap: wrap;
+                flex-direction: column;
+                align-items: center;
             }
-            #location .location-card {
-                min-width: 300px;
-            }
-            .venue-icon { font-size: 5rem; } /* Slightly scale down for mobile screens */
+            .venue-icon { font-size: 5.5rem; }
         }
 
     </style>
