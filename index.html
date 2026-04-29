@@ -16,21 +16,17 @@
             overflow-x: hidden;
         }
 
-        /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%;
             display: flex; justify-content: center; gap: 20px;
-            padding: 20px; background: rgba(255,255,255,0.8); /* Lightened for better visibility */
+            padding: 20px; background: rgba(0,0,0,0.6);
             backdrop-filter: blur(10px); z-index: 1000;
-            border-bottom: 1px solid rgba(74, 46, 46, 0.1);
         }
         nav a {
-            color: #4A2E2E; text-decoration: none;
-            font-size: 0.7rem; letter-spacing: 2px; font-weight: 600;
-            text-transform: uppercase;
+            color: #fff; text-decoration: none;
+            font-size: 0.75rem; letter-spacing: 2px; font-weight: 500;
         }
 
-        /* --- HERO --- */
         .hero {
             position: relative; min-height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
@@ -41,89 +37,178 @@
             box-sizing: border-box; z-index: 2; color: #fff;
         }
 
+        .hero-content {
+            position: relative; z-index: 5; width: 100%;
+            max-width: 800px; text-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+        }
+
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3.5rem, 10vw, 6.5rem);
-            line-height: 1.1; margin: 0; padding: 2.5rem 0 10px 0;
+            line-height: 1.1;
+            margin: 0; 
+            padding-top: 2.5rem;
+            padding-bottom: 10px;
         }
 
         .names span {
             display: inline-block; opacity: 0; transform: translateY(20px);
-            animation: letterIn 0.8s ease forwards;
+            animation: letterIn 0.5s ease forwards;
             animation-delay: calc(var(--i) * 0.05s);
         }
 
-        @keyframes letterIn { to { opacity: 1; transform: translateY(0); } }
-
-        /* --- TRANSITION CLASSES (The Secret Sauce) --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes letterIn {
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- DETAILS SECTION --- */
-        #details { 
-            background: #fff; 
-            padding: 40px 0; /* Space between Hero and Details image */
+        .invite-message {
+            max-width: 600px;
+            margin: 18px auto 10px auto;
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: 0.9rem;
         }
-        .details-image { width: 100vw; height: auto; display: block; }
 
-        /* --- LOCATION SECTION --- */
+        .countdown-container {
+            display: inline-flex; gap: clamp(15px, 4vw, 40px);
+            background: rgba(0,0,0,0.2); padding: 20px 30px;
+            border-radius: 15px; backdrop-filter: blur(5px); margin-top: 20px;
+        }
+
+        .countdown-item { display: flex; flex-direction: column; align-items: center; min-width: 60px; }
+        .countdown-number { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; }
+
+        #details {
+            width: 100%; padding: 0; margin-top: -2px;
+            position: relative; z-index: 10; line-height: 0;
+            background: #fff;
+        }
+
+        .details-image {
+            width: 100vw; height: auto; display: block;
+        }
+
         #location {
-            padding: 100px 20px; /* Increased padding for better transition flow */
+            padding: 60px 20px 80px 20px;
             text-align: center;
-            background: #fdfaf9; /* Very slight tint to separate from white image sections */
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         #location h2 {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(3rem, 8vw, 4.5rem);
-            margin-bottom: 40px; color: #4A2E2E;
+            font-weight: 400;
+            font-size: 4.5rem;
+            margin: 0 0 20px 0;
+            color: #4A2E2E;
         }
 
         .location-grid {
             display: flex; flex-wrap: wrap;
             justify-content: center; gap: 30px;
-            max-width: 1100px; margin: 0 auto;
+            max-width: 1100px; width: 100%; margin: 0 auto;
         }
 
         .location-card {
             flex: 1; min-width: 300px;
-            padding: 50px 25px; border-radius: 20px;
-            background: #fff; border: 1px solid #f2ece9;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease;
+            padding: 60px 25px;
+            border-radius: 20px;
+            background: #fdfaf9;
+            border: 1px solid #f2ece9;
+            box-sizing: border-box;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: default;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
         }
-        
-        .location-card:hover { transform: translateY(-5px); }
 
-        .venue-icon { font-size: 5rem; margin-bottom: 20px; display: block; }
+        @media (min-width: 1025px) {
+            .location-card:hover {
+                transform: translateY(-12px);
+                background: #fff;
+                border-color: #4A2E2E;
+                box-shadow: 0 20px 40px rgba(74, 46, 46, 0.1);
+            }
+            .location-card:hover .venue-icon {
+                transform: scale(1.1) rotate(5deg);
+            }
+        }
+
+        .location-card:active {
+            transform: scale(0.96);
+            background: #f2ece9;
+            transition: 0.1s;
+        }
+
+        .venue-icon {
+            font-size: 7.6rem;
+            margin-bottom: 25px;
+            display: block;
+            transition: transform 0.4s ease;
+            pointer-events: none;
+        }
+
+        .location-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            line-height: 1.6;
+            text-transform: uppercase;
+            color: #4A2E2E;
+            margin-bottom: 25px;
+            min-height: 3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
 
         .map-btn {
-            display: inline-block; padding: 12px 30px;
-            border: 1.5px solid #4A2E2E; color: #4A2E2E;
-            text-decoration: none; border-radius: 30px;
-            font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;
+            display: inline-block;
+            padding: 12px 35px;
+            border: 1.5px solid #4A2E2E;
+            color: #4A2E2E;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             transition: 0.3s;
         }
-        .map-btn:hover { background: #4A2E2E; color: #fff; }
 
-        /* --- ENTOURAGE SECTION --- */
-        #entourage {
-            background: #fff;
-            padding: 60px 0; /* Space between Location cards and Entourage image */
+        .map-btn:hover {
+            background: #4A2E2E;
+            color: #fff;
         }
-        .entourage-image { width: 100vw; height: auto; display: block; }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            #location { padding: 60px 20px; }
-            .location-card { width: 90%; }
+            #location h2 { font-size: 3.5rem; }
+            .location-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .venue-icon { font-size: 5.5rem; }
+            .location-card { width: 95%; }
+        }
+
+        /* ENTOURAGE SECTION */
+        #entourage {
+            width: 100%;
+            padding: 0;
+            margin-top: -2px;
+            position: relative;
+            z-index: 10;
+            line-height: 0;
+            background: #fff;
+        }
+
+        .entourage-image {
+            width: 100vw;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
@@ -140,13 +225,25 @@
 
 <section class="hero" id="home">
     <div class="hero-content">
-        <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 0.7rem;">You are cordially invited to the wedding of</p>
+        <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem;">
+            You are cordially invited to the wedding of
+        </p>
+
         <h1 class="names">
             <span style="--i:1">R</span><span style="--i:2">o</span><span style="--i:3">e</span><span style="--i:4">l</span>
             <br><span style="--i:5">&</span><br>
             <span style="--i:6">M</span><span style="--i:7">a</span><span style="--i:8">i</span><span style="--i:9">l</span><span style="--i:10">y</span><span style="--i:11">n</span>
         </h1>
-        <p class="invite-message">Together with love and happiness, we invite you to witness and celebrate the beginning of our married life.</p>
+
+        <p class="invite-message">
+            Together with love and happiness, we invite you to witness and celebrate 
+            the beginning of our married life. We would be honored to have you with us.
+        </p>
+
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin-top: 30px;">
+            Countdown to Forever
+        </h2>
+
         <div class="countdown-container">
             <div class="countdown-item"><span id="days">00</span><span>Days</span></div>
             <div class="countdown-item"><span id="hours">00</span><span>Hrs</span></div>
@@ -156,63 +253,54 @@
     </div>
 </section>
 
-<section id="details" class="reveal">
+<section id="details">
     <img src="ok.png" class="details-image">
 </section>
 
 <section id="location">
-    <div class="reveal">
-        <h2>Location</h2>
-        <div class="location-grid">
-            <div class="location-card">
-                <span class="venue-icon">⛪</span>
-                <div class="location-title">St. Vincent Ferrer Parish & <br>Diocesan Shrine</div>
-                <br>
-                <a href="#" target="_blank" class="map-btn">GET DIRECTIONS</a>
+    <h2>Location</h2>
+    <div class="location-grid">
+
+        <div class="location-card">
+            <span class="venue-icon">⛪</span>
+            <div class="location-title">
+                St. Vincent Ferrer Parish & <br>Diocesan Shrine
             </div>
-            <div class="location-card">
-                <span class="venue-icon">🥂</span>
-                <div class="location-title">Zone-4 Buang, <br>Tabaco City, Albay</div>
-                <br>
-                <a href="#" target="_blank" class="map-btn">GET DIRECTIONS</a>
-            </div>
+            <a href="https://www.google.com/maps/..." target="_blank" class="map-btn">GET DIRECTIONS</a>
         </div>
+
+        <div class="location-card">
+            <span class="venue-icon">🥂</span>
+            <div class="location-title">
+                Zone-4 Buang, <br>Tabaco City, Albay
+            </div>
+            <a href="https://www.google.com/maps/..." target="_blank" class="map-btn">GET DIRECTIONS</a>
+        </div>
+
     </div>
 </section>
 
-<section id="entourage" class="reveal">
-    <img src="ent.png" class="entourage-image">
+<section id="entourage">
+    <img src="ent.png" alt="Wedding Entourage" class="entourage-image">
 </section>
 
 <script>
-/* 1. Countdown Logic */
 const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
+
 function update() {
     const now = new Date().getTime();
     const diff = weddingDate - now;
+
     if (diff <= 0) return;
+
     document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
     document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
     document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
     document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
 }
+
 setInterval(update, 1000);
 update();
-
-/* 2. Scroll Reveal Logic */
-function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
-    for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 150; // Triggers when 150px of the section is visible
-        if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
-        }
-    }
-}
-window.addEventListener("scroll", reveal);
-reveal(); // Run once on load
 </script>
 
 </body>
