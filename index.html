@@ -76,7 +76,6 @@
         }
 
         .countdown-item { display: flex; flex-direction: column; align-items: center; min-width: 60px; }
-        .countdown-number { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; }
 
         #details {
             width: 100%; padding: 0; margin-top: -2px;
@@ -117,9 +116,6 @@
             border-radius: 20px;
             background: #fdfaf9;
             border: 1px solid #f2ece9;
-            box-sizing: border-box;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: default;
         }
 
         .venue-icon {
@@ -147,7 +143,6 @@
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            transition: 0.3s;
         }
 
         .map-btn:hover {
@@ -194,11 +189,6 @@
             <br><span style="--i:5">&</span><br>
             <span style="--i:6">M</span><span style="--i:7">a</span><span style="--i:8">i</span><span style="--i:9">l</span><span style="--i:10">y</span><span style="--i:11">n</span>
         </h1>
-
-        <p class="invite-message">
-            Together with love and happiness, we invite you to witness and celebrate 
-            the beginning of our married life.
-        </p>
     </div>
 </section>
 
@@ -211,29 +201,23 @@
 
     <div class="location-grid">
 
-        <!-- CHURCH -->
         <div class="location-card">
             <span class="venue-icon">⛪</span>
             <div class="location-title">
-                St. Vincent Ferrer Parish & <br>Diocesan Shrine
+                St. Vincent Ferrer Parish & Diocesan Shrine
             </div>
-            <a href="https://maps.app.goo.gl/UzSDHr5D8bVaybPw8" 
-               target="_blank" 
-               class="map-btn">
-               GET DIRECTIONS
+            <a href="https://maps.app.goo.gl/UzSDHr5D8bVaybPw8" target="_blank" class="map-btn">
+                GET DIRECTIONS
             </a>
         </div>
 
-        <!-- RECEPTION -->
         <div class="location-card">
             <span class="venue-icon">🥂</span>
             <div class="location-title">
-                Zone-4 Buang, <br>Tabaco City, Albay
+                Zone-4 Buang, Tabaco City, Albay
             </div>
-            <a href="https://www.google.com/maps?q=13.303547,123.636898" 
-               target="_blank" 
-               class="map-btn">
-               GET DIRECTIONS
+            <a href="https://www.google.com/maps?q=13.303547,123.636898" target="_blank" class="map-btn">
+                GET DIRECTIONS
             </a>
         </div>
 
@@ -241,27 +225,8 @@
 </section>
 
 <section id="entourage">
-    <img src="ent.png" class="entourage-image">
+    <img src="ENTO.png" class="entourage-image">
 </section>
-
-<script>
-const weddingDate = new Date("June 8, 2026 09:00:00").getTime();
-
-function update() {
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
-
-    if (diff <= 0) return;
-
-    document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-    document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-    document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-    document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
-}
-
-setInterval(update, 1000);
-update();
-</script>
 
 </body>
 </html>
