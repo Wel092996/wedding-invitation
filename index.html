@@ -120,20 +120,49 @@
             box-sizing: border-box;
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             cursor: default;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @media (min-width: 1025px) {
+            .location-card:hover {
+                transform: translateY(-12px);
+                background: #fff;
+                border-color: #4A2E2E;
+                box-shadow: 0 20px 40px rgba(74, 46, 46, 0.1);
+            }
+            .location-card:hover .venue-icon {
+                transform: scale(1.1) rotate(5deg);
+            }
+        }
+
+        .location-card:active {
+            transform: scale(0.96);
+            background: #f2ece9;
+            transition: 0.1s;
         }
 
         .venue-icon {
             font-size: 7.6rem;
             margin-bottom: 25px;
             display: block;
+            transition: transform 0.4s ease;
+            pointer-events: none;
         }
 
         .location-title {
             font-weight: 600;
             font-size: 0.95rem;
             letter-spacing: 1.5px;
+            line-height: 1.6;
             text-transform: uppercase;
+            color: #4A2E2E;
             margin-bottom: 25px;
+            min-height: 3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
         }
 
         .map-btn {
@@ -155,6 +184,17 @@
             color: #fff;
         }
 
+        @media (max-width: 768px) {
+            #location h2 { font-size: 3.5rem; }
+            .location-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .venue-icon { font-size: 5.5rem; }
+            .location-card { width: 95%; }
+        }
+
+        /* ENTOURAGE SECTION */
         #entourage {
             width: 100%;
             padding: 0;
@@ -197,8 +237,19 @@
 
         <p class="invite-message">
             Together with love and happiness, we invite you to witness and celebrate 
-            the beginning of our married life.
+            the beginning of our married life. We would be honored to have you with us.
         </p>
+
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin-top: 30px;">
+            Countdown to Forever
+        </h2>
+
+        <div class="countdown-container">
+            <div class="countdown-item"><span id="days">00</span><span>Days</span></div>
+            <div class="countdown-item"><span id="hours">00</span><span>Hrs</span></div>
+            <div class="countdown-item"><span id="minutes">00</span><span>Min</span></div>
+            <div class="countdown-item"><span id="seconds">00</span><span>Sec</span></div>
+        </div>
     </div>
 </section>
 
@@ -208,40 +259,29 @@
 
 <section id="location">
     <h2>Location</h2>
-
     <div class="location-grid">
 
-        <!-- CHURCH -->
         <div class="location-card">
             <span class="venue-icon">⛪</span>
             <div class="location-title">
                 St. Vincent Ferrer Parish & <br>Diocesan Shrine
             </div>
-            <a href="https://maps.app.goo.gl/UzSDHr5D8bVaybPw8" 
-               target="_blank" 
-               class="map-btn">
-               GET DIRECTIONS
-            </a>
+            <a href="https://www.google.com/maps/..." target="_blank" class="map-btn">GET DIRECTIONS</a>
         </div>
 
-        <!-- RECEPTION -->
         <div class="location-card">
             <span class="venue-icon">🥂</span>
             <div class="location-title">
                 Zone-4 Buang, <br>Tabaco City, Albay
             </div>
-            <a href="https://www.google.com/maps?q=13.303547,123.636898" 
-               target="_blank" 
-               class="map-btn">
-               GET DIRECTIONS
-            </a>
+            <a href="https://www.google.com/maps/..." target="_blank" class="map-btn">GET DIRECTIONS</a>
         </div>
 
     </div>
 </section>
 
 <section id="entourage">
-    <img src="ent.png" class="entourage-image">
+    <img src="ent.png" alt="Wedding Entourage" class="entourage-image">
 </section>
 
 <script>
@@ -265,5 +305,3 @@ update();
 
 </body>
 </html>
-
-
