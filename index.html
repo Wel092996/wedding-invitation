@@ -61,17 +61,26 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* MISSING MESSAGE STYLES */
         .invite-message {
             max-width: 600px;
-            margin: 18px auto 25px auto;
+            margin: 20px auto 30px auto;
             font-weight: 300;
             line-height: 1.8;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            font-style: italic;
         }
 
-        /* MISSING COUNTDOWN STYLES */
+        /* COUNTDOWN SECTION */
+        .countdown-title {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
         .countdown-container {
             display: inline-flex; 
             gap: clamp(15px, 4vw, 30px);
@@ -79,7 +88,6 @@
             padding: 20px 30px;
             border-radius: 15px; 
             backdrop-filter: blur(8px); 
-            margin-top: 20px;
             border: 1px solid rgba(255,255,255,0.2);
         }
 
@@ -91,7 +99,7 @@
         }
 
         .countdown-number {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 600;
             display: block;
         }
@@ -153,7 +161,6 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             margin-bottom: 25px;
-            line-height: 1.4;
         }
 
         .map-btn {
@@ -196,10 +203,11 @@
         </h1>
 
         <div class="invite-message">
-            We're getting married! We'd love for you to celebrate this special day with us as we begin our new journey together.
+            Together with love and happiness we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us.
         </div>
 
-        <div class="countdown-container">
+        <div class="countdown-title">Countdown to the Big Day</div>
+        <div class="countdown-container" id="timer-box">
             <div class="countdown-item">
                 <span id="days" class="countdown-number">00</span>
                 <span class="countdown-label">Days</span>
@@ -245,26 +253,29 @@
 </section>
 
 <script>
-    // SET YOUR WEDDING DATE HERE
-    const weddingDate = new Date("Dec 30, 2026 10:00:00").getTime();
+    // SET WEDDING DATE: June 8, 2026 at 10:00 AM
+    const weddingDate = new Date("June 8, 2026 10:00:00").getTime();
 
     const timer = setInterval(function() {
         const now = new Date().getTime();
         const distance = weddingDate - now;
 
+        // Time calculations
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+        // Output the results
         document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
         document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
         document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
         document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
 
+        // If the countdown is finished
         if (distance < 0) {
             clearInterval(timer);
-            document.querySelector(".countdown-container").innerHTML = "JUST MARRIED!";
+            document.getElementById("timer-box").innerHTML = "<h3 style='letter-spacing:5px;'>TODAY IS THE DAY!</h3>";
         }
     }, 1000);
 </script>
