@@ -81,9 +81,9 @@
             text-shadow: 0px 2px 6px rgba(0,0,0,0.6);
         }
 
-        /* NEW WRAPPER */
+        /* DEFAULT (DESKTOP) */
         .countdown-wrapper {
-            margin-top: 40px; /* ← moves BOTH down together */
+            margin-top: 40px;
         }
 
         .countdown-title {
@@ -115,6 +115,13 @@
             font-size: 0.5rem;
             text-transform: uppercase;
             opacity: 0.7;
+        }
+
+        /* ONLY MOBILE ADJUSTMENT */
+        @media (max-width: 768px) {
+            .countdown-wrapper {
+                margin-top: 90px;
+            }
         }
 
         #details, #entourage {
@@ -187,9 +194,7 @@
 <section class="hero" id="home">
     <div class="hero-content">
 
-        <p class="top-invite">
-            You are cordially invited to the wedding of
-        </p>
+        <p class="top-invite">You are cordially invited to the wedding of</p>
 
         <h1 class="names">
             Roel<br>&<br>Mailyn
@@ -199,11 +204,8 @@
             Together with love and happiness we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us.
         </div>
 
-        <!-- WRAPPED COUNTDOWN -->
         <div class="countdown-wrapper">
-            <div class="countdown-title">
-                Countdown to the Big Day
-            </div>
+            <div class="countdown-title">Countdown to the Big Day</div>
 
             <div class="countdown-container">
                 <div class="countdown-item">
