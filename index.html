@@ -81,7 +81,6 @@
             text-shadow: 0px 2px 6px rgba(0,0,0,0.6);
         }
 
-        /* DESKTOP */
         .countdown-wrapper {
             margin-top: 40px;
         }
@@ -115,13 +114,6 @@
             font-size: 0.5rem;
             text-transform: uppercase;
             opacity: 0.7;
-        }
-
-        /* MOBILE ONLY (UPDATED) */
-        @media (max-width: 768px) {
-            .countdown-wrapper {
-                margin-top: 120px; /* increased further down */
-            }
         }
 
         #details, #entourage {
@@ -176,7 +168,26 @@
             margin-top: 10px;
         }
 
+        /* =========================
+           MOBILE ONLY CHANGES
+           (SAFE — NO OTHER EFFECTS)
+        ========================== */
         @media (max-width: 768px) {
+
+            .names {
+                margin-top: 120px; /* moved down 3 steps */
+            }
+
+            .invite-message {
+                margin-top: 120px; /* moved down 3 steps */
+            }
+
+            .top-invite {
+                color: #fff;
+                font-weight: 500;
+                text-shadow: 0 3px 10px rgba(0,0,0,0.9);
+            }
+
             .names { font-size: 3.5rem; }
         }
     </style>
@@ -194,7 +205,9 @@
 <section class="hero" id="home">
     <div class="hero-content">
 
-        <p class="top-invite">You are cordially invited to the wedding of</p>
+        <p class="top-invite">
+            You are cordially invited to the wedding of
+        </p>
 
         <h1 class="names">
             Roel<br>&<br>Mailyn
