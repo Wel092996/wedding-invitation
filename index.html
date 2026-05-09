@@ -95,12 +95,17 @@
             opacity: 0;
             animation: letterFade 0.6s forwards;
             animation-delay: calc(var(--i) * 0.12s);
-            color: #fff;
         }
 
         @keyframes letterFade {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .uniform-text {
@@ -209,7 +214,10 @@
             transition: transform 0.3s ease;
         }
 
-        .location-icon:hover { transform: scale(1.15) rotate(6deg); }
+        .location-icon:hover,
+        .location-icon:active {
+            transform: scale(1.15) rotate(6deg);
+        }
 
         .map-btn {
             display: inline-block;
@@ -235,7 +243,9 @@
 <section class="hero" id="home">
     <div class="hero-content">
 
-        <p class="top-invite">You are cordially invited to the wedding of</p>
+        <p class="top-invite">
+            You are cordially invited to the wedding of
+        </p>
 
         <h1 class="names">
             <span class="letter" style="--i:1">R</span><span class="letter" style="--i:2">o</span><span class="letter" style="--i:3">e</span><span class="letter" style="--i:4">l</span>
@@ -244,8 +254,32 @@
         </h1>
 
         <div class="invite-message uniform-text">
-            Together with love and happiness we invite you to witness and celebrate the beginning of our married life.
+            Together with love and happiness we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us.
         </div>
+
+        <div class="countdown-wrapper">
+            <div class="countdown-title">Countdown to the Big Day</div>
+
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span id="days" class="countdown-number">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours" class="countdown-number">00</span>
+                    <span class="countdown-label">Hrs</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes" class="countdown-number">00</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds" class="countdown-number">00</span>
+                    <span class="countdown-label">Sec</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -258,8 +292,8 @@
         <div class="location-grid">
 
             <div class="location-card">
-                <span class="location-icon" style="font-size:5rem;">⛪️</span>
-                <p style="margin-top:20px;">St. Vincent Ferrer Parish & Diocesan Shrine</p>
+                <span class="location-icon" style="font-size: 5rem;">⛪️</span>
+                <p style="margin-top: 20px;">St. Vincent Ferrer Parish & Diocesan Shrine</p>
                 <a href="https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+Office/@13.3565682,123.696726,17z/data=!3m1!4b1!4m6!3m5!1s0x33a1af000cb0f4a9:0x3bdd99b71c0667d5!8m2!3d13.356563!4d123.6993009!16s%2Fg%2F11yv9qw561?entry=ttu" 
                    class="map-btn" target="_blank">
                    GET DIRECTIONS
@@ -267,9 +301,9 @@
             </div>
 
             <div class="location-card">
-                <span class="location-icon" style="font-size:5rem;">🥂</span>
+                <span class="location-icon" style="font-size: 5rem;">🥂</span>
                 <p>Zone-4 Buang, Tabaco City, Albay</p>
-                <p><small>Bio's Residence</small></p>
+                <p><small>Bio’s Residence</small></p>
                 <a href="https://www.google.com/maps/place/13%C2%B018'11.8%22N+123%C2%B038'14.3%22E/@13.3032903,123.6366593,19z/data=!3m1!4b1" 
                    class="map-btn" target="_blank">
                    GET DIRECTIONS
