@@ -67,19 +67,19 @@
             font-size: clamp(3rem, 10vw, 6.5rem);
             line-height: 1.1;
             margin: 2vh 0;
-            animation: floatNames 4s ease-in-out infinite;
+            animation: fadeNames 4s ease-in-out infinite;
             text-shadow: 0 6px 18px rgba(0,0,0,0.45);
         }
 
-        @keyframes floatNames {
+        @keyframes fadeNames {
             0% {
-                transform: translateY(0px);
+                opacity: 0.6;
             }
             50% {
-                transform: translateY(-10px);
+                opacity: 1;
             }
             100% {
-                transform: translateY(0px);
+                opacity: 0.6;
             }
         }
 
