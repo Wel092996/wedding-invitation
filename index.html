@@ -25,6 +25,7 @@
         nav a {
             color: #fff; text-decoration: none;
             font-size: 0.75rem; letter-spacing: 2px; font-weight: 500;
+            text-transform: uppercase;
         }
 
         .hero {
@@ -40,6 +41,14 @@
         .hero-content {
             position: relative; z-index: 5; width: 100%;
             max-width: 800px; text-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* UNIFORMED STYLE WITHOUT UPPERCASE */
+        .uniform-text {
+            letter-spacing: 2px; 
+            font-size: 0.9rem;
+            font-weight: 300;
+            text-transform: none; /* REMOVED UPPERCASE */
         }
 
         .names {
@@ -62,16 +71,11 @@
         }
 
         .invite-message {
-            max-width: 600px;
-            margin: 20px auto 30px auto;
-            font-weight: 300;
+            max-width: 650px;
+            margin: 25px auto 35px auto;
             line-height: 1.8;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            font-style: italic;
         }
 
-        /* COUNTDOWN SECTION */
         .countdown-title {
             text-transform: uppercase;
             letter-spacing: 4px;
@@ -192,7 +196,7 @@
 
 <section class="hero" id="home">
     <div class="hero-content">
-        <p style="letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem;">
+        <p class="uniform-text">
             You are cordially invited to the wedding of
         </p>
 
@@ -202,7 +206,7 @@
             <span style="--i:6">M</span><span style="--i:7">a</span><span style="--i:8">i</span><span style="--i:9">l</span><span style="--i:10">y</span><span style="--i:11">n</span>
         </h1>
 
-        <div class="invite-message">
+        <div class="invite-message uniform-text">
             Together with love and happiness we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us.
         </div>
 
@@ -253,26 +257,22 @@
 </section>
 
 <script>
-    // SET WEDDING DATE: June 8, 2026 at 10:00 AM
     const weddingDate = new Date("June 8, 2026 10:00:00").getTime();
 
     const timer = setInterval(function() {
         const now = new Date().getTime();
         const distance = weddingDate - now;
 
-        // Time calculations
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Output the results
         document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
         document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
         document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
         document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
 
-        // If the countdown is finished
         if (distance < 0) {
             clearInterval(timer);
             document.getElementById("timer-box").innerHTML = "<h3 style='letter-spacing:5px;'>TODAY IS THE DAY!</h3>";
