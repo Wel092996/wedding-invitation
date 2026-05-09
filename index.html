@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,15 +72,6 @@
             text-shadow: 0 6px 18px rgba(0,0,0,0.45);
         }
 
-        /* FORCE ALL NAME LETTERS TO WHITE */
-        .letter {
-            display: inline-block;
-            opacity: 0;
-            color: #fff;
-            animation: letterFade 0.6s forwards;
-            animation-delay: calc(var(--i) * 0.12s);
-        }
-
         @keyframes nameIntro {
             0% {
                 opacity: 0;
@@ -94,9 +86,22 @@
         }
 
         @keyframes fadeNames {
-            0% { opacity: 0.6; }
-            50% { opacity: 1; }
-            100% { opacity: 0.6; }
+            0% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.6;
+            }
+        }
+
+        .letter {
+            display: inline-block;
+            opacity: 0;
+            animation: letterFade 0.6s forwards;
+            animation-delay: calc(var(--i) * 0.12s);
         }
 
         @keyframes letterFade {
@@ -107,6 +112,13 @@
             100% {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.6;
             }
         }
 
@@ -231,6 +243,38 @@
             font-size: 0.65rem;
             margin-top: 10px;
         }
+
+        /* =========================
+           MOBILE ONLY FIX
+        ========================== */
+        @media (max-width: 768px) {
+
+            .top-invite {
+                margin-top: -40px;
+                font-size: 1.05rem;
+                font-weight: 600;
+                color: #fff;
+                text-shadow: 0 4px 12px rgba(0,0,0,0.95);
+            }
+
+            .invite-message {
+                margin-top: 80px;
+                font-size: 1rem;
+                line-height: 1.8;
+                color: #fff;
+                text-shadow: 0 4px 12px rgba(0,0,0,0.95);
+                padding: 0 15px;
+            }
+
+            .names {
+                font-size: 5rem;
+            }
+
+            .location-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 
@@ -259,6 +303,29 @@
             Together with love and happiness we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us.
         </div>
 
+        <div class="countdown-wrapper">
+            <div class="countdown-title">Countdown to the Big Day</div>
+
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span id="days" class="countdown-number">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours" class="countdown-number">00</span>
+                    <span class="countdown-label">Hrs</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes" class="countdown-number">00</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds" class="countdown-number">00</span>
+                    <span class="countdown-label">Sec</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -277,10 +344,7 @@
 
             <div class="location-card">
                 <span class="location-icon" style="font-size: 5rem;">🥂</span>
-                <p>
-                    Zone-4 Buang, Tabaco City, Albay<br>
-                    <small>Bio's Residence</small>
-                </p>
+                <p>Zone-4 Buang, Tabaco City, Albay</p>
                 <a href="#" class="map-btn">GET DIRECTIONS</a>
             </div>
         </div>
@@ -290,6 +354,27 @@
 <section id="entourage">
     <img src="ENTO.png" class="entourage-image" alt="Entourage">
 </section>
+
+<script>
+    const weddingDate = new Date("June 8, 2026 10:00:00").getTime();
+
+    setInterval(function() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        document.getElementById("days").innerHTML =
+            Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+
+        document.getElementById("hours").innerHTML =
+            Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+
+        document.getElementById("minutes").innerHTML =
+            Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+
+        document.getElementById("seconds").innerHTML =
+            Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+    }, 1000);
+</script>
 
 </body>
 </html>
