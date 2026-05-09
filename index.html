@@ -67,6 +67,20 @@
             font-size: clamp(3rem, 10vw, 6.5rem);
             line-height: 1.1;
             margin: 2vh 0;
+            animation: floatNames 4s ease-in-out infinite;
+            text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+        }
+
+        @keyframes floatNames {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
         }
 
         .uniform-text {
@@ -162,6 +176,22 @@
             border-radius: 12px;
             border: 1px solid #eee;
             line-height: 1.6;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .location-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .location-icon:hover,
+        .location-icon:active {
+            transform: scale(1.15) rotate(6deg);
         }
 
         .map-btn {
@@ -198,7 +228,7 @@
             }
 
             .names {
-                font-size: 3.5rem;
+                font-size: 5rem;
             }
 
             .location-grid {
@@ -266,13 +296,13 @@
 
         <div class="location-grid">
             <div class="location-card">
-                <span style="font-size: 3.5rem;">⛪️</span>
+                <span class="location-icon" style="font-size: 5rem;">⛪️</span>
                 <p style="margin-top: 20px;">St. Vincent Ferrer Parish & Diocesan Shrine</p>
                 <a href="#" class="map-btn">GET DIRECTIONS</a>
             </div>
 
             <div class="location-card">
-                <span style="font-size: 3.5rem;">🥂</span>
+                <span class="location-icon" style="font-size: 5rem;">🥂</span>
                 <p>Zone-4 Buang, Tabaco City, Albay</p>
                 <a href="#" class="map-btn">GET DIRECTIONS</a>
             </div>
