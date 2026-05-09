@@ -4,127 +4,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation | Roel & Mailyn</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;600&display=swap" rel="stylesheet">
 
     <style>
         html { scroll-behavior: smooth; }
+
         body {
-            margin: 0; padding: 0;
+            margin: 0;
             font-family: 'Montserrat', sans-serif;
-            background: #1a1a1a; /* Dark background for a premium look */
+            background: #1a1a1a;
             color: #fff;
             overflow-x: hidden;
         }
 
+        /* NAV */
         nav {
-            position: fixed; top: 0; width: 100%;
-            display: flex; justify-content: center; gap: 20px;
-            padding: 15px; background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px); z-index: 1000;
-        }
-        nav a {
-            color: #fff; text-decoration: none;
-            font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
         }
 
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* HERO */
         .hero {
-            position: relative; 
             min-height: 100vh;
             width: 100%;
-            display: flex; 
-            flex-direction: column;
+            display: flex;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            /* background-size: cover for desktop, adjusted for mobile below */
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                        url("wedding2.jpg") center center / cover no-repeat;
+
+            /* CLEAN background (no black gaps) */
+            background: url("wedding2.jpg") center center / cover no-repeat;
         }
 
         .hero-content {
-            position: relative; 
-            z-index: 5; 
-            width: 100%;
-            max-width: 800px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 100vh;
+            max-width: 800px;
             padding: 20px;
-            box-sizing: border-box;
         }
 
         .top-invite {
-            letter-spacing: 3px; 
-            font-size: clamp(0.85rem, 3vw, 1.1rem); 
+            letter-spacing: 3px;
+            font-size: clamp(0.85rem, 3vw, 1.1rem);
             font-weight: 300;
-            margin-top: 5vh; /* Responsive space */
-            margin-bottom: 0;
+            margin-bottom: 10px;
         }
 
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3rem, 10vw, 6.5rem);
             line-height: 1.1;
-            margin: 5vh 0; /* Responsive space - pushes names down 5% of screen height */
+            margin: 2vh 0;
         }
 
         .uniform-text {
-            letter-spacing: 1.5px; 
+            letter-spacing: 1.5px;
             font-size: clamp(0.75rem, 3vw, 0.9rem);
             font-weight: 300;
         }
 
         .invite-message {
             max-width: 500px;
-            margin: 0 auto; 
+            margin: 0 auto;
             line-height: 1.6;
-            text-shadow: 0px 2px 8px rgba(0,0,0,0.9);
+            text-shadow: 0px 2px 6px rgba(0,0,0,0.6);
         }
 
         .countdown-title {
             text-transform: uppercase;
             letter-spacing: 3px;
             font-size: 0.7rem;
-            margin-top: 8vh; /* Responsive space - pushes countdown down */
-            margin-bottom: 15px;
+            margin-top: 3vh;
+            margin-bottom: 10px;
             font-weight: 600;
         }
 
         .countdown-container {
-            display: inline-flex; 
+            display: inline-flex;
             gap: 10px;
-            background: rgba(0,0,0,0.5); 
-            padding: 12px 20px;
-            border-radius: 10px; 
-            backdrop-filter: blur(5px); 
-            border: 1px solid rgba(255,255,255,0.2);
-            margin-bottom: 5vh;
+            background: rgba(0,0,0,0.4);
+            padding: 10px 18px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
         }
 
         .countdown-item { min-width: 45px; }
-        .countdown-number { font-size: 1.5rem; font-weight: 600; display: block; }
-        .countdown-label { font-size: 0.5rem; text-transform: uppercase; opacity: 0.7; }
 
-        /* MOBILE ADJUSTMENT TO ENSURE IMAGE FITS */
-        @media (max-width: 768px) {
-            .hero {
-                /* Use contain on mobile so the whole body is visible */
-                background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                            url("wedding2.jpg") center center / contain no-repeat,
-                            #1a1a1a; 
-            }
-            .names { margin: 3vh 0; }
-            .countdown-title { margin-top: 5vh; }
+        .countdown-number {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
         }
 
-        #details, #entourage { width: 100%; background: #fff; line-height: 0; }
-        .details-image, .entourage-image { width: 100%; height: auto; display: block; }
+        .countdown-label {
+            font-size: 0.5rem;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
 
-        #location { padding: 40px 20px; text-align: center; background: #fff; color: #4A2E2E; }
-        #location h2 { font-family: 'Great Vibes', cursive; font-size: 3rem; margin-top: 0; }
-        .location-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-        .location-card { flex: 1; min-width: 250px; padding: 25px; background: #fdfaf9; border-radius: 12px; border: 1px solid #eee; }
-        .map-btn { display: inline-block; padding: 8px 20px; border: 1px solid #4A2E2E; color: #4A2E2E; text-decoration: none; border-radius: 20px; font-size: 0.65rem; margin-top: 10px; }
+        /* DETAILS + ENTOURAGE */
+        #details, #entourage {
+            width: 100%;
+            background: #fff;
+            line-height: 0;
+        }
+
+        .details-image, .entourage-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* LOCATION */
+        #location {
+            padding: 40px 20px;
+            text-align: center;
+            background: #fff;
+            color: #4A2E2E;
+        }
+
+        #location h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            margin-top: 0;
+        }
+
+        .location-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .location-card {
+            flex: 1;
+            min-width: 250px;
+            padding: 25px;
+            background: #fdfaf9;
+            border-radius: 12px;
+            border: 1px solid #eee;
+        }
+
+        .map-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            border: 1px solid #4A2E2E;
+            color: #4A2E2E;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            margin-top: 10px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .names { font-size: 3.5rem; }
+        }
     </style>
 </head>
 
@@ -139,21 +189,42 @@
 
 <section class="hero" id="home">
     <div class="hero-content">
-        <p class="top-invite">You are cordially invited to the wedding of</p>
 
-        <h1 class="names">Roel<br>&<br>Mailyn</h1>
+        <p class="top-invite">
+            You are cordially invited to the wedding of
+        </p>
+
+        <h1 class="names">
+            Roel<br>&<br>Mailyn
+        </h1>
 
         <div class="invite-message uniform-text">
             Together with love and happiness we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us.
         </div>
 
-        <div class="countdown-title">Countdown to the Big Day</div>
-        <div class="countdown-container" id="timer-box">
-            <div class="countdown-item"><span id="days" class="countdown-number">00</span><span class="countdown-label">Days</span></div>
-            <div class="countdown-item"><span id="hours" class="countdown-number">00</span><span class="countdown-label">Hrs</span></div>
-            <div class="countdown-item"><span id="minutes" class="countdown-number">00</span><span class="countdown-label">Min</span></div>
-            <div class="countdown-item"><span id="seconds" class="countdown-number">00</span><span class="countdown-label">Sec</span></div>
+        <div class="countdown-title">
+            Countdown to the Big Day
         </div>
+
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <span id="days" class="countdown-number">00</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span id="hours" class="countdown-number">00</span>
+                <span class="countdown-label">Hrs</span>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes" class="countdown-number">00</span>
+                <span class="countdown-label">Min</span>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds" class="countdown-number">00</span>
+                <span class="countdown-label">Sec</span>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -163,14 +234,16 @@
 
 <section id="location">
     <h2>Location</h2>
+
     <div class="location-grid">
         <div class="location-card">
-            <div>⛪</div>
+            ⛪
             <p>St. Vincent Ferrer Parish & Diocesan Shrine</p>
             <a href="#" class="map-btn">GET DIRECTIONS</a>
         </div>
+
         <div class="location-card">
-            <div>🥂</div>
+            🥂
             <p>Zone-4 Buang, Tabaco City, Albay</p>
             <a href="#" class="map-btn">GET DIRECTIONS</a>
         </div>
@@ -183,13 +256,22 @@
 
 <script>
     const weddingDate = new Date("June 8, 2026 10:00:00").getTime();
+
     setInterval(function() {
         const now = new Date().getTime();
         const distance = weddingDate - now;
-        document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-        document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-        document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-        document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+
+        document.getElementById("days").innerHTML =
+            Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+
+        document.getElementById("hours").innerHTML =
+            Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+
+        document.getElementById("minutes").innerHTML =
+            Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+
+        document.getElementById("seconds").innerHTML =
+            Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
     }, 1000);
 </script>
 
