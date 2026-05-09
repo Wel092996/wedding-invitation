@@ -169,23 +169,34 @@
         }
 
         /* =========================
-           MOBILE ONLY CHANGES
-           (SAFE — NO OTHER EFFECTS)
+           MOBILE IMPROVEMENTS ONLY
         ========================== */
         @media (max-width: 768px) {
 
             .names {
-                margin-top: 120px; /* moved down 3 steps */
+                margin-top: 120px;
             }
 
             .invite-message {
-                margin-top: 120px; /* moved down 3 steps */
+                margin-top: 120px;
             }
 
+            /* 🔥 BIGGER & MORE VISIBLE TEXT ON PHONE */
             .top-invite {
-                color: #fff;
-                font-weight: 500;
-                text-shadow: 0 3px 10px rgba(0,0,0,0.9);
+                font-size: 1.05rem;
+                font-weight: 600;
+                color: #ffffff;
+                text-shadow: 0 4px 12px rgba(0,0,0,0.95);
+                line-height: 1.4;
+            }
+
+            .invite-message {
+                font-size: 1rem;
+                font-weight: 400;
+                color: #ffffff;
+                text-shadow: 0 4px 12px rgba(0,0,0,0.95);
+                line-height: 1.8;
+                padding: 0 15px;
             }
 
             .names { font-size: 3.5rem; }
