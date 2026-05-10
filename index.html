@@ -67,7 +67,7 @@
             line-height: 1.1;
             margin: 7vh 0 2vh 0;
             color: #fff;
-            animation: nameIntro 2s ease forwards, fadeNames 4s ease-in-out infinite 2s;
+            animation: nameIntro 2s ease forwards;
             text-shadow: 0 6px 18px rgba(0,0,0,0.45);
         }
 
@@ -84,12 +84,6 @@
             }
         }
 
-        @keyframes fadeNames {
-            0% { opacity: 0.6; }
-            50% { opacity: 1; }
-            100% { opacity: 0.6; }
-        }
-
         .letter {
             display: inline-block;
             opacity: 0;
@@ -98,14 +92,8 @@
         }
 
         @keyframes letterFade {
-            0% {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .uniform-text {
@@ -121,9 +109,7 @@
             text-shadow: 0px 2px 6px rgba(0,0,0,0.6);
         }
 
-        .countdown-wrapper {
-            margin-top: 40px;
-        }
+        .countdown-wrapper { margin-top: 40px; }
 
         .countdown-title {
             text-transform: uppercase;
@@ -142,12 +128,25 @@
             backdrop-filter: blur(5px);
         }
 
-        .countdown-item { min-width: 45px; }
+        /* NEW (does not affect existing styles) */
+        .flip-box { min-width: 50px; text-align: center; }
 
-        .countdown-number {
-            font-size: 1.5rem;
-            font-weight: 600;
+        .flip-number {
             display: block;
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: #000;
+            color: #fff;
+            padding: 10px 0;
+            border-radius: 6px;
+        }
+
+        .flip-animate { animation: flip 0.5s ease; }
+
+        @keyframes flip {
+            0% { transform: rotateX(0deg); }
+            50% { transform: rotateX(90deg); }
+            100% { transform: rotateX(0deg); }
         }
 
         .countdown-label {
@@ -241,82 +240,98 @@
 </nav>
 
 <section class="hero" id="home">
-    <div class="hero-content">
+<div class="hero-content">
 
-        <p class="top-invite">
-            You are cordially invited to the wedding of
-        </p>
+<p class="top-invite">You are cordially invited to the wedding of</p>
 
-        <h1 class="names">
-            <span class="letter" style="--i:1">R</span><span class="letter" style="--i:2">o</span><span class="letter" style="--i:3">e</span><span class="letter" style="--i:4">l</span>
-            <br>&<br>
-            <span class="letter" style="--i:5">M</span><span class="letter" style="--i:6">a</span><span class="letter" style="--i:7">i</span><span class="letter" style="--i:8">l</span><span class="letter" style="--i:9">y</span><span class="letter" style="--i:10">n</span>
-        </h1>
+<h1 class="names">
+<span class="letter" style="--i:1">R</span><span class="letter" style="--i:2">o</span><span class="letter" style="--i:3">e</span><span class="letter" style="--i:4">l</span>
+<br>&<br>
+<span class="letter" style="--i:5">M</span><span class="letter" style="--i:6">a</span><span class="letter" style="--i:7">i</span><span class="letter" style="--i:8">l</span><span class="letter" style="--i:9">y</span><span class="letter" style="--i:10">n</span>
+</h1>
 
-        <div class="invite-message uniform-text">
-            Together with love and happiness we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us.
-        </div>
+<div class="invite-message uniform-text">
+Together with love and happiness we invite you to witness and celebrate the beginning of our married life.
+</div>
 
-        <div class="countdown-wrapper">
-            <div class="countdown-title">Countdown to the Big Day</div>
+<div class="countdown-wrapper">
+<div class="countdown-title">Countdown to the Big Day</div>
 
-            <div class="countdown-container">
-                <div class="countdown-item">
-                    <span id="days" class="countdown-number">00</span>
-                    <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-item">
-                    <span id="hours" class="countdown-number">00</span>
-                    <span class="countdown-label">Hrs</span>
-                </div>
-                <div class="countdown-item">
-                    <span id="minutes" class="countdown-number">00</span>
-                    <span class="countdown-label">Min</span>
-                </div>
-                <div class="countdown-item">
-                    <span id="seconds" class="countdown-number">00</span>
-                    <span class="countdown-label">Sec</span>
-                </div>
-            </div>
-        </div>
+<div class="countdown-container">
 
-    </div>
+<div class="flip-box"><span id="days" class="flip-number">00</span><span class="countdown-label">Days</span></div>
+<div class="flip-box"><span id="hours" class="flip-number">00</span><span class="countdown-label">Hrs</span></div>
+<div class="flip-box"><span id="minutes" class="flip-number">00</span><span class="countdown-label">Min</span></div>
+<div class="flip-box"><span id="seconds" class="flip-number">00</span><span class="countdown-label">Sec</span></div>
+
+</div>
+</div>
+
+</div>
 </section>
 
 <section id="details">
-    <img src="ok.png" class="details-image" alt="Details">
-
-    <div class="location-section">
-        <h2>Location</h2>
-
-        <div class="location-grid">
-
-            <div class="location-card">
-                <span class="location-icon" style="font-size: 5rem;">⛪️</span>
-                <p style="margin-top: 20px;">St. Vincent Ferrer Parish & Diocesan Shrine</p>
-                <a href="https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+Office/@13.3565682,123.696726,17z/data=!3m1!4b1!4m6!3m5!1s0x33a1af000cb0f4a9:0x3bdd99b71c0667d5!8m2!3d13.356563!4d123.6993009!16s%2Fg%2F11yv9qw561?entry=ttu" 
-                   class="map-btn" target="_blank">
-                   GET DIRECTIONS
-                </a>
-            </div>
-
-            <div class="location-card">
-                <span class="location-icon" style="font-size: 5rem;">🥂</span>
-                <p>Zone-4 Buang, Tabaco City, Albay</p>
-                <p><small>Bio’s Residence</small></p>
-                <a href="https://www.google.com/maps/place/13%C2%B018'11.8%22N+123%C2%B038'14.3%22E/@13.3032903,123.6366593,19z/data=!3m1!4b1" 
-                   class="map-btn" target="_blank">
-                   GET DIRECTIONS
-                </a>
-            </div>
-
-        </div>
-    </div>
+<img src="ok.png" class="details-image">
 </section>
 
 <section id="entourage">
-    <img src="ENTO.png" class="entourage-image" alt="Entourage">
+<img src="ENTO.png" class="entourage-image">
 </section>
+
+<!-- RSVP -->
+<section id="rsvp" style="background:#fff; padding:50px 20px; text-align:center; color:#4A2E2E;">
+<h2 style="font-family:'Great Vibes', cursive; font-size:3rem;">RSVP</h2>
+
+<form action="YOUR_FORM_ACTION_URL" method="POST" target="hidden_iframe"
+style="max-width:400px; margin:20px auto; display:flex; flex-direction:column; gap:12px;">
+
+<input name="entry.111" placeholder="Full Name" required style="padding:12px;">
+<select name="entry.222" required style="padding:12px;">
+<option value="">Will you attend?</option>
+<option>Yes</option>
+<option>No</option>
+</select>
+
+<input name="entry.333" placeholder="Who will you bring?" style="padding:12px;">
+<input name="entry.444" type="number" placeholder="How many guests?" style="padding:12px;">
+
+<button type="submit" style="padding:12px; background:#4A2E2E; color:#fff; border:none;">
+SEND RSVP
+</button>
+
+</form>
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+</section>
+
+<script>
+const weddingDate = new Date("June 8, 2026 00:00:00").getTime();
+
+function flip(id,val){
+const el=document.getElementById(id);
+if(el.innerText!=val){
+el.classList.remove("flip-animate");
+void el.offsetWidth;
+el.classList.add("flip-animate");
+el.innerText=val;
+}
+}
+
+setInterval(()=>{
+const now=new Date().getTime();
+const d=weddingDate-now;
+
+if(d<=0){
+document.querySelector(".countdown-container").innerHTML="Today is the Day 🎉";
+return;
+}
+
+flip("days",Math.floor(d/(1000*60*60*24)));
+flip("hours",Math.floor((d%(1000*60*60*24))/(1000*60*60)));
+flip("minutes",Math.floor((d%(1000*60*60))/(1000*60)));
+flip("seconds",Math.floor((d%(1000*60))/1000));
+
+},1000);
+</script>
 
 </body>
 </html>
