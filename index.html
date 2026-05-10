@@ -48,8 +48,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Replace with your actual image path */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("wedding2.jpg") center center / cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("wedding2.jpg") center center / cover no-repeat;
         }
 
         .hero-content {
@@ -157,64 +156,78 @@
             display: block;
         }
 
+        /* --- BALANCED LOCATION SECTION --- */
         .location-section {
-            padding: 60px 20px;
+            padding: 100px 20px;
             text-align: center;
             background: #fff;
             color: #4A2E2E;
         }
 
-        .location-section h2, .rsvp-section h2 {
+        .location-section h2 {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(2.5rem, 8vw, 3.5rem);
-            margin-bottom: 30px;
+            font-size: clamp(3rem, 8vw, 4rem);
+            margin-bottom: 50px;
         }
 
         .location-grid {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            align-items: stretch;
+            gap: 50px; /* Increased gap for breathing room */
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .location-card {
             flex: 1;
-            min-width: 280px;
-            max-width: 380px;
-            padding: 40px 25px;
+            min-width: 300px;
+            padding: 60px 40px; /* Spacious internal padding */
             background: #fdfaf9;
-            border-radius: 12px;
-            border: 1px solid #eee;
-            transition: all 0.35s ease;
+            border-radius: 20px;
+            border: 1px solid #f0e6e6;
+            box-shadow: 0 10px 30px rgba(74, 46, 46, 0.04);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .location-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(74, 46, 46, 0.1);
+            border-color: #d4b8b8;
+        }
+
+        .location-icon {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            display: block;
+            transition: transform 0.3s ease;
         }
 
         .map-btn, .action-btn {
             display: inline-block;
-            padding: 12px 28px;
+            padding: 14px 30px;
             border: 1.5px solid #4A2E2E;
             color: #4A2E2E;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 1px;
             transition: 0.3s ease;
             background: transparent;
-            margin-top: 15px;
+            margin-top: 25px;
         }
 
         .map-btn:hover, .action-btn:hover {
             background: #4A2E2E;
             color: #fff;
-            box-shadow: 0 5px 15px rgba(74, 46, 46, 0.2);
         }
 
-        /* --- NEW RSVP & GIFT STYLING --- */
+        /* --- RSVP & GIFTS --- */
         .rsvp-section {
             background: #fdfaf9;
             text-align: center;
@@ -237,30 +250,29 @@
 
         .gift-note {
             margin-top: 60px;
-            padding-top: 40px;
+            padding-top: 50px;
             border-top: 1px double #d4b8b8;
         }
 
         .gift-note h3 {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 15px;
         }
 
         .gift-poem {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #665;
-            max-width: 450px;
-            margin: 0 auto 25px;
+            max-width: 500px;
+            margin: 0 auto 30px;
             line-height: 1.8;
             font-style: italic;
         }
 
         @media (max-width: 768px) {
-            .top-invite { margin-top: 60px; }
-            .invite-message { margin-top: 20px; padding: 0 15px; }
+            .location-grid { flex-direction: column; align-items: center; gap: 30px; }
+            .location-card { width: 100%; min-width: unset; padding: 40px 20px; }
             .names { font-size: 4.5rem; }
-            .location-grid { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -277,7 +289,6 @@
 <section class="hero" id="home">
     <div class="hero-content">
         <p class="top-invite">You are cordially invited to the wedding of</p>
-
         <h1 class="names">
             <span class="letter" style="--i:1">R</span>
             <span class="letter" style="--i:2">o</span>
@@ -291,30 +302,16 @@
             <span class="letter" style="--i:9">y</span>
             <span class="letter" style="--i:10">n</span>
         </h1>
-
         <div class="invite-message uniform-text">
             Together with love and happiness we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us.
         </div>
-
         <div class="countdown-wrapper">
             <div class="countdown-title">Countdown to the Big Day</div>
             <div class="countdown-container">
-                <div class="countdown-item">
-                    <span id="days" class="countdown-number">00</span>
-                    <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-item">
-                    <span id="hours" class="countdown-number">00</span>
-                    <span class="countdown-label">Hrs</span>
-                </div>
-                <div class="countdown-item">
-                    <span id="minutes" class="countdown-number">00</span>
-                    <span class="countdown-label">Min</span>
-                </div>
-                <div class="countdown-item">
-                    <span id="seconds" class="countdown-number">00</span>
-                    <span class="countdown-label">Sec</span>
-                </div>
+                <div class="countdown-item"><span id="days" class="countdown-number">00</span><span class="countdown-label">Days</span></div>
+                <div class="countdown-item"><span id="hours" class="countdown-number">00</span><span class="countdown-label">Hrs</span></div>
+                <div class="countdown-item"><span id="minutes" class="countdown-number">00</span><span class="countdown-label">Min</span></div>
+                <div class="countdown-item"><span id="seconds" class="countdown-number">00</span><span class="countdown-label">Sec</span></div>
             </div>
         </div>
     </div>
@@ -324,21 +321,18 @@
     <img src="ok.png" class="details-image" alt="Details">
     
     <div class="location-section">
-        <h2>Location</h2>
+        <h2>When & Where</h2>
         <div class="location-grid">
             <div class="location-card">
-                <span style="font-size:4rem; display:block; margin-bottom:15px;">⛪️</span>
-                <p><strong>Ceremony</strong><br>
-                St. Vincent Ferrer Parish & Diocesan Shrine</p>
-                <a href="https://maps.google.com" target="_blank" class="map-btn">GET DIRECTIONS</a>
+                <span class="location-icon">⛪️</span>
+                <p><strong>The Ceremony</strong><br>10:00 AM<br>St. Vincent Ferrer Parish<br>Tabaco City, Albay</p>
+                <a href="https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+Office/@13.3565682,123.696726,17z/data=!3m1!4b1!4m6!3m5!1s0x33a1af000cb0f4a9:0x3bdd99b71c0667d5!8m2!3d13.356563!4d123.6993009!16s%2Fg%2F11yv9qw561?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">VIEW ON MAP</a>
             </div>
 
             <div class="location-card">
-                <span style="font-size:4rem; display:block; margin-bottom:15px;">🥂</span>
-                <p><strong>Reception</strong><br>
-                Zone-4 Buang, Tabaco City, Albay<br>
-                <small>Bio's Residence</small></p>
-                <a href="https://maps.google.com" target="_blank" class="map-btn">GET DIRECTIONS</a>
+                <span class="location-icon">🥂</span>
+                <p><strong>The Celebration</strong><br>To follow immediately<br>Bio's Residence<br>Zone-4 Buang, Tabaco City</p>
+                <a href="https://www.google.com/maps/place/13%C2%B018'11.8%22N+123%C2%B038'14.3%22E/@13.3032903,123.6366593,19z/data=!3m1!4b1!4m12!1m7!3m6!1s0x33a1a8bfb7162cff:0x1fc8df54d126460f!2sMANILYN+STORE!8m2!3d13.302796!4d123.6377388!16s%2Fg%2F11xt9n0vd7!3m3!8m2!3d13.303289!4d123.637303?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">VIEW ON MAP</a>
             </div>
         </div>
     </div>
@@ -351,18 +345,8 @@
 <section class="rsvp-section" id="rsvp">
     <div class="rsvp-container">
         <h2>Kindly Respond</h2>
-        
-        <p class="rsvp-text">
-            We are excited to celebrate with you!<br>
-            Please let us know if you can make it by<br>
-            <strong>May 15, 2026</strong>
-        </p>
-
-        <a href="https://docs.google.com/forms/d/1Rt8c_QiL5yL8O8eK-GLImDqcGGkI5csqoF8JP61FQa4/edit"
-           target="_blank"
-           class="action-btn">
-            CONFIRM ATTENDANCE
-        </a>
+        <p class="rsvp-text">Please let us know if you can make it by <strong>May 15, 2026</strong></p>
+        <a href="https://docs.google.com/forms/d/1Rt8c_QiL5yL8O8eK-GLImDqcGGkI5csqoF8JP61FQa4/edit" target="_blank" class="action-btn">OPEN RSVP FORM</a>
 
         <div class="gift-note">
             <h3>Gifts</h3>
@@ -372,29 +356,23 @@
                 But if you desire to give nonetheless,<br>
                 A monetary gift is one we suggest.
             </p>
-            
-            <a href="#" class="action-btn" style="font-size: 0.65rem; padding: 8px 20px;">
-                SEND A GIFT
-            </a>
+            <a href="https://drive.google.com/file/d/1M181MEOk41zE9yqcZc3hXEOV7GjeCTET/view?usp=sharing" 
+               target="_blank" 
+               class="action-btn" 
+               style="font-size: 0.65rem;">VIEW GCASH DETAILS</a>
         </div>
     </div>
 </section>
 
 <script>
     const weddingDate = new Date("June 8, 2026 10:00:00").getTime();
-
     setInterval(function () {
         const now = new Date().getTime();
         const distance = weddingDate - now;
-
         document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
         document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
         document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
         document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
-
-        if (distance < 0) {
-            document.querySelector(".countdown-container").innerHTML = "Just Married!";
-        }
     }, 1000);
 </script>
 
