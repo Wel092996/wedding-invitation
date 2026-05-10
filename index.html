@@ -67,7 +67,39 @@
             line-height: 1.1;
             margin: 7vh 0 2vh 0;
             color: #fff;
+            animation: nameIntro 2s ease forwards;
             text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+        }
+
+        @keyframes nameIntro {
+            0% {
+                opacity: 0;
+                letter-spacing: 12px;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                letter-spacing: 0px;
+                transform: translateY(0px);
+            }
+        }
+
+        .letter {
+            display: inline-block;
+            opacity: 0;
+            animation: letterFade 0.6s forwards;
+            animation-delay: calc(var(--i) * 0.12s);
+        }
+
+        @keyframes letterFade {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .uniform-text {
+            letter-spacing: 1.5px;
+            font-size: clamp(0.75rem, 3vw, 0.9rem);
+            font-weight: 300;
         }
 
         .invite-message {
@@ -93,69 +125,108 @@
             background: rgba(0,0,0,0.4);
             padding: 10px 18px;
             border-radius: 10px;
+            backdrop-filter: blur(5px);
         }
 
-        .countdown-item {
-            min-width: 45px;
-            text-align: center;
-        }
+        /* NEW (does not affect existing styles) */
+        .flip-box { min-width: 50px; text-align: center; }
 
-        .countdown-number {
-            font-size: 1.5rem;
-            font-weight: 600;
+        .flip-number {
             display: block;
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: #000;
+            color: #fff;
+            padding: 10px 0;
+            border-radius: 6px;
+        }
+
+        .flip-animate { animation: flip 0.5s ease; }
+
+        @keyframes flip {
+            0% { transform: rotateX(0deg); }
+            50% { transform: rotateX(90deg); }
+            100% { transform: rotateX(0deg); }
         }
 
         .countdown-label {
             font-size: 0.5rem;
-            opacity: 0.7;
             text-transform: uppercase;
+            opacity: 0.7;
         }
 
-        /* RSVP (ADDED ONLY) */
-        .rsvp {
-            background:#fff;
-            padding:50px 20px;
-            text-align:center;
-            color:#4A2E2E;
+        #details, #entourage {
+            width: 100%;
+            background: #fff;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
         }
 
-        .rsvp h2 {
-            font-family:'Great Vibes', cursive;
-            font-size:3rem;
+        .details-image, .entourage-image {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .rsvp form {
-            max-width:400px;
-            margin:20px auto;
-            display:flex;
-            flex-direction:column;
-            gap:12px;
+        .location-section {
+            padding: 35px 20px 30px;
+            text-align: center;
+            background: #fff;
+            color: #4A2E2E;
         }
 
-        .rsvp input,
-        .rsvp select {
-            padding:12px;
-            border-radius:8px;
-            border:1px solid #ccc;
+        .location-section h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            margin-top: 15px;
+            margin-bottom: 25px;
         }
 
-        .hidden {
-            display:none;
+        .location-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
 
-        /* MOBILE IMPROVEMENT ONLY (NO LAYOUT CHANGE) */
-        @media (max-width: 480px) {
-            .top-invite {
-                font-size: 1rem;
-                letter-spacing: 2px;
-            }
+        .location-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            padding: 25px;
+            font-size: 1.15rem;
+            background: #fdfaf9;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            line-height: 1.6;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
 
-            .invite-message {
-                font-size: 0.9rem;
-                line-height: 1.8;
-                padding: 0 10px;
-            }
+        .location-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .location-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .location-icon:hover,
+        .location-icon:active {
+            transform: scale(1.15) rotate(6deg);
+        }
+
+        .map-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            border: 1px solid #4A2E2E;
+            color: #4A2E2E;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -169,115 +240,97 @@
 </nav>
 
 <section class="hero" id="home">
-    <div class="hero-content">
+<div class="hero-content">
 
-        <p class="top-invite">
-            You are cordially invited to the wedding of
-        </p>
+<p class="top-invite">You are cordially invited to the wedding of</p>
 
-        <h1 class="names">
-            Roel & Mailyn
-        </h1>
+<h1 class="names">
+<span class="letter" style="--i:1">R</span><span class="letter" style="--i:2">o</span><span class="letter" style="--i:3">e</span><span class="letter" style="--i:4">l</span>
+<br>&<br>
+<span class="letter" style="--i:5">M</span><span class="letter" style="--i:6">a</span><span class="letter" style="--i:7">i</span><span class="letter" style="--i:8">l</span><span class="letter" style="--i:9">y</span><span class="letter" style="--i:10">n</span>
+</h1>
 
-        <div class="invite-message">
-            Together with love and happiness we invite you to witness and celebrate the beginning of our married life.
-        </div>
+<div class="invite-message uniform-text">
+Together with love and happiness we invite you to witness and celebrate the beginning of our married life.
+</div>
 
-        <div class="countdown-wrapper">
-            <div class="countdown-title">Countdown to the Big Day</div>
+<div class="countdown-wrapper">
+<div class="countdown-title">Countdown to the Big Day</div>
 
-            <div class="countdown-container">
-                <div class="countdown-item">
-                    <span id="days" class="countdown-number">00</span>
-                    <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-item">
-                    <span id="hours" class="countdown-number">00</span>
-                    <span class="countdown-label">Hrs</span>
-                </div>
-                <div class="countdown-item">
-                    <span id="minutes" class="countdown-number">00</span>
-                    <span class="countdown-label">Min</span>
-                </div>
-                <div class="countdown-item">
-                    <span id="seconds" class="countdown-number">00</span>
-                    <span class="countdown-label">Sec</span>
-                </div>
-            </div>
-        </div>
+<div class="countdown-container">
 
-    </div>
+<div class="flip-box"><span id="days" class="flip-number">00</span><span class="countdown-label">Days</span></div>
+<div class="flip-box"><span id="hours" class="flip-number">00</span><span class="countdown-label">Hrs</span></div>
+<div class="flip-box"><span id="minutes" class="flip-number">00</span><span class="countdown-label">Min</span></div>
+<div class="flip-box"><span id="seconds" class="flip-number">00</span><span class="countdown-label">Sec</span></div>
+
+</div>
+</div>
+
+</div>
 </section>
 
-<!-- YOUR ORIGINAL SECTIONS (UNCHANGED) -->
 <section id="details">
-    <img src="ok.png" class="details-image">
+<img src="ok.png" class="details-image">
 </section>
 
 <section id="entourage">
-    <img src="ENTO.png" class="entourage-image">
+<img src="ENTO.png" class="entourage-image">
 </section>
 
-<!-- RSVP ADDED ONLY -->
-<section class="rsvp" id="rsvp">
-    <h2>RSVP</h2>
+<!-- RSVP -->
+<section id="rsvp" style="background:#fff; padding:50px 20px; text-align:center; color:#4A2E2E;">
+<h2 style="font-family:'Great Vibes', cursive; font-size:3rem;">RSVP</h2>
 
-    <form>
-        <input type="text" placeholder="Full Name" required>
+<form action="YOUR_FORM_ACTION_URL" method="POST" target="hidden_iframe"
+style="max-width:400px; margin:20px auto; display:flex; flex-direction:column; gap:12px;">
 
-        <select id="attend" required>
-            <option value="">Will you attend?</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select>
+<input name="entry.111" placeholder="Full Name" required style="padding:12px;">
+<select name="entry.222" required style="padding:12px;">
+<option value="">Will you attend?</option>
+<option>Yes</option>
+<option>No</option>
+</select>
 
-        <div id="guestFields">
-            <input type="text" placeholder="Who will you bring?">
-            <input type="number" placeholder="How many guests?">
-        </div>
+<input name="entry.333" placeholder="Who will you bring?" style="padding:12px;">
+<input name="entry.444" type="number" placeholder="How many guests?" style="padding:12px;">
 
-        <button type="submit">Send RSVP</button>
-    </form>
+<button type="submit" style="padding:12px; background:#4A2E2E; color:#fff; border:none;">
+SEND RSVP
+</button>
+
+</form>
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 </section>
 
 <script>
-// COUNTDOWN (CLEAN + FIXED)
 const weddingDate = new Date("June 8, 2026 00:00:00").getTime();
 
-setInterval(() => {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
+function flip(id,val){
+const el=document.getElementById(id);
+if(el.innerText!=val){
+el.classList.remove("flip-animate");
+void el.offsetWidth;
+el.classList.add("flip-animate");
+el.innerText=val;
+}
+}
 
-    if (distance <= 0) {
-        document.querySelector(".countdown-container").innerHTML =
-        "Today is the Day 🎉";
-        return;
-    }
+setInterval(()=>{
+const now=new Date().getTime();
+const d=weddingDate-now;
 
-    document.getElementById("days").innerText =
-        Math.floor(distance / (1000 * 60 * 60 * 24));
+if(d<=0){
+document.querySelector(".countdown-container").innerHTML="Today is the Day 🎉";
+return;
+}
 
-    document.getElementById("hours").innerText =
-        Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+flip("days",Math.floor(d/(1000*60*60*24)));
+flip("hours",Math.floor((d%(1000*60*60*24))/(1000*60*60)));
+flip("minutes",Math.floor((d%(1000*60*60))/(1000*60)));
+flip("seconds",Math.floor((d%(1000*60))/1000));
 
-    document.getElementById("minutes").innerText =
-        Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-    document.getElementById("seconds").innerText =
-        Math.floor((distance % (1000 * 60)) / 1000);
-
-}, 1000);
-
-// AUTO HIDE GUEST FIELDS
-document.getElementById("attend").addEventListener("change", function () {
-    const guest = document.getElementById("guestFields");
-
-    if (this.value === "no") {
-        guest.classList.add("hidden");
-    } else {
-        guest.classList.remove("hidden");
-    }
-});
+},1000);
 </script>
 
 </body>
