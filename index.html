@@ -56,11 +56,14 @@
             padding: 20px;
         }
 
+        /* LOWERED INVITATION TEXT */
         .top-invite {
             letter-spacing: 3px;
             font-size: clamp(0.85rem, 3vw, 1.1rem);
             font-weight: 300;
+            margin-top: 80px;
             margin-bottom: 10px;
+            color: #fff;
         }
 
         .names {
@@ -79,6 +82,7 @@
                 letter-spacing: 12px;
                 transform: translateY(20px);
             }
+
             100% {
                 opacity: 1;
                 letter-spacing: 0px;
@@ -98,6 +102,7 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -177,7 +182,8 @@
             color: #4A2E2E;
         }
 
-        .location-section h2 {
+        .location-section h2,
+        .rsvp-section h2 {
             font-family: 'Great Vibes', cursive;
             font-size: 3rem;
             margin-top: 15px;
@@ -219,60 +225,46 @@
             transform: scale(1.15) rotate(6deg);
         }
 
-        .map-btn {
+        .map-btn,
+        .action-btn {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 10px 22px;
             border: 1px solid #4A2E2E;
             color: #4A2E2E;
             text-decoration: none;
-            border-radius: 20px;
-            font-size: 0.65rem;
-            margin-top: 10px;
+            border-radius: 25px;
+            font-size: 0.7rem;
+            margin-top: 12px;
+            transition: 0.3s ease;
+            background: transparent;
+        }
+
+        .map-btn:hover,
+        .action-btn:hover {
+            background: #4A2E2E;
+            color: #fff;
         }
 
         .rsvp-section {
             background: #fff;
-            padding: 50px 20px;
             text-align: center;
             color: #4A2E2E;
+            padding: 50px 20px 70px;
         }
 
-        .rsvp-section h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .rsvp-form {
-            max-width: 400px;
-            margin: auto;
+        .button-group {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .rsvp-form input,
-        .rsvp-form select {
-            padding: 12px;
-            border: 1px solid #ddd;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .rsvp-form button {
-            padding: 12px;
-            background: #4A2E2E;
-            color: #fff;
-            border: none;
-            cursor: pointer;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         @media (max-width: 768px) {
 
             .top-invite {
-                margin-top: -40px;
-                font-size: 1.05rem;
-                font-weight: 600;
-                color: #fff;
+                margin-top: 60px;
+                font-size: 1rem;
                 text-shadow: 0 4px 12px rgba(0,0,0,0.95);
             }
 
@@ -307,6 +299,7 @@
 </nav>
 
 <section class="hero" id="home">
+
     <div class="hero-content">
 
         <p class="top-invite">
@@ -314,9 +307,19 @@
         </p>
 
         <h1 class="names">
-            <span class="letter" style="--i:1">R</span><span class="letter" style="--i:2">o</span><span class="letter" style="--i:3">e</span><span class="letter" style="--i:4">l</span>
+            <span class="letter" style="--i:1">R</span>
+            <span class="letter" style="--i:2">o</span>
+            <span class="letter" style="--i:3">e</span>
+            <span class="letter" style="--i:4">l</span>
+
             <br>&<br>
-            <span class="letter" style="--i:5">M</span><span class="letter" style="--i:6">a</span><span class="letter" style="--i:7">i</span><span class="letter" style="--i:8">l</span><span class="letter" style="--i:9">y</span><span class="letter" style="--i:10">n</span>
+
+            <span class="letter" style="--i:5">M</span>
+            <span class="letter" style="--i:6">a</span>
+            <span class="letter" style="--i:7">i</span>
+            <span class="letter" style="--i:8">l</span>
+            <span class="letter" style="--i:9">y</span>
+            <span class="letter" style="--i:10">n</span>
         </h1>
 
         <div class="invite-message uniform-text">
@@ -324,7 +327,10 @@
         </div>
 
         <div class="countdown-wrapper">
-            <div class="countdown-title">Countdown to the Big Day</div>
+
+            <div class="countdown-title">
+                Countdown to the Big Day
+            </div>
 
             <div class="countdown-container">
 
@@ -349,9 +355,11 @@
                 </div>
 
             </div>
+
         </div>
 
     </div>
+
 </section>
 
 <section id="details">
@@ -364,22 +372,27 @@
 
         <div class="location-grid">
 
+            <!-- Church -->
             <div class="location-card">
-                <span class="location-icon" style="font-size: 5rem;">⛪️</span>
+
+                <span class="location-icon" style="font-size:5rem;">⛪️</span>
 
                 <p style="margin-top:20px;">
                     St. Vincent Ferrer Parish & Diocesan Shrine
                 </p>
 
                 <a href="https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+Office/@13.3565682,123.696726,17z/data=!3m1!4b1!4m6!3m5!1s0x33a1af000cb0f4a9:0x3bdd99b71c0667d5!8m2!3d13.356563!4d123.6993009!16s%2Fg%2F11yv9qw561?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D"
-                   class="map-btn"
-                   target="_blank">
+                   target="_blank"
+                   class="map-btn">
                     GET DIRECTIONS
                 </a>
+
             </div>
 
+            <!-- Reception -->
             <div class="location-card">
-                <span class="location-icon" style="font-size: 5rem;">🥂</span>
+
+                <span class="location-icon" style="font-size:5rem;">🥂</span>
 
                 <p>
                     Zone-4 Buang, Tabaco City, Albay
@@ -388,48 +401,52 @@
                 </p>
 
                 <a href="https://www.google.com/maps/place/13%C2%B018'11.8%22N+123%C2%B038'14.3%22E/@13.3032903,123.6366593,19z/data=!3m1!4b1!4m12!1m7!3m6!1s0x33a1a8bfb7162cff:0x1fc8df54d126460f!2sMANILYN+STORE!8m2!3d13.302796!4d123.6377388!16s%2Fg%2F11xt9n0vd7!3m3!8m2!3d13.303289!4d123.637303?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D"
-                   class="map-btn"
-                   target="_blank">
+                   target="_blank"
+                   class="map-btn">
                     GET DIRECTIONS
                 </a>
+
             </div>
 
         </div>
+
     </div>
+
 </section>
 
 <section id="entourage">
     <img src="ENTO.png" class="entourage-image" alt="Entourage">
 </section>
 
+<!-- RSVP SECTION -->
 <section class="rsvp-section" id="rsvp">
 
-    <h2>RSVP</h2>
+    <h2>RSVP & Gifts</h2>
 
-    <form class="rsvp-form">
+    <div class="button-group">
 
-        <input type="text" placeholder="Full Name" required>
+        <!-- RSVP BUTTON -->
+        <a href="https://docs.google.com/forms/d/1Rt8c_QiL5yL8O8eK-GLImDqcGGkI5csqoF8JP61FQa4/edit"
+           target="_blank"
+           class="action-btn">
+            RSVP HERE
+        </a>
 
-        <select required>
-            <option value="">Will you attend?</option>
-            <option>Yes</option>
-            <option>No</option>
-        </select>
+        <!-- GIFT BUTTON -->
+        <a href="#"
+           class="action-btn">
+            SEND A GIFT
+        </a>
 
-        <input type="text" placeholder="Who will you bring?">
-
-        <input type="number" placeholder="How many guests?">
-
-        <button type="submit">SEND RSVP</button>
-
-    </form>
+    </div>
 
 </section>
 
 <script>
+
     const weddingDate = new Date("June 8, 2026 10:00:00").getTime();
 
-    setInterval(function() {
+    setInterval(function () {
 
         const now = new Date().getTime();
         const distance = weddingDate - now;
@@ -455,6 +472,7 @@
             .padStart(2, '0');
 
     }, 1000);
+
 </script>
 
 </body>
