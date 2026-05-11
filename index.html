@@ -8,297 +8,98 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;600&display=swap" rel="stylesheet">
 
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background: #1a1a1a;
-            color: #fff;
-            overflow-x: hidden;
-        }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #1a1a1a; color: #fff; overflow-x: hidden; }
 
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 15px;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            box-sizing: border-box;
+            position: fixed; top: 0; width: 100%; display: flex; justify-content: center; gap: 20px;
+            padding: 15px; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 1000; box-sizing: border-box;
         }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.72rem;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            padding: 6px 10px;
-            white-space: nowrap;
-        }
+        nav a { color: #fff; text-decoration: none; font-size: 0.72rem; letter-spacing: 1.2px; text-transform: uppercase; padding: 6px 10px; white-space: nowrap; }
 
         .hero {
-            min-height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("wedding2.jpg") center center / cover no-repeat;
+            min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center;
+            text-align: center; background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("wedding2.jpg") center center / cover no-repeat;
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        .top-invite {
-            letter-spacing: 3px;
-            font-size: clamp(0.85rem, 3vw, 1.1rem);
-            font-weight: 300;
-            margin-top: 80px;
-            margin-bottom: 10px;
-            color: #fff;
-        }
+        .hero-content { max-width: 800px; padding: 20px; }
+        .top-invite { letter-spacing: 3px; font-size: clamp(0.85rem, 3vw, 1.1rem); font-weight: 300; margin-top: 80px; margin-bottom: 10px; color: #fff; }
 
         .names {
-            font-family: 'Great Vibes', cursive;
-            font-size: clamp(3rem, 10vw, 6.5rem);
-            line-height: 1.1;
-            margin: 7vh 0 2vh 0;
-            color: #fff;
-            animation: nameIntro 2s ease forwards;
-            text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+            font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 10vw, 6.5rem); line-height: 1.1;
+            margin: 7vh 0 2vh 0; color: #fff; animation: nameIntro 2s ease forwards; text-shadow: 0 6px 18px rgba(0,0,0,0.45);
         }
 
-        @keyframes nameIntro {
-            0% { opacity: 0; letter-spacing: 12px; transform: translateY(20px); }
-            100% { opacity: 1; letter-spacing: 0px; transform: translateY(0px); }
-        }
+        @keyframes nameIntro { 0% { opacity: 0; letter-spacing: 12px; transform: translateY(20px); } 100% { opacity: 1; letter-spacing: 0px; transform: translateY(0px); } }
+        
+        .letter { display: inline-block; opacity: 0; animation: letterFade 0.6s forwards; animation-delay: calc(var(--i) * 0.12s); }
+        @keyframes letterFade { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
 
-        .letter {
-            display: inline-block;
-            opacity: 0;
-            animation: letterFade 0.6s forwards;
-            animation-delay: calc(var(--i) * 0.12s);
-        }
+        .uniform-text { letter-spacing: 1.5px; font-size: clamp(0.75rem, 3vw, 0.9rem); font-weight: 300; }
+        .invite-message { max-width: 500px; margin: 0 auto; line-height: 1.6; text-shadow: 0px 2px 6px rgba(0,0,0,0.6); }
 
-        @keyframes letterFade {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
+        .countdown-wrapper { margin-top: 40px; }
+        .countdown-title { text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; margin-bottom: 10px; font-weight: 600; }
+        .countdown-container { display: inline-flex; gap: 10px; background: rgba(0,0,0,0.4); padding: 10px 18px; border-radius: 10px; backdrop-filter: blur(5px); }
+        .countdown-number { font-size: 1.5rem; font-weight: 600; display: block; }
+        .countdown-label { font-size: 0.5rem; text-transform: uppercase; opacity: 0.7; }
 
-        .uniform-text {
-            letter-spacing: 1.5px;
-            font-size: clamp(0.75rem, 3vw, 0.9rem);
-            font-weight: 300;
-        }
+        #details, #entourage { width: 100%; background: #fff; line-height: 0; margin: 0; padding: 0; }
+        .details-image, .entourage-image { width: 100%; height: auto; display: block; }
 
-        .invite-message {
-            max-width: 500px;
-            margin: 0 auto;
-            line-height: 1.6;
-            text-shadow: 0px 2px 6px rgba(0,0,0,0.6);
-        }
-
-        .countdown-wrapper {
-            margin-top: 40px;
-        }
-
-        .countdown-title {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.7rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .countdown-container {
-            display: inline-flex;
-            gap: 10px;
-            background: rgba(0,0,0,0.4);
-            padding: 10px 18px;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-        }
-
-        .countdown-item {
-            min-width: 45px;
-        }
-
-        .countdown-number {
-            font-size: 1.5rem;
-            font-weight: 600;
-            display: block;
-        }
-
-        .countdown-label {
-            font-size: 0.5rem;
-            text-transform: uppercase;
-            opacity: 0.7;
-        }
-
-        #details, #entourage {
-            width: 100%;
-            background: #fff;
-            line-height: 0;
-            margin: 0;
-            padding: 0;
-        }
-
-        .details-image, .entourage-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* --- UPDATED LOCATION SECTION FOR BREATHABILITY --- */
-        .location-section {
-            padding: 80px 20px;
-            text-align: center;
-            background: #fff;
-            color: #4A2E2E;
-        }
-
-        .location-section h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: clamp(3rem, 8vw, 4rem);
-            margin-bottom: 40px;
-        }
-
-        .location-grid {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        /* --- STYLING FOR LOCATION TAB --- */
+        .location-section { padding: 100px 20px; text-align: center; background: #fff; color: #4A2E2E; line-height: normal; }
+        .location-section h2 { font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 8vw, 4rem); margin-bottom: 50px; }
+        
+        .location-grid { display: flex; justify-content: center; align-items: stretch; gap: 40px; max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
         .location-card {
-            flex: 1;
-            min-width: 280px;
-            padding: 40px 20px;
-            background: #fdfaf9;
-            border-radius: 20px;
-            border: 1px solid #f0e6e6;
-            box-shadow: 0 10px 30px rgba(74, 46, 46, 0.04);
-            transition: all 0.4s ease;
-            /* Key Fixes below */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
+            flex: 1; min-width: 280px; padding: 60px 30px; background: #fdfaf9; border-radius: 20px;
+            border: 1px solid #f0e6e6; box-shadow: 0 10px 30px rgba(74, 46, 46, 0.04);
+            transition: all 0.4s ease; display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+        }
+
+        /* BIGGER ANIMATED ICONS */
+        .location-icon {
+            font-size: 5.5rem; 
+            margin-bottom: 25px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
         }
 
         .location-card p {
-            line-height: 1.6;
-            margin: 15px 0;
-        }
-
-        .location-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 45px rgba(74, 46, 46, 0.1);
-        }
-
-        .location-icon {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            display: block;
+            line-height: 1.8;
+            margin: 20px 0;
+            font-size: 1rem;
+            color: #4A2E2E;
         }
 
         .map-btn, .action-btn {
-            display: inline-block;
-            padding: 12px 25px;
-            border: 1.5px solid #4A2E2E;
-            color: #4A2E2E;
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: 0.3s ease;
-            background: transparent;
-            margin-top: 10px;
+            display: inline-block; padding: 14px 30px; border: 1.5px solid #4A2E2E; color: #4A2E2E;
+            text-decoration: none; border-radius: 30px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;
+            transition: 0.3s ease; background: transparent;
         }
 
-        .map-btn:hover, .action-btn:hover {
-            background: #4A2E2E;
-            color: #fff;
-        }
+        .map-btn:hover, .action-btn:hover { background: #4A2E2E; color: #fff; }
 
         /* --- RSVP & GIFTS --- */
-        .rsvp-section {
-            background: #fdfaf9;
-            text-align: center;
-            color: #4A2E2E;
-            padding: 80px 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .rsvp-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .rsvp-text {
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .gift-note {
-            margin-top: 60px;
-            padding-top: 50px;
-            border-top: 1px double #d4b8b8;
-        }
-
-        .gift-note h3 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .gift-poem {
-            font-size: 0.95rem;
-            color: #665;
-            max-width: 500px;
-            margin: 0 auto 30px;
-            line-height: 1.8;
-            font-style: italic;
-        }
+        .rsvp-section { background: #fdfaf9; text-align: center; color: #4A2E2E; padding: 80px 20px; border-top: 1px solid #eee; }
+        .rsvp-container { max-width: 600px; margin: 0 auto; }
+        .rsvp-text { font-size: 1rem; line-height: 1.8; margin-bottom: 30px; font-weight: 300; }
+        .gift-note { margin-top: 60px; padding-top: 50px; border-top: 1px double #d4b8b8; }
+        .gift-note h3 { font-family: 'Great Vibes', cursive; font-size: 3rem; margin-bottom: 15px; }
+        .gift-poem { font-size: 0.95rem; color: #665; max-width: 500px; margin: 0 auto 30px; line-height: 1.8; font-style: italic; }
 
         @media (max-width: 768px) {
-            nav {
-                gap: 8px;
-                padding: 12px 6px;
-            }
-            nav a {
-                font-size: 0.62rem;
-                letter-spacing: 0.8px;
-                padding: 4px 6px;
-            }
-            .location-grid {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            .location-card {
-                width: 100%;
-                min-width: unset;
-            }
-            .names {
-                font-size: 4.5rem;
-            }
+            .location-grid { flex-direction: column; align-items: center; gap: 30px; }
+            .location-card { width: 100%; min-width: unset; }
+            .names { font-size: 4.5rem; }
         }
     </style>
 </head>
@@ -342,18 +143,20 @@
         <div class="location-grid">
             <div class="location-card">
                 <span class="location-icon">⛪️</span>
-<p style="margin-top: 20px;">
-    <strong>The Ceremony</strong><br>
-    10:00 AM<br>
-    St. Vincent Ferrer Parish<br>
-    Tabaco City, Albay
-</p>
-                <a href="https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+Office/@13.3565682,123.696726,17z/data=!3m1!4b1!4m6!3m5!1s0x33a1af000cb0f4a9:0x3bdd99b71c0667d5!8m2!3d13.356563!4d123.6993009!16s%2Fg%2F11yv9qw561?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">VIEW ON MAP</a>
+                <p>
+                    <strong>St. Vincent Ferrer Parish</strong><br>
+                    Tabaco City, Albay
+                </p>
+                <a href="https://maps.app.goo.gl/YourCeremonyLink" target="_blank" class="map-btn">VIEW ON MAP</a>
             </div>
+
             <div class="location-card">
                 <span class="location-icon">🥂</span>
-                <p><strong>The Celebration</strong><br>To follow immediately<br>Bio's Residence<br>Zone-4 Buang, Tabaco City</p>
-                <a href="https://www.google.com/maps/place/13%C2%B018'11.8%22N+123%C2%B038'14.3%22E/@13.3032903,123.6366593,19z/data=!3m1!4b1!4m12!1m7!3m6!1s0x33a1a8bfb7162cff:0x1fc8df54d126460f!2sMANILYN+STORE!8m2!3d13.302796!4d123.6377388!16s%2Fg%2F11xt9n0vd7!3m3!8m2!3d13.303289!4d123.637303?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">VIEW ON MAP</a>
+                <p>
+                    <strong>Zone-4 Buang, Tabaco City</strong><br>
+                    Bio's Residence
+                </p>
+                <a href="https://maps.app.goo.gl/YourReceptionLink" target="_blank" class="map-btn">VIEW ON MAP</a>
             </div>
         </div>
     </div>
