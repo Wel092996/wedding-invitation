@@ -31,14 +31,17 @@
             background: rgba(0,0,0,0.7);
             backdrop-filter: blur(8px);
             z-index: 1000;
+            box-sizing: border-box;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
+            font-size: 0.72rem;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
+            padding: 6px 10px;
+            white-space: nowrap;
         }
 
         .hero {
@@ -174,7 +177,7 @@
             display: flex;
             justify-content: center;
             align-items: stretch;
-            gap: 50px; /* Increased gap for breathing room */
+            gap: 50px;
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
@@ -183,7 +186,7 @@
         .location-card {
             flex: 1;
             min-width: 300px;
-            padding: 60px 40px; /* Spacious internal padding */
+            padding: 60px 40px;
             background: #fdfaf9;
             border-radius: 20px;
             border: 1px solid #f0e6e6;
@@ -270,9 +273,33 @@
         }
 
         @media (max-width: 768px) {
-            .location-grid { flex-direction: column; align-items: center; gap: 30px; }
-            .location-card { width: 100%; min-width: unset; padding: 40px 20px; }
-            .names { font-size: 4.5rem; }
+
+            nav {
+                gap: 8px;
+                padding: 12px 6px;
+            }
+
+            nav a {
+                font-size: 0.62rem;
+                letter-spacing: 0.8px;
+                padding: 4px 6px;
+            }
+
+            .location-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .location-card {
+                width: 100%;
+                min-width: unset;
+                padding: 40px 20px;
+            }
+
+            .names {
+                font-size: 4.5rem;
+            }
         }
     </style>
 </head>
@@ -289,12 +316,15 @@
 <section class="hero" id="home">
     <div class="hero-content">
         <p class="top-invite">You are cordially invited to the wedding of</p>
+
         <h1 class="names">
             <span class="letter" style="--i:1">R</span>
             <span class="letter" style="--i:2">o</span>
             <span class="letter" style="--i:3">e</span>
             <span class="letter" style="--i:4">l</span>
+
             <br>&<br>
+
             <span class="letter" style="--i:5">M</span>
             <span class="letter" style="--i:6">a</span>
             <span class="letter" style="--i:7">i</span>
@@ -302,78 +332,166 @@
             <span class="letter" style="--i:9">y</span>
             <span class="letter" style="--i:10">n</span>
         </h1>
+
         <div class="invite-message uniform-text">
             Together with love and happiness we invite you to witness and celebrate the beginning of our married life. We would be honored to have you with us.
         </div>
+
         <div class="countdown-wrapper">
             <div class="countdown-title">Countdown to the Big Day</div>
+
             <div class="countdown-container">
-                <div class="countdown-item"><span id="days" class="countdown-number">00</span><span class="countdown-label">Days</span></div>
-                <div class="countdown-item"><span id="hours" class="countdown-number">00</span><span class="countdown-label">Hrs</span></div>
-                <div class="countdown-item"><span id="minutes" class="countdown-number">00</span><span class="countdown-label">Min</span></div>
-                <div class="countdown-item"><span id="seconds" class="countdown-number">00</span><span class="countdown-label">Sec</span></div>
+                <div class="countdown-item">
+                    <span id="days" class="countdown-number">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+
+                <div class="countdown-item">
+                    <span id="hours" class="countdown-number">00</span>
+                    <span class="countdown-label">Hrs</span>
+                </div>
+
+                <div class="countdown-item">
+                    <span id="minutes" class="countdown-number">00</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+
+                <div class="countdown-item">
+                    <span id="seconds" class="countdown-number">00</span>
+                    <span class="countdown-label">Sec</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <section id="details">
+
     <img src="ok.png" class="details-image" alt="Details">
-    
+
     <div class="location-section">
-        <h2>When & Where</h2>
+
+        <h2>Location</h2>
+
         <div class="location-grid">
+
             <div class="location-card">
                 <span class="location-icon">⛪️</span>
-                <p><strong>The Ceremony</strong><br>10:00 AM<br>St. Vincent Ferrer Parish<br>Tabaco City, Albay</p>
-                <a href="https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+Office/@13.3565682,123.696726,17z/data=!3m1!4b1!4m6!3m5!1s0x33a1af000cb0f4a9:0x3bdd99b71c0667d5!8m2!3d13.356563!4d123.6993009!16s%2Fg%2F11yv9qw561?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">VIEW ON MAP</a>
+
+                <p>
+                    <strong>The Ceremony</strong><br>
+                    10:00 AM<br>
+                    St. Vincent Ferrer Parish<br>
+                    Tabaco City, Albay
+                </p>
+
+                <a href="https://www.google.com/maps/place/St.+Vincent+Ferrer+Parish+Office/@13.3565682,123.696726,17z/data=!3m1!4b1!4m6!3m5!1s0x33a1af000cb0f4a9:0x3bdd99b71c0667d5!8m2!3d13.356563!4d123.6993009!16s%2Fg%2F11yv9qw561?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D"
+                   target="_blank"
+                   class="map-btn">
+                    VIEW ON MAP
+                </a>
             </div>
 
             <div class="location-card">
+
                 <span class="location-icon">🥂</span>
-                <p><strong>The Celebration</strong><br>To follow immediately<br>Bio's Residence<br>Zone-4 Buang, Tabaco City</p>
-                <a href="https://www.google.com/maps/place/13%C2%B018'11.8%22N+123%C2%B038'14.3%22E/@13.3032903,123.6366593,19z/data=!3m1!4b1!4m12!1m7!3m6!1s0x33a1a8bfb7162cff:0x1fc8df54d126460f!2sMANILYN+STORE!8m2!3d13.302796!4d123.6377388!16s%2Fg%2F11xt9n0vd7!3m3!8m2!3d13.303289!4d123.637303?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">VIEW ON MAP</a>
+
+                <p>
+                    <strong>The Celebration</strong><br>
+                    To follow immediately<br>
+                    Bio's Residence<br>
+                    Zone-4 Buang, Tabaco City
+                </p>
+
+                <a href="https://www.google.com/maps/place/13%C2%B018'11.8%22N+123%C2%B038'14.3%22E/@13.3032903,123.6366593,19z/data=!3m1!4b1!4m12!1m7!3m6!1s0x33a1a8bfb7162cff:0x1fc8df54d126460f!2sMANILYN+STORE!8m2!3d13.302796!4d123.6377388!16s%2Fg%2F11xt9n0vd7!3m3!8m2!3d13.303289!4d123.637303?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D"
+                   target="_blank"
+                   class="map-btn">
+                    VIEW ON MAP
+                </a>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
 
 <section id="entourage">
-    <img src="ENTO.png" class="entourage-image" alt="Entourage">
+    <img src="NINONG.png" class="entourage-image" alt="Ninong">
 </section>
 
 <section class="rsvp-section" id="rsvp">
+
     <div class="rsvp-container">
+
         <h2>Kindly Respond</h2>
-        <p class="rsvp-text">Please let us know if you can make it by <strong>May 15, 2026</strong></p>
-        <a href="https://docs.google.com/forms/d/1Rt8c_QiL5yL8O8eK-GLImDqcGGkI5csqoF8JP61FQa4/edit" target="_blank" class="action-btn">OPEN RSVP FORM</a>
+
+        <p class="rsvp-text">
+            Please let us know if you can make it by <strong>May 15, 2026</strong>
+        </p>
+
+        <a href="https://docs.google.com/forms/d/1Rt8c_QiL5yL8O8eK-GLImDqcGGkI5csqoF8JP61FQa4/edit"
+           target="_blank"
+           class="action-btn">
+            OPEN RSVP FORM
+        </a>
 
         <div class="gift-note">
+
             <h3>Gifts</h3>
+
             <p class="gift-poem">
                 With all that we have, we’ve been truly blessed.<br>
                 Your presence and prayers are all that we request.<br>
                 But if you desire to give nonetheless,<br>
                 A monetary gift is one we suggest.
             </p>
-            <a href="https://drive.google.com/file/d/1M181MEOk41zE9yqcZc3hXEOV7GjeCTET/view?usp=sharing" 
-               target="_blank" 
-               class="action-btn" 
-               style="font-size: 0.65rem;">VIEW GCASH DETAILS</a>
+
+            <a href="https://drive.google.com/file/d/1M181MEOk41zE9yqcZc3hXEOV7GjeCTET/view?usp=sharing"
+               target="_blank"
+               class="action-btn"
+               style="font-size: 0.65rem;">
+                VIEW GCASH DETAILS
+            </a>
+
         </div>
+
     </div>
+
 </section>
 
 <script>
+
     const weddingDate = new Date("June 8, 2026 10:00:00").getTime();
+
     setInterval(function () {
+
         const now = new Date().getTime();
         const distance = weddingDate - now;
-        document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-        document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-        document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-        document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+
+        document.getElementById("days").innerHTML =
+            Math.floor(distance / (1000 * 60 * 60 * 24))
+            .toString()
+            .padStart(2, '0');
+
+        document.getElementById("hours").innerHTML =
+            Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+            .toString()
+            .padStart(2, '0');
+
+        document.getElementById("minutes").innerHTML =
+            Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+            .toString()
+            .padStart(2, '0');
+
+        document.getElementById("seconds").innerHTML =
+            Math.floor((distance % (1000 * 60)) / 1000)
+            .toString()
+            .padStart(2, '0');
+
     }, 1000);
+
 </script>
 
 </body>
