@@ -47,7 +47,7 @@
         #details, #entourage { width: 100%; background: #fff; line-height: 0; margin: 0; padding: 0; }
         .details-image, .entourage-image { width: 100%; height: auto; display: block; }
 
-        /* --- STYLING FOR LOCATION TAB --- */
+        /* --- UPDATED LOCATION TAB --- */
         .location-section { padding: 100px 20px; text-align: center; background: #fff; color: #4A2E2E; line-height: normal; }
         .location-section h2 { font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 8vw, 4rem); margin-bottom: 50px; }
         
@@ -59,10 +59,10 @@
             transition: all 0.4s ease; display: flex; flex-direction: column; align-items: center; justify-content: space-between;
         }
 
-        /* BIGGER ANIMATED ICONS */
+        /* ICON ANIMATION & SIZE */
         .location-icon {
             font-size: 5.5rem; 
-            margin-bottom: 25px;
+            margin-bottom: 0px; /* Removes gap between icon and text */
             display: block;
             animation: float 3s ease-in-out infinite;
         }
@@ -73,11 +73,18 @@
             100% { transform: translateY(0px); }
         }
 
+        /* TEXT ADJUSTMENTS */
         .location-card p {
-            line-height: 1.8;
-            margin: 20px 0;
-            font-size: 1rem;
+            font-size: 1.1rem; /* Slightly bigger text */
+            line-height: 1.4;   /* Balanced line height */
+            margin: 10px 0 20px 0; /* Controls space around text block */
             color: #4A2E2E;
+        }
+
+        .location-card p strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.2rem; /* Title is more prominent */
         }
 
         .map-btn, .action-btn {
@@ -144,19 +151,19 @@
             <div class="location-card">
                 <span class="location-icon">⛪️</span>
                 <p>
-                    <strong>St. Vincent Ferrer Parish</strong><br>
+                    <strong>St. Vincent Ferrer Parish</strong>
                     Tabaco City, Albay
                 </p>
-                <a href="https://maps.app.goo.gl/YourCeremonyLink" target="_blank" class="map-btn">VIEW ON MAP</a>
+                <a href="https://maps.google.com/?q=St.+Vincent+Ferrer+Parish+Tabaco+City" target="_blank" class="map-btn">VIEW ON MAP</a>
             </div>
 
             <div class="location-card">
                 <span class="location-icon">🥂</span>
                 <p>
-                    <strong>Zone-4 Buang, Tabaco City</strong><br>
+                    <strong>Zone-4 Buang, Tabaco City</strong>
                     Bio's Residence
                 </p>
-                <a href="https://maps.app.goo.gl/YourReceptionLink" target="_blank" class="map-btn">VIEW ON MAP</a>
+                <a href="https://maps.google.com/?q=Zone-4+Buang+Tabaco+City" target="_blank" class="map-btn">VIEW ON MAP</a>
             </div>
         </div>
     </div>
